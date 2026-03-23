@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Guess the Verb &mdash; IF Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="ifhub:title" content="Guess the Verb">
+<meta name="ifhub:meta" content="A Parser Puzzle Laboratory">
+<meta name="ifhub:description" content="A Sharpee game about reducing guess-the-verb frustration. Explore your grandmother's old house using natural language -- the engine works harder so you don't have to.">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  height: 100%;
+  background: #0a0a0a;
+  color: #d4c5a9;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+body {
+  min-height: 100%;
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+  line-height: 1.7;
+}
+
+.breadcrumb {
+  font-size: 0.85em;
+  color: #887755;
+  margin-bottom: 24px;
+}
+
+.breadcrumb a {
+  color: #887755;
+  border-bottom-color: #3a3020;
+}
+
+.breadcrumb a:hover {
+  color: #e8d090;
+}
+
+h1 {
+  font-size: 1.8em;
+  color: #e8d8b0;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-style: italic;
+  color: #aa9966;
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 1.2em;
+  color: #c4b48a;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #2a2418;
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+a {
+  color: #e8d090;
+  text-decoration: none;
+  border-bottom: 1px solid #5a4a30;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+a:hover {
+  color: #ffe8a0;
+  border-bottom-color: #aa9966;
+}
+
+.play-latest {
+  display: inline-block;
+  margin-bottom: 32px;
+  padding: 10px 28px;
+  background: #2a2010;
+  border: 1px solid #5a4a30;
+  border-radius: 4px;
+  color: #e8d090;
+  font-family: inherit;
+  font-size: 1em;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.play-latest:hover {
+  background: #3a3018;
+  color: #ffe8a0;
+  border-color: #aa9966;
+}
+
+code {
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 0.9em;
+  color: #c8b888;
+  background: #1a1510;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.layer-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 0.92em;
+}
+
+.layer-table th, .layer-table td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid #2a2418;
+}
+
+.layer-table th {
+  color: #c4b48a;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.layer-table td:first-child {
+  color: #aa9966;
+  white-space: nowrap;
+}
+
+footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid #1e1a14;
+  font-size: 0.85em;
+  color: #665a40;
+}
+
+footer a {
+  color: #887755;
+  border-bottom-color: #3a3020;
+}
+</style>
+</head>
+<body>
+
+<nav class="breadcrumb"><a href="../../">IF Hub</a> &rsaquo; Guess the Verb</nav>
+
+<h1>Guess the Verb</h1>
+<p class="subtitle">A Parser Puzzle Laboratory &mdash; built with Sharpee</p>
+
+<a class="play-latest" href="play.html">Play</a>
+<a class="play-latest" href="source.html">Source</a>
+
+<p>Explore your grandmother's old house and find the family heirloom she left behind. Six rooms, ten puzzles, and every room tests a different verb pattern.</p>
+
+<p>This game is also a <strong>laboratory for reducing guess-the-verb frustration</strong> &mdash; the #1 pain point in parser-based interactive fiction. It uses every layer of Sharpee's command pipeline to make natural language input just work.</p>
+
+<h2>The Problem</h2>
+
+<p>In traditional parser IF, you know what you want to do but the game won't accept how you say it. The doormat description says <em>"something glints underneath"</em> &mdash; you type <code>check under mat</code>, <code>lift mat</code>, <code>search mat</code>. The game says <em>"I don't understand that."</em> The correct answer was <code>look under mat</code>. You didn't fail a puzzle. You failed to guess the verb.</p>
+
+<p>This project tackles that problem head-on by intervening at every stage of Sharpee's command pipeline.</p>
+
+<h2>The Layers</h2>
+
+<p>Sharpee processes a command through a pipeline: <strong>Parse &rarr; Validate &rarr; Execute &rarr; Report</strong>. Each stage has story-level extension points. Disambiguation fixes go where they naturally belong.</p>
+
+<table class="layer-table">
+<tr><th>Pipeline Stage</th><th>Extension Point</th><th>What It Fixes</th></tr>
+<tr><td>Parse: Vocabulary</td><td><code>registerVocabulary()</code></td><td>Word-level synonyms before grammar matching</td></tr>
+<tr><td>Parse: Grammar</td><td><code>getStoryGrammar().define()</code></td><td>Structural patterns, question forms, multi-word verbs</td></tr>
+<tr><td>Validate: Entities</td><td><code>IdentityTrait</code> aliases</td><td>Noun resolution &mdash; more ways to refer to things</td></tr>
+<tr><td>Execute: Actions</td><td><code>getCustomActions()</code></td><td>New verbs the stdlib doesn't have</td></tr>
+<tr><td>Execute: Interceptors</td><td><code>registerActionInterceptor()</code></td><td>Redirect standard actions with custom responses</td></tr>
+<tr><td>Post-turn: Plugins</td><td><code>TurnPlugin.onAfterAction()</code></td><td>State tracking (e.g., remembering last room for GO BACK)</td></tr>
+<tr><td>Display: Errors</td><td><code>handleStoryEvent</code></td><td>Parse-error-specific guidance instead of generic "I don't understand"</td></tr>
+</table>
+
+<h2>Examples</h2>
+
+<p><strong>Vocabulary</strong> &mdash; <code>check</code> and <code>read</code> become examine synonyms. The parser recognizes them as verbs before grammar matching even starts. Type <code>read recipe card</code> and the kitchen recipe becomes examinable.</p>
+
+<p><strong>Grammar</strong> &mdash; <code>where am i</code> is a question, not a verb-noun command. A literal grammar rule maps it directly to a custom action. <code>what do i have</code> routes straight to the stdlib inventory action. <code>flip through books</code> maps to examine. <code>go upstairs</code> bypasses the direction system entirely with a literal rule.</p>
+
+<p><strong>Grammar + .instrument()</strong> &mdash; <code>unlock door with key</code> needs the parser to understand that "key" is a tool, not just a noun after "with." The grammar rule uses <code>.instrument('key')</code> to route the key entity to <code>command.instrument</code>, where the standard unlocking action expects it.</p>
+
+<p><strong>Entity aliases</strong> &mdash; The overcoat responds to <code>coat</code>, <code>jacket</code>, <code>wool coat</code>, <code>pockets</code>. The doorbell responds to <code>bell</code>, <code>button</code>, <code>buzzer</code>. More aliases means fewer "I don't see that here" errors.</p>
+
+<p><strong>Custom actions</strong> &mdash; <code>go back</code> returns to the previous room. The stdlib doesn't track room history, so a custom action reads <code>last-room</code> from world state and moves the player. <code>light fireplace</code> routes to a custom burning action because the stdlib doesn't have one.</p>
+
+<p><strong>Interceptors</strong> &mdash; <code>take mat</code> doesn't fail with "that's scenery." Instead, the taking interceptor blocks the take but reveals the hidden key underneath &mdash; the action the player actually wanted.</p>
+
+<p><strong>Plugins</strong> &mdash; A movement-tracking plugin runs after every successful GO action, saving the origin room to world state. This powers the <code>go back</code> action without polluting action code.</p>
+
+<p><strong>Error messages</strong> &mdash; When nothing matches, the game distinguishes between "I don't know that word" (unknown verb), "You don't see that here" (entity not in scope), and "I don't understand that phrasing" (syntax error). Each points the player toward <code>VERBS</code>, <code>LOOK</code>, or <code>HELP</code>.</p>
+
+<h2>Naive Walkthrough</h2>
+
+<p>The entire game is completable using natural language &mdash; no parser-speak, no abbreviations, no two-word commands required. This walkthrough uses only phrases a first-time player might actually type:</p>
+
+<p><code>where am I</code> &rarr; <code>look around</code> &rarr; <code>examine the doormat</code> &rarr; <code>look under the mat</code> &rarr; <code>pick up the key</code> &rarr; <code>unlock the door with the key</code> &rarr; <code>open the door</code> &rarr; <code>go inside</code> &rarr; <code>examine the overcoat</code> &rarr; <code>search the pockets</code> &rarr; <code>head east</code> &rarr; <code>open the desk</code> &rarr; <code>take the small key</code> &rarr; <code>move the painting</code> &rarr; <code>light the fireplace</code> &rarr; <code>examine the hearthstone</code> &rarr; <code>open the safe</code> &rarr; <code>take the spring</code> &rarr; <code>leave</code> &rarr; <code>go south</code> &rarr; <code>read the recipe card</code> &rarr; <code>head south</code> &rarr; <code>grab the trowel</code> &rarr; <code>dig the flower bed</code> &rarr; <code>grab the gears</code> &rarr; <code>go back inside</code> &rarr; <code>go north</code> &rarr; <code>go upstairs</code> &rarr; <code>put the gears in the music box</code> &rarr; <code>put the spring in the music box</code> &rarr; <code>wind the music box</code> &rarr; <code>open the trunk</code> &rarr; <code>take the locket</code></p>
+
+<h2>Known Engine Limitations</h2>
+
+<p>Six patterns remain unfixable at the story level &mdash; they require changes to the Sharpee parser or entity resolver:</p>
+
+<table class="layer-table">
+<tr><th>Input</th><th>Issue</th></tr>
+<tr><td><code>what's under the mat</code></td><td>Contraction tokenization &mdash; apostrophe breaks word recognition</td></tr>
+<tr><td><code>push the painting aside</code></td><td>Trailing adverb included in entity name lookup</td></tr>
+<tr><td><code>look at the painting more closely</code></td><td>Same &mdash; trailing phrase not stripped</td></tr>
+<tr><td><code>slide the painting to the side</code></td><td>Same &mdash; prepositional phrase after entity name</td></tr>
+<tr><td><code>look at the stone at the bottom</code></td><td>Same &mdash; trailing "at the bottom"</td></tr>
+<tr><td><code>pick up the brass thing</code></td><td>Multi-word alias not matched by entity search</td></tr>
+</table>
+
+<h2>About Sharpee</h2>
+
+<p><a href="https://sharpee.net/">Sharpee</a> is a TypeScript interactive fiction engine with a grammar-builder API, trait-based world model, and four-phase action pattern. This game demonstrates what's possible when the story layer fully engages the engine's extension points.</p>
+
+<footer>
+<p>Part of <a href="../../">IF Hub</a>.</p>
+</footer>
+
+</body>
+</html>
