@@ -188,8 +188,6 @@ footer a {
 
 <p><strong>Grammar</strong> &mdash; <code>where am i</code> is a question, not a verb-noun command. A literal grammar rule maps it directly to a custom action. <code>what do i have</code> routes straight to the stdlib inventory action. <code>flip through books</code> maps to examine. <code>go upstairs</code> bypasses the direction system entirely with a literal rule.</p>
 
-<p><strong>Grammar + .instrument()</strong> &mdash; <code>unlock door with key</code> needs the parser to understand that "key" is a tool, not just a noun after "with." The grammar rule uses <code>.instrument('key')</code> to route the key entity to <code>command.instrument</code>, where the standard unlocking action expects it.</p>
-
 <p><strong>Entity aliases</strong> &mdash; The overcoat responds to <code>coat</code>, <code>jacket</code>, <code>wool coat</code>, <code>pockets</code>. The doorbell responds to <code>bell</code>, <code>button</code>, <code>buzzer</code>. More aliases means fewer "I don't see that here" errors.</p>
 
 <p><strong>Custom actions</strong> &mdash; <code>go back</code> returns to the previous room. The stdlib doesn't track room history, so a custom action reads <code>last-room</code> from world state and moves the player. <code>light fireplace</code> routes to a custom burning action because the stdlib doesn't have one.</p>
@@ -206,19 +204,11 @@ footer a {
 
 <p><code>where am I</code> &rarr; <code>look around</code> &rarr; <code>examine the doormat</code> &rarr; <code>look under the mat</code> &rarr; <code>pick up the key</code> &rarr; <code>unlock the door with the key</code> &rarr; <code>open the door</code> &rarr; <code>go inside</code> &rarr; <code>examine the overcoat</code> &rarr; <code>search the pockets</code> &rarr; <code>head east</code> &rarr; <code>open the desk</code> &rarr; <code>take the small key</code> &rarr; <code>move the painting</code> &rarr; <code>light the fireplace</code> &rarr; <code>examine the hearthstone</code> &rarr; <code>open the safe</code> &rarr; <code>take the spring</code> &rarr; <code>leave</code> &rarr; <code>go south</code> &rarr; <code>read the recipe card</code> &rarr; <code>head south</code> &rarr; <code>grab the trowel</code> &rarr; <code>dig the flower bed</code> &rarr; <code>grab the gears</code> &rarr; <code>go back inside</code> &rarr; <code>go north</code> &rarr; <code>go upstairs</code> &rarr; <code>put the gears in the music box</code> &rarr; <code>put the spring in the music box</code> &rarr; <code>wind the music box</code> &rarr; <code>open the trunk</code> &rarr; <code>take the locket</code></p>
 
-<h2>Known Engine Limitations</h2>
+<h2>The Door Pattern</h2>
 
-<p>Six patterns remain unfixable at the story level &mdash; they require changes to the Sharpee parser or entity resolver:</p>
+<p>The locked front door demonstrates Sharpee's standard door/key system. Five traits work together: <code>IdentityTrait</code> (name and aliases), <code>DoorTrait</code> (connects two rooms), <code>OpenableTrait</code> (open/close), <code>LockableTrait</code> (lock/unlock with <code>keyId</code>), and <code>SceneryTrait</code> (can't be picked up). Room exits use the <code>via</code> property to check door state before letting the player through.</p>
 
-<table class="layer-table">
-<tr><th>Input</th><th>Issue</th></tr>
-<tr><td><code>what's under the mat</code></td><td>Contraction tokenization &mdash; apostrophe breaks word recognition</td></tr>
-<tr><td><code>push the painting aside</code></td><td>Trailing adverb included in entity name lookup</td></tr>
-<tr><td><code>look at the painting more closely</code></td><td>Same &mdash; trailing phrase not stripped</td></tr>
-<tr><td><code>slide the painting to the side</code></td><td>Same &mdash; prepositional phrase after entity name</td></tr>
-<tr><td><code>look at the stone at the bottom</code></td><td>Same &mdash; trailing "at the bottom"</td></tr>
-<tr><td><code>pick up the brass thing</code></td><td>Multi-word alias not matched by entity search</td></tr>
-</table>
+<p>The player sequence is realistic: <strong>find key</strong> &rarr; <strong>unlock door with key</strong> &rarr; <strong>open door</strong> &rarr; <strong>walk through</strong>. The engine handles all validation &mdash; the story only declares the wiring.</p>
 
 <h2>About Sharpee</h2>
 
