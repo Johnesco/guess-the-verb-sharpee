@@ -1,0 +1,152 @@
+>look
+Guess the Verb
+By John Googol
+
+Type HELP for instructions.
+
+Front Porch
+
+A sagging wooden porch wraps around the front of the house. A woven doormat lies before the front door. A tarnished brass doorbell is set beside the frame.
+
+The front door leads inside to the east.
+
+You can see front door, woven doormat, brass doorbell, sagging porch here.
+
+>look under doormat
+You lift the corner of the doormat and find an iron key hidden underneath.
+
+>take iron key
+Taken.
+
+>unlock front door with iron key
+You unlock front door with iron key.
+
+>open front door
+You open front door.
+
+>east
+Hallway
+
+A dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
+
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
+
+You can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.
+
+>search overcoat
+You rummage through the overcoat's pockets and find a small book of matches from 'The Golden Lantern.'
+
+>east
+Study
+
+A wood-paneled study with built-in bookshelves. A heavy desk sits in the center, its drawers shut. An oil painting of a woman hangs on the far wall. A stone fireplace squats in the corner, cold and dark.
+
+The hallway is back to the west.
+
+You can see heavy desk, study bookshelves, oil painting, stone fireplace, hearthstone, wood paneling here.
+
+>open desk
+You open heavy desk.
+Inside the heavy desk you see winding key.
+
+>take winding key
+You take winding key from heavy desk.
+
+>push painting
+You push the painting aside, revealing a small wall safe hidden behind it.
+
+>light fireplace
+You strike a match and light the logs. The fire catches quickly, casting warm light across the study.
+
+As the flames illuminate the hearthstone, you notice numbers scratched into the soot-blackened surface: 7 - 3 - 9.
+
+>dial 7 3 9
+You dial 7... 3... 9. Click. The safe door swings open.
+
+>take clock spring
+You take clock spring from wall safe.
+
+>west
+Hallway
+
+A dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
+
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
+
+You can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.
+
+>south
+Kitchen
+
+A rustic kitchen with stone counters and a deep ceramic sink. Copper pots hang from hooks above. A handwritten recipe card sits on the counter.
+
+The hallway is north. A doorway leads south to the garden.
+
+You can see stone counters, ceramic sink, copper pots, recipe card here.
+
+>south
+Garden
+
+An overgrown garden behind the house. A flower bed runs along the back wall, thick with weeds. A small shed leans in one corner with its door ajar. A rusty trowel leans against the shed.
+
+The kitchen doorway is back to the north.
+
+You can see garden trowel, flower bed, garden shed here.
+
+>take trowel
+Taken.
+
+>dig flower bed
+You dig into the soft earth with the trowel and uncover a small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of a music box.
+
+>take brass mechanism
+Taken.
+
+>north
+Kitchen
+
+A rustic kitchen with stone counters and a deep ceramic sink. Copper pots hang from hooks above. A handwritten recipe card sits on the counter.
+
+The hallway is north. A doorway leads south to the garden.
+
+You can see stone counters, ceramic sink, copper pots, recipe card here.
+
+>north
+Hallway
+
+A dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
+
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
+
+You can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.
+
+>up
+Attic
+
+A cramped attic under sloping eaves, thick with dust. A dusty shelf holds an old music box. A heavy steamer trunk sits against the wall.
+
+The stairs lead back down.
+
+You can see dusty shelf, steamer trunk, sloping eaves here.
+
+>take music box
+You take old music box from dusty shelf.
+
+>put mechanism in music box
+You put brass mechanism in old music box.
+
+>put spring in music box
+You put clock spring in old music box.
+
+>wind music box
+You insert the winding key and turn it gently. The music box comes alive -- a delicate melody fills the attic, tinkling and sweet.
+
+As the last note fades, you hear a mechanical click from the steamer trunk -- its lock releases and the lid swings open.
+
+>open trunk
+Steamer trunk is already open.
+
+>take locket
+You take family locket from steamer trunk.
+You found your grandmother's heirloom.
+You lift the locket from the trunk. Inside, your grandmother smiles back at you from a faded photograph. This is what she wanted you to have.

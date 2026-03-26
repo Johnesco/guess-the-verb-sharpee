@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Guess the Verb (Sharpee) &mdash; IF Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="ifhub:title" content="Guess the Verb (Sharpee)">
+<meta name="ifhub:meta" content="A Parser Puzzle Laboratory">
+<meta name="ifhub:description" content="A Sharpee game about reducing guess-the-verb frustration. Explore your grandmother's old house using natural language.">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  height: 100%;
+  background: var(--page-bg, #0a0a0a);
+  color: var(--page-fg, #d4c5a9);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+body {
+  min-height: 100%;
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+  line-height: 1.7;
+}
+
+.breadcrumb {
+  font-size: 0.85em;
+  color: #887755;
+  margin-bottom: 24px;
+}
+
+.breadcrumb a {
+  color: #887755;
+  border-bottom-color: #3a3020;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent, #e8d090);
+}
+
+h1 {
+  font-size: 1.8em;
+  color: var(--heading, #e8d8b0);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-style: italic;
+  color: #aa9966;
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 1.2em;
+  color: #c4b48a;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #2a2418;
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+a {
+  color: var(--accent, #e8d090);
+  text-decoration: none;
+  border-bottom: 1px solid #5a4a30;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+a:hover {
+  color: #ffe8a0;
+  border-bottom-color: #aa9966;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.btn-play-hub {
+  display: inline-block;
+  padding: 14px 36px;
+  background: var(--accent, #e8d090);
+  color: var(--page-bg, #0a0a0a);
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1.1em;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-play-hub:hover {
+  background: #ffe8a0;
+  color: #0a0a0a;
+  border-bottom-color: transparent;
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 10px 24px;
+  background: #2a2010;
+  border: 1px solid #5a4a30;
+  border-radius: 4px;
+  color: var(--accent, #e8d090);
+  font-family: inherit;
+  font-size: 0.95em;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.btn-secondary:hover {
+  background: #3a3018;
+  color: #ffe8a0;
+  border-color: #aa9966;
+}
+
+code {
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 0.9em;
+  color: #c8b888;
+  background: #1a1510;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+</style>
+<script>
+// Apply saved IF Hub theme
+(function() {
+  try {
+    var themeId = localStorage.getItem('ifhub-theme');
+    if (!themeId || themeId === 'classic') return;
+    // Load themes.js from hub to get theme data
+    var s = document.createElement('script');
+    s.src = '../../ifhub/themes.js';
+    s.onload = function() {
+      if (typeof initTheme === 'function') initTheme('library');
+    };
+    document.head.appendChild(s);
+  } catch(e) {}
+})();
+</script>
+</head>
+<body>
+
+<nav class="breadcrumb"><a href="../../ifhub/">IF Hub</a> &rsaquo; Guess the Verb (Sharpee)</nav>
+
+<h1>Guess the Verb (Sharpee)</h1>
+
+<div class="btn-row">
+  <a class="btn-play-hub" href="../../ifhub/app.html?game=guess-the-verb-sharpee">Play in IF Hub</a>
+  <a class="btn-secondary" href="play.html">Play Standalone</a>
+  <a class="btn-secondary" href="source.html">Source</a>
+  <a class="btn-secondary" href="walkthrough.html">Walkthrough</a>
+</div>
+
+<p>A Sharpee game about reducing guess-the-verb frustration. Explore your grandmother's old house using natural language.</p>
+
+</body>
+</html>

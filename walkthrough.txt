@@ -1,0 +1,29 @@
+look
+look under doormat
+take iron key
+unlock front door with iron key
+open front door
+east
+search overcoat
+east
+open desk
+take winding key
+push painting
+light fireplace
+dial 7 3 9
+take clock spring
+west
+south
+south
+take trowel
+dig flower bed
+take brass mechanism
+north
+north
+up
+take music box
+put mechanism in music box
+put spring in music box
+wind music box
+open trunk
+take locket
