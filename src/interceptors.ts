@@ -70,8 +70,8 @@ export function getInterceptors(
       interceptor: {
         preValidate: (entity: IFEntity) => {
           const propId = getPropId(entity);
-          if (propId === 'doormat') return { valid: false, error: 'story.doormat.take' };
-          if (propId === 'overcoat') return { valid: false, error: 'story.overcoat.take' };
+          if (propId === 'doormat') return { valid: false, error: Msg.DOORMAT_TAKE };
+          if (propId === 'overcoat') return { valid: false, error: Msg.OVERCOAT_TAKE };
           return null;
         },
         onBlocked: (entity: IFEntity, world: WorldModel) => {
