@@ -70,17 +70,16 @@ export function getInterceptors(
       interceptor: {
         preValidate: (entity: IFEntity) => {
           const propId = getPropId(entity);
-          if (propId === 'doormat') return { valid: false, error: Msg.DOORMAT_TAKE };
-          if (propId === 'overcoat') return { valid: false, error: Msg.OVERCOAT_TAKE };
+          if (propId === 'doormat') return { valid: false, error: 'story.doormat.take' };
+          if (propId === 'overcoat') return { valid: false, error: 'story.overcoat.take' };
           return null;
         },
-        onBlocked: (entity: IFEntity, world: WorldModel) => {
-          const propId = getPropId(entity);
-          if (propId === 'doormat') {
+        onBlocked: (entity: IFEntity, world: WorldModel, _actorId: string, error: string) => {
+          if (error === 'story.doormat.take') {
             const messageId = revealIronKey(world, items, rooms);
             return [createEffect('game.message', { messageId })];
           }
-          if (propId === 'overcoat') {
+          if (error === 'story.overcoat.take') {
             return [createEffect('game.message', { messageId: Msg.OVERCOAT_TAKE })];
           }
           return null;

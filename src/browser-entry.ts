@@ -11,6 +11,7 @@ import { Parser } from '@sharpee/parser-en-us';
 import { LanguageProvider } from '@sharpee/lang-en-us';
 import { PerceptionService } from '@sharpee/stdlib';
 import { renderToString } from '@sharpee/text-service';
+import { AudioManager } from '@sharpee/platform-browser';
 import { story, config } from './index.js';
 
 // DOM elements
@@ -27,6 +28,7 @@ let commandHistory: string[] = [];
 let historyIndex = -1;
 let currentTurn = 0;
 let currentScore = 0;
+const audioManager = new AudioManager();
 
 /**
  * Initialize the game
@@ -69,10 +71,25 @@ function initializeGame(): void {
   });
 
   engine.on('event', (event: any) => {
+    // Forward audio events
+    if (event.type.startsWith('audio.')) {
+      audioManager.handleAudioEvent(event);
+    }
+
     // Track score changes
     if (event.type === 'game.score_changed' && event.data) {
       currentScore = event.data.newScore ?? currentScore;
       updateStatusLine();
+    }
+
+    // Render trace events (text service doesn't handle these)
+    if (event.type === 'trace.status' && event.data) {
+      const d = event.data;
+      displayText(`[Trace] parser: ${d.parser ? 'ON' : 'OFF'}, validation: ${d.validation ? 'ON' : 'OFF'}, system: ${d.system ? 'ON' : 'OFF'}`);
+    }
+    if (event.type === 'trace.changed' && event.data) {
+      const d = event.data;
+      displayText(`[Trace] ${d.target}: ${d.enabled ? 'ON' : 'OFF'}`);
     }
   });
 
@@ -124,6 +141,8 @@ async function handleCommand(): Promise<void> {
 
   const command = commandInput.value.trim();
   if (!command) return;
+
+  audioManager.unlock();
 
   // Add to history
   commandHistory.push(command);
