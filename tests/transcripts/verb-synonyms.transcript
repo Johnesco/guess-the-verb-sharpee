@@ -1,0 +1,128 @@
+title: Verb Synonym Coverage
+story: guess-the-verb
+description: Test that verb synonyms from FINDINGS.md produce output (not blank)
+
+---
+
+## Front Porch — take/lift/grab synonyms
+
+> look
+[OK: contains "Front Porch"]
+
+# TAKE synonyms on scenery (should explain why you can't, not blank)
+> grab doormat
+[OK: contains "doormat"]
+
+> pick up doormat
+[OK: contains "doormat"]
+
+# PUSH synonyms on doorbell
+> push doorbell
+[OK: contains "doorbell"]
+
+> press doorbell
+[OK: contains "doorbell"]
+
+# EXAMINE synonyms
+> inspect doormat
+[OK: contains "doormat"]
+
+> look at doorbell
+[OK: contains "brass"]
+
+## Unlock and enter
+
+> look under doormat
+[OK: contains "key"]
+
+> take key
+[OK: contains "Taken"]
+
+> unlock door with key
+[OK: contains "unlock"]
+
+> open door
+[OK: contains "open"]
+
+> east
+[OK: contains "Hallway"]
+
+## Hallway — search synonyms
+
+# SEARCH synonyms
+> rummage overcoat
+[OK: contains_any "matchbook" "matches" "pockets" "overcoat"]
+
+## Study — fire and move synonyms
+
+> east
+[OK: contains "Study"]
+
+> open desk
+[OK: contains "open"]
+
+> take winding key
+[OK: contains_any "Taken" "winding"]
+
+# PUSH/MOVE synonyms on painting
+> move painting
+[OK: contains_any "painting" "safe" "wall"]
+
+# BURN synonyms
+> kindle fireplace
+[OK: contains_any "fire" "match" "glow" "warmth"]
+
+> dial 7 3 9
+[OK: contains_any "Click" "click" "open"]
+
+> take clock spring
+[OK: contains_any "Taken" "spring"]
+
+## Garden — dig synonyms
+
+> west
+[OK: contains "Hallway"]
+
+> south
+[OK: contains "Kitchen"]
+
+> south
+[OK: contains "Garden"]
+
+> take trowel
+[OK: contains "Taken"]
+
+# DIG synonyms
+> dig earth
+[OK: contains_any "mechanism" "brass" "dig" "soft"]
+
+> take mechanism
+[OK: contains "Taken"]
+
+## Attic — assembly and wind synonyms
+
+> north
+[OK: contains "Kitchen"]
+
+> north
+[OK: contains "Hallway"]
+
+> up
+[OK: contains "Attic"]
+
+> take music box
+[OK: contains "music box"]
+
+# PUT/INSERT synonyms
+> put mechanism in music box
+[OK: contains "mechanism"]
+
+> put spring in music box
+[OK: contains "spring"]
+
+# WIND synonyms
+> wind music box
+[OK: contains_any "melody" "release" "trunk"]
+
+> take locket
+[OK: contains "locket"]

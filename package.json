@@ -1,0 +1,31 @@
+{
+  "name": "guess-the-verb",
+  "version": "1.0.0",
+  "description": "Explore your grandmother's old house and find the family heirloom she left behind.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:browser": "npx sharpee build-browser",
+    "build:walkthrough": "tsc && node ../../transcript-runner.js . -o browser/walkthrough.json --verbose && node -e \"const fs=require('fs'),w='dist/web';fs.mkdirSync(w,{recursive:true});fs.copyFileSync('browser/walkthrough.json',w+'/walkthrough.json');fs.copyFileSync('browser/walkthrough.html',w+'/walkthrough.html');console.log('Walkthrough viewer updated')\"",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@sharpee/core": "^0.9.111",
+    "@sharpee/engine": "^0.9.111",
+    "@sharpee/lang-en-us": "^0.9.111",
+    "@sharpee/media": "^0.9.111",
+    "@sharpee/parser-en-us": "^0.9.111",
+    "@sharpee/platform-browser": "^0.9.111",
+    "@sharpee/sharpee": "^0.9.111",
+    "@sharpee/stdlib": "^0.9.111",
+    "@sharpee/text-service": "^0.9.111",
+    "@sharpee/world-model": "^0.9.111"
+  },
+  "devDependencies": {
+    "@sharpee/transcript-tester": "^0.9.111",
+    "esbuild": "^0.20.0",
+    "typescript": "^5.3.3"
+  },
+  "author": "John Googol",
+  "license": "MIT"
+}

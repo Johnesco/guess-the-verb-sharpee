@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx sharpee:*)",
+      "Bash(ls:*)",
+      "Bash(xargs grep:*)",
+      "Bash(chmod +x:*)",
+      "Bash(./sync-reference.sh:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+title: Naive Player Playthrough
+story: guess-the-verb
+description: A first-time IF player stumbles through the game using natural language
+
+---
+
+## Front Porch — fumbling around
+
+# A naive player looks around first
+> look
+[OK: contains "Front Porch"]
+[OK: contains "doormat"]
+[OK: contains "doorbell"]
+
+# They try to examine things they see mentioned
+> examine doormat
+[OK: contains "doormat"]
+
+> examine doorbell
+[OK: contains "brass"]
+
+# A naive player tries to "ring" the doorbell — natural English
+> ring doorbell
+[OK: contains "doorbell"]
+
+# They try to take the mat — should get a helpful redirect, not blank
+> take mat
+[OK: contains "doormat"]
+
+# They try lifting the mat — same intent
+> lift mat
+[OK: contains "doormat"]
+
+# Maybe they try "look under"
+> look under mat
+[OK: contains "key"]
+
+# They see the key and take it
+> take key
+[OK: contains "Taken"]
+
+# A naive player might try "use key on door"
+> unlock door with key
+[OK: contains "unlock"]
+
+> open door
+[OK: contains "open"]
+
+> east
+[OK: contains "Hallway"]
+
+## Hallway — searching and climbing
+
+# They see the overcoat mentioned and try natural verbs
+> examine overcoat
+[OK: contains "overcoat"]
+
+# "check pockets" is a very natural thing to try
+> search pockets
+[OK: contains "matches"]
+
+# They see a staircase mentioned, try to climb it
+> climb stairs
+[OK: contains_any "up" "Up" "UP" "stairs" "Attic"]
+
+# The game hints to go UP, so the naive player tries that
+> up
+[OK: contains "Attic"]
+
+## Study — fire and painting puzzles
+
+# They went up, now back down to continue exploring
+> down
+[OK: contains "Hallway"]
+
+> east
+[OK: contains "Study"]
+
+# They see a desk and try to open it
+> open desk
+[OK: contains "open"]
+
+# Take what's inside
+> take winding key
+[OK: contains_any "Taken" "winding"]
+
+# They see a painting and try to look behind it
+> look behind painting
+[OK: contains_any "painting" "safe" "wall"]
+
+# They notice the fireplace and try to light it
+> light fireplace
+[OK: contains_any "fire" "match" "glow" "warmth" "7" "hearthstone"]
+
+# They notice the numbers
+> examine hearthstone
+[OK: contains "7"]
+
+# They know the combo now, try to open the safe
+> dial 7 3 9
+[OK: contains_any "Click" "click" "open" "safe"]
+
+# Take what's inside
+> take spring
+[OK: contains_any "Taken" "spring" "clock"]
+
+## Garden — digging
+
+> west
+[OK: contains "Hallway"]
+
+> south
+[OK: contains "Kitchen"]
+
+> south
+[OK: contains "Garden"]
+
+# They see the trowel
+> take trowel
+[OK: contains "Taken"]
+
+# A naive player might just type "dig" with no target
+> dig
+[OK: contains_any "dig" "flower" "earth" "soft"]
+
+# Or they might try "dig flower bed"
+> dig flower bed
+[OK: contains_any "mechanism" "brass" "music"]
+
+> take mechanism
+[OK: contains "Taken"]
+
+## Attic — assembly and victory
+
+> north
+[OK: contains "Kitchen"]
+
+> north
+[OK: contains "Hallway"]
+
+> up
+[OK: contains "Attic"]
+
+# They see the music box and try to fix it
+> examine music box
+[OK: contains "music box"]
+
+> take music box
+[OK: contains "music box"]
+
+> put mechanism in music box
+[OK: contains "mechanism"]
+
+> put spring in music box
+[OK: contains "spring"]
+
+# Now wind it
+> wind music box
+[OK: contains_any "melody" "wind" "release" "trunk"]
+
+# The trunk opened! A naive player opens it
+> open trunk
+[OK: contains_any "open" "trunk" "locket"]
+
+> take locket
+[OK: contains "locket"]

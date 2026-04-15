@@ -1,0 +1,106 @@
+title: Complete Walkthrough
+story: guess-the-verb
+description: Full walkthrough — find grandmother's heirloom (10/10 score)
+
+---
+
+## Front Porch — Find the key
+
+> look
+[OK: contains "Front Porch"]
+[OK: contains "doormat"]
+
+> look under doormat
+[OK: contains "iron key"]
+
+> take iron key
+[OK: contains "Taken"]
+
+## Unlock front door and enter
+
+> unlock front door with iron key
+[OK: contains "unlock"]
+
+> open front door
+[OK: contains "open"]
+
+> east
+[OK: contains "Hallway"]
+
+## Hallway — Search overcoat for matchbook
+
+> search overcoat
+[OK: contains "matches"]
+
+## Study — Open desk, move painting, light fire, open safe
+
+> east
+[OK: contains "Study"]
+
+> open desk
+[OK: contains "open"]
+
+> take winding key
+[OK: contains "winding key"]
+
+> push painting
+[OK: contains "wall safe"]
+
+> light fireplace
+[OK: contains "7 - 3 - 9"]
+
+> dial 7 3 9
+[OK: contains "Click"]
+
+> take clock spring
+[OK: contains "clock spring"]
+
+## Garden — Dig up mechanism
+
+> west
+[OK: contains "Hallway"]
+
+> south
+[OK: contains "Kitchen"]
+
+> south
+[OK: contains "Garden"]
+
+> take trowel
+[OK: contains "Taken"]
+
+> dig flower bed
+[OK: contains "brass mechanism"]
+
+> take brass mechanism
+[OK: contains "Taken"]
+
+## Attic — Assemble music box, unlock trunk, get locket
+
+> north
+[OK: contains "Kitchen"]
+
+> north
+[OK: contains "Hallway"]
+
+> up
+[OK: contains "Attic"]
+
+> take music box
+[OK: contains "music box"]
+
+> put mechanism in music box
+[OK: contains "mechanism"]
+
+> put spring in music box
+[OK: contains "spring"]
+
+> wind music box
+[OK: contains "melody"]
+[OK: contains "releases"]
+
+> open trunk
+[OK: contains "open"]
+
+> take locket
+[OK: contains "locket"]

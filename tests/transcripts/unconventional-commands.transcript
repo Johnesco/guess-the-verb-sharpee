@@ -1,0 +1,231 @@
+title: Unconventional Commands
+story: guess-the-verb
+description: Commands that feel valid in English but aren't standard IF — tests disambiguation and parser coverage
+
+---
+
+## Front Porch — alternate verbs and nouns
+
+> look
+[OK: contains "Front Porch"]
+
+# Alternate nouns for doormat
+> examine mat
+[OK: contains "doormat"]
+
+> examine rug
+[OK: contains "doormat"]
+
+# Alternate nouns for doorbell
+> examine bell
+[OK: contains_any "brass" "button" "doorbell"]
+
+> examine buzzer
+[OK: contains_any "brass" "button" "doorbell"]
+
+# Natural verb: knock
+> knock on door
+[OK: contains_any "door" "knock" "no one" "nobody" "locked"]
+
+# "flip" the mat — physical manipulation (parser doesn't know "flip")
+> flip mat
+[OK: contains_any "doormat" "key" "flip" "can't" "don't understand"]
+
+# "check under" — natural search phrasing
+> check under mat
+[OK: contains_any "key" "doormat" "under"]
+
+# Use-based phrasing (very common from non-IF players)
+> use key
+[OK: contains_any "key" "use" "can't see"]
+
+> look under doormat
+[OK: contains "key"]
+
+> take key
+[OK: contains "Taken"]
+
+> use key on door
+[OK: contains_any "unlock" "key" "door" "use"]
+
+> unlock door with key
+[OK: contains "unlock"]
+
+> open door
+[OK: contains "open"]
+
+> go east
+[OK: contains "Hallway"]
+
+## Hallway — alternate nouns and search phrasing
+
+# "coat" for "overcoat"
+> examine coat
+[OK: contains_any "overcoat" "coat" "wool"]
+
+# "check" as examine synonym
+> check overcoat
+[OK: contains_any "overcoat" "coat" "wool"]
+
+# Part-of-noun: pockets
+> look in pockets
+[OK: contains_any "pockets" "matches" "matchbook" "overcoat"]
+
+> search overcoat
+[OK: contains_any "matches" "matchbook" "pockets"]
+
+# Direction synonyms
+# "go upstairs" — not recognized as direction
+> go upstairs
+[OK: contains_any "Attic" "up" "UP" "stairs" "can't" "which direction"]
+
+# "ascend" — not a recognized verb
+> ascend
+[OK: contains_any "Attic" "up" "UP" "can't" "don't understand"]
+
+## Study — fire, painting, and safe puzzles
+
+> east
+[OK: contains "Study"]
+
+> open desk
+[OK: contains "open"]
+
+> take winding key
+[OK: contains_any "Taken" "winding"]
+
+# "picture" and "portrait" for painting
+> examine picture
+[OK: contains_any "painting" "portrait" "picture" "oil"]
+
+> examine portrait
+[OK: contains_any "painting" "portrait" "picture" "oil"]
+
+# "look behind" — very natural English
+> look behind painting
+[OK: contains_any "painting" "safe" "wall"]
+
+# "slide" the painting
+> slide painting
+[OK: contains_any "painting" "safe" "wall" "can't" "slide"]
+
+# Fire verbs — "start fire", "ignite"
+> ignite fireplace
+[OK: contains_any "fire" "match" "glow" "warmth" "can't" "ignite"]
+
+> start fire
+[OK: contains_any "fire" "match" "burn" "what" "can't"]
+
+> light fireplace
+[OK: contains_any "fire" "match" "glow" "warmth" "7" "hearthstone"]
+
+# Alternate nouns for hearthstone
+# "hearth" resolves to fireplace, not hearthstone
+> examine hearth
+[OK: contains_any "hearthstone" "hearth" "fireplace" "flames" "fire" "stone" "7"]
+
+# Try opening safe before combo — should say something about needing the combo
+# (Note: safe was already opened by dial, so "open safe" on already-open safe = blank — engine bug)
+> open safe
+[OK: contains_any "safe" "combo" "combination" "locked" "dial" "Click" "already" "open"]
+
+> dial 7 3 9
+[OK: contains_any "Click" "click" "open"]
+
+> take clock spring
+[OK: contains_any "Taken" "spring"]
+
+## Kitchen — passing through
+
+> west
+[OK: contains "Hallway"]
+
+> south
+[OK: contains "Kitchen"]
+
+# Kitchen atmospheric attempts
+> turn faucet
+[OK: contains_any "faucet" "water" "tap" "turn" "can't"]
+
+> read recipe
+[OK: contains_any "recipe" "read" "can't see"]
+
+## Garden — dig variations
+
+> south
+[OK: contains "Garden"]
+
+> take trowel
+[OK: contains "Taken"]
+
+# "use trowel" — generic USE
+> use trowel
+[OK: contains_any "trowel" "dig" "use" "can't"]
+
+# Alternate dig nouns
+> dig dirt
+[OK: contains_any "dig" "flower" "earth" "mechanism" "soft"]
+
+> dig ground
+[OK: contains_any "dig" "flower" "earth" "mechanism" "soft" "ground"]
+
+> dig soil
+[OK: contains_any "dig" "flower" "earth" "mechanism" "soft" "soil"]
+
+# "excavate" as dig synonym
+> excavate flower bed
+[OK: contains_any "dig" "flower" "mechanism" "excavate" "can't"]
+
+> take mechanism
+[OK: contains_any "Taken" "mechanism" "already"]
+
+## Attic — assembly and winding variations
+
+> north
+[OK: contains "Kitchen"]
+
+> north
+[OK: contains "Hallway"]
+
+> up
+[OK: contains "Attic"]
+
+> take music box
+[OK: contains "music box"]
+
+# Assembly synonyms
+> attach mechanism to music box
+[OK: contains_any "mechanism" "attach" "put" "music box" "can't"]
+
+> put mechanism in music box
+[OK: contains "mechanism"]
+
+# "install" as insert synonym
+> install spring in music box
+[OK: contains_any "spring" "install" "put" "music box" "can't"]
+
+> put spring in music box
+[OK: contains "spring"]
+
+# "fix" / "repair" as assembly verbs
+> fix music box
+[OK: contains_any "music box" "fix" "repair" "can't" "wind"]
+
+# Wind variations
+> crank music box
+[OK: contains_any "melody" "crank" "wind" "can't"]
+
+> wind up music box
+[OK: contains_any "melody" "wind" "release" "trunk" "can't"]
+
+> wind music box with key
+[OK: contains_any "melody" "wind" "release" "trunk" "key"]
+
+> wind music box
+[OK: contains_any "melody" "wind" "release" "trunk"]
+
+> open trunk
+[OK: contains_any "open" "trunk" "locket"]
+
+> take locket
+[OK: contains "locket"]
