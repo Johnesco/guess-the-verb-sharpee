@@ -64,24 +64,18 @@ export function getInterceptors(
   }
 
   return [
-    // TAKE doormat -> reveal key instead
+    // TAKE doormat -> reveal key; TAKE overcoat -> show hint
     {
       actionId: 'if.action.taking',
       interceptor: {
-        preValidate: (entity: IFEntity) => {
+        preValidate: (entity: IFEntity, world: WorldModel) => {
           const propId = getPropId(entity);
-          if (propId === 'doormat') return { valid: false, error: 'story.doormat.take' };
-          if (propId === 'overcoat') return { valid: false, error: 'story.overcoat.take' };
-          return null;
-        },
-        onBlocked: (entity: IFEntity, world: WorldModel, _actorId: string, error: string) => {
-          if (error === 'story.doormat.take') {
+          if (propId === 'doormat') {
+            // Reveal the key as a side-effect so `lift mat` works like `look under mat`
             const messageId = revealIronKey(world, items, rooms);
-            return [createEffect('game.message', { messageId })];
+            return { valid: false, error: messageId };
           }
-          if (error === 'story.overcoat.take') {
-            return [createEffect('game.message', { messageId: Msg.OVERCOAT_TAKE })];
-          }
+          if (propId === 'overcoat') return { valid: false, error: Msg.OVERCOAT_TAKE };
           return null;
         },
       },

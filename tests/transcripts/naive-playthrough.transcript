@@ -23,13 +23,13 @@ description: A first-time IF player stumbles through the game using natural lang
 > ring doorbell
 [OK: contains "doorbell"]
 
-# They try to take the mat — should get a helpful redirect, not blank
+# They try to take the mat — should reveal the key (not blank)
 > take mat
-[OK: contains "doormat"]
+[OK: contains "iron key"]
 
-# They try lifting the mat — same intent
+# They try lifting the mat again — key already revealed
 > lift mat
-[OK: contains "doormat"]
+[OK: contains "already"]
 
 # Maybe they try "look under"
 > look under mat

@@ -137,8 +137,7 @@ export const Msg = {
   SEARCH_WHAT: 'story.search.what',
 
   // Interceptor messages
-  DOORMAT_TAKE: 'story.doormat.take_hint',
-  OVERCOAT_TAKE: 'story.overcoat.take_hint',
+  OVERCOAT_TAKE: 'story.overcoat.take',
   DOORBELL_PUSH: 'story.doorbell.push',
 
   // Meta

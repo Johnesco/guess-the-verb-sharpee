@@ -1,0 +1,7 @@
+node_modules/
+dist/
+
+# Generated build artifacts in browser/ (sources live in src/; see build:browser)
+browser/guess-the-verb.js
+browser/guess-the-verb.js.map
+browser/walkthrough.json

@@ -94,7 +94,6 @@ export function extendLanguage(language: LanguageProvider): void {
   add(Msg.SEARCH_WHAT, 'Search what?');
 
   // Interceptor messages
-  add(Msg.DOORMAT_TAKE, 'You lift the corner of the doormat.');
   add(Msg.OVERCOAT_TAKE, "The coat is too moth-eaten to carry. But you could search the pockets.");
   add(Msg.DOORBELL_PUSH, 'You press the doorbell. A faint chime echoes inside the house, unanswered.');
 

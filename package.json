@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "build:browser": "npx sharpee build-browser",
+    "build:browser": "npx sharpee build-browser && node -e \"const fs=require('fs');fs.copyFileSync('dist/web/guess-the-verb.js','browser/guess-the-verb.js');if(fs.existsSync('dist/web/guess-the-verb.js.map')){fs.copyFileSync('dist/web/guess-the-verb.js.map','browser/guess-the-verb.js.map');}console.log('Mirrored bundle to browser/')\"",
+    "test": "transcript-test . tests/transcripts/naive-playthrough.transcript tests/transcripts/verb-synonyms.transcript tests/transcripts/unconventional-commands.transcript",
     "build:walkthrough": "tsc && node ../../transcript-runner.js . -o browser/walkthrough.json --verbose && node -e \"const fs=require('fs'),w='dist/web';fs.mkdirSync(w,{recursive:true});fs.copyFileSync('browser/walkthrough.json',w+'/walkthrough.json');fs.copyFileSync('browser/walkthrough.html',w+'/walkthrough.html');console.log('Walkthrough viewer updated')\"",
     "dev": "tsc --watch"
   },

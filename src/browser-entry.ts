@@ -65,7 +65,11 @@ function initializeGame(): void {
 
   // Set up event handlers
   engine.on('text:output', (blocks, turn) => {
-    displayText(renderToString(blocks));
+    // Per Sharpee ADR-137, the prompt block belongs on the input field, not
+    // in the scrollback. The input-area already has a static ">" marker, so
+    // drop the prompt block to avoid a duplicate bare-">" paragraph.
+    const narrativeBlocks = blocks.filter((b: any) => b.key !== 'prompt');
+    displayText(renderToString(narrativeBlocks));
     currentTurn = turn;
     updateStatusLine();
   });

@@ -9,12 +9,12 @@ description: Test that verb synonyms from FINDINGS.md produce output (not blank)
 > look
 [OK: contains "Front Porch"]
 
-# TAKE synonyms on scenery (should explain why you can't, not blank)
+# TAKE synonyms on doormat — all reveal the key, then report already-found
 > grab doormat
-[OK: contains "doormat"]
+[OK: contains "iron key"]
 
 > pick up doormat
-[OK: contains "doormat"]
+[OK: contains "already"]
 
 # PUSH synonyms on doorbell
 > push doorbell
