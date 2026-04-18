@@ -1,0 +1,2000 @@
+{
+  "storyId": "guess-the-verb-sharpee",
+  "timestamp": "2026-04-18T06:02:53.652Z",
+  "transcripts": [
+    {
+      "file": "naive-playthrough.transcript",
+      "title": "Naive Player Playthrough",
+      "description": "A first-time IF player stumbles through the game using natural language",
+      "commands": [
+        {
+          "lineNumber": 10,
+          "input": "look",
+          "output": "Guess the Verb\nBy John Googol\n\nType HELP for instructions.\n\nFront Porch\n\nA sagging wooden porch wraps around the front of the house. A woven doormat lies before the front door. A tarnished brass doorbell is set beside the frame.\n\nThe front door leads inside to the east.\n\nYou can see front door, woven doormat, brass doorbell, sagging porch here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Front Porch"
+            },
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "doormat"
+            },
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "doorbell"
+            }
+          ],
+          "comment": "A naive player looks around first"
+        },
+        {
+          "lineNumber": 16,
+          "input": "examine doormat",
+          "output": "A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "doormat"
+            }
+          ],
+          "comment": "They try to examine things they see mentioned"
+        },
+        {
+          "lineNumber": 19,
+          "input": "examine doorbell",
+          "output": "A tarnished brass button set into the door frame.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "brass"
+            }
+          ],
+          "comment": "# Front Porch — fumbling around"
+        },
+        {
+          "lineNumber": 23,
+          "input": "ring doorbell",
+          "output": "You press the doorbell. A faint chime echoes inside the house, unanswered.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "doorbell"
+            }
+          ],
+          "comment": "A naive player tries to \"ring\" the doorbell — natural English"
+        },
+        {
+          "lineNumber": 27,
+          "input": "take mat",
+          "output": "You lift the corner of the doormat and find an iron key hidden underneath.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "iron key"
+            }
+          ],
+          "comment": "They try to take the mat — should reveal the key (not blank)"
+        },
+        {
+          "lineNumber": 31,
+          "input": "lift mat",
+          "output": "You already found the key here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "already"
+            }
+          ],
+          "comment": "They try lifting the mat again — key already revealed"
+        },
+        {
+          "lineNumber": 35,
+          "input": "look under mat",
+          "output": "You already found the key here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "key"
+            }
+          ],
+          "comment": "Maybe they try \"look under\""
+        },
+        {
+          "lineNumber": 39,
+          "input": "take key",
+          "output": "Taken.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Taken"
+            }
+          ],
+          "comment": "They see the key and take it"
+        },
+        {
+          "lineNumber": 43,
+          "input": "unlock door with key",
+          "output": "You unlock front door with iron key.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "unlock"
+            }
+          ],
+          "comment": "A naive player might try \"use key on door\""
+        },
+        {
+          "lineNumber": 46,
+          "input": "open door",
+          "output": "You open front door.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "open"
+            }
+          ]
+        },
+        {
+          "lineNumber": 49,
+          "input": "east",
+          "output": "Hallway\n\nA dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.\n\nDoors lead east to a study and south to the kitchen. A narrow staircase leads up.\n\nYou can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Hallway"
+            }
+          ]
+        },
+        {
+          "lineNumber": 55,
+          "input": "examine overcoat",
+          "output": "A moth-eaten wool overcoat. The pockets look like they might hold something.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "overcoat"
+            }
+          ],
+          "comment": "They see the overcoat mentioned and try natural verbs"
+        },
+        {
+          "lineNumber": 59,
+          "input": "search pockets",
+          "output": "You rummage through the overcoat's pockets and find a small book of matches from 'The Golden Lantern.'\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "matches"
+            }
+          ],
+          "comment": "\"check pockets\" is a very natural thing to try"
+        },
+        {
+          "lineNumber": 63,
+          "input": "climb stairs",
+          "output": "(Try going UP to climb the stairs.)\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "They see a staircase mentioned, try to climb it"
+        },
+        {
+          "lineNumber": 67,
+          "input": "up",
+          "output": "Attic\n\nA cramped attic under sloping eaves, thick with dust. A dusty shelf holds an old music box. A heavy steamer trunk sits against the wall.\n\nThe stairs lead back down.\n\nYou can see dusty shelf, steamer trunk, sloping eaves here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Attic"
+            }
+          ],
+          "comment": "The game hints to go UP, so the naive player tries that"
+        },
+        {
+          "lineNumber": 73,
+          "input": "down",
+          "output": "Hallway\n\nA dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.\n\nDoors lead east to a study and south to the kitchen. A narrow staircase leads up.\n\nYou can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Hallway"
+            }
+          ],
+          "comment": "They went up, now back down to continue exploring"
+        },
+        {
+          "lineNumber": 76,
+          "input": "east",
+          "output": "Study\n\nA wood-paneled study with built-in bookshelves. A heavy desk sits in the center, its drawers shut. An oil painting of a woman hangs on the far wall. A stone fireplace squats in the corner, cold and dark.\n\nThe hallway is back to the west.\n\nYou can see heavy desk, study bookshelves, oil painting, stone fireplace, hearthstone, wood paneling here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Study"
+            }
+          ],
+          "comment": "# Study — fire and painting puzzles"
+        },
+        {
+          "lineNumber": 80,
+          "input": "open desk",
+          "output": "You open heavy desk.\nInside the heavy desk you see winding key.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "open"
+            }
+          ],
+          "comment": "They see a desk and try to open it"
+        },
+        {
+          "lineNumber": 84,
+          "input": "take winding key",
+          "output": "You take winding key from heavy desk.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "Take what's inside"
+        },
+        {
+          "lineNumber": 88,
+          "input": "look behind painting",
+          "output": "You push the painting aside, revealing a small wall safe hidden behind it.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "They see a painting and try to look behind it"
+        },
+        {
+          "lineNumber": 92,
+          "input": "light fireplace",
+          "output": "You strike a match and light the logs. The fire catches quickly, casting warm light across the study.\n\nAs the flames illuminate the hearthstone, you notice numbers scratched into the soot-blackened surface: 7 - 3 - 9.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "They notice the fireplace and try to light it"
+        },
+        {
+          "lineNumber": 96,
+          "input": "examine hearthstone",
+          "output": "In the firelight, you can make out numbers scratched into the hearthstone: 7 - 3 - 9.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "7"
+            }
+          ],
+          "comment": "They notice the numbers"
+        },
+        {
+          "lineNumber": 100,
+          "input": "dial 7 3 9",
+          "output": "You dial 7... 3... 9. Click. The safe door swings open.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "They know the combo now, try to open the safe"
+        },
+        {
+          "lineNumber": 104,
+          "input": "take spring",
+          "output": "You take clock spring from wall safe.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "Take what's inside"
+        },
+        {
+          "lineNumber": 109,
+          "input": "west",
+          "output": "Hallway\n\nA dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.\n\nDoors lead east to a study and south to the kitchen. A narrow staircase leads up.\n\nYou can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Hallway"
+            }
+          ],
+          "comment": "# Garden — digging"
+        },
+        {
+          "lineNumber": 112,
+          "input": "south",
+          "output": "Kitchen\n\nA rustic kitchen with stone counters and a deep ceramic sink. Copper pots hang from hooks above. A handwritten recipe card sits on the counter.\n\nThe hallway is north. A doorway leads south to the garden.\n\nYou can see stone counters, ceramic sink, copper pots, recipe card here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Kitchen"
+            }
+          ],
+          "comment": "# Hallway — searching and climbing"
+        },
+        {
+          "lineNumber": 115,
+          "input": "south",
+          "output": "Garden\n\nAn overgrown garden behind the house. A flower bed runs along the back wall, thick with weeds. A small shed leans in one corner with its door ajar. A rusty trowel leans against the shed.\n\nThe kitchen doorway is back to the north.\n\nYou can see garden trowel, flower bed, garden shed here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Garden"
+            }
+          ]
+        },
+        {
+          "lineNumber": 119,
+          "input": "take trowel",
+          "output": "Taken.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Taken"
+            }
+          ],
+          "comment": "They see the trowel"
+        },
+        {
+          "lineNumber": 123,
+          "input": "dig",
+          "output": "You dig into the soft earth with the trowel and uncover a small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of a music box.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "A naive player might just type \"dig\" with no target"
+        },
+        {
+          "lineNumber": 127,
+          "input": "dig flower bed",
+          "output": "You've already dug here and found the mechanism.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "Or they might try \"dig flower bed\""
+        },
+        {
+          "lineNumber": 130,
+          "input": "take mechanism",
+          "output": "Taken.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Taken"
+            }
+          ]
+        },
+        {
+          "lineNumber": 135,
+          "input": "north",
+          "output": "Kitchen\n\nA rustic kitchen with stone counters and a deep ceramic sink. Copper pots hang from hooks above. A handwritten recipe card sits on the counter.\n\nThe hallway is north. A doorway leads south to the garden.\n\nYou can see stone counters, ceramic sink, copper pots, recipe card here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Kitchen"
+            }
+          ],
+          "comment": "# Attic — assembly and victory"
+        },
+        {
+          "lineNumber": 138,
+          "input": "north",
+          "output": "Hallway\n\nA dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.\n\nDoors lead east to a study and south to the kitchen. A narrow staircase leads up.\n\nYou can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Hallway"
+            }
+          ]
+        },
+        {
+          "lineNumber": 141,
+          "input": "up",
+          "output": "Attic\n\nA cramped attic under sloping eaves, thick with dust. A dusty shelf holds an old music box. A heavy steamer trunk sits against the wall.\n\nThe stairs lead back down.\n\nYou can see dusty shelf, steamer trunk, sloping eaves here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Attic"
+            }
+          ]
+        },
+        {
+          "lineNumber": 145,
+          "input": "examine music box",
+          "output": "A wooden music box with a rose-carved lid and a small keyhole on the side. Inside, the cavity is empty -- the mechanism has been removed.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "music box"
+            }
+          ],
+          "comment": "They see the music box and try to fix it"
+        },
+        {
+          "lineNumber": 148,
+          "input": "take music box",
+          "output": "You take old music box from dusty shelf.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "music box"
+            }
+          ]
+        },
+        {
+          "lineNumber": 151,
+          "input": "put mechanism in music box",
+          "output": "You put brass mechanism in old music box.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "mechanism"
+            }
+          ]
+        },
+        {
+          "lineNumber": 154,
+          "input": "put spring in music box",
+          "output": "You put clock spring in old music box.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "spring"
+            }
+          ]
+        },
+        {
+          "lineNumber": 158,
+          "input": "wind music box",
+          "output": "You insert the winding key and turn it gently. The music box comes alive -- a delicate melody fills the attic, tinkling and sweet.\n\nAs the last note fades, you hear a mechanical click from the steamer trunk -- its lock releases and the lid swings open.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "Now wind it"
+        },
+        {
+          "lineNumber": 162,
+          "input": "open trunk",
+          "output": "Steamer trunk is already open.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "The trunk opened! A naive player opens it"
+        },
+        {
+          "lineNumber": 165,
+          "input": "take locket",
+          "output": "You take family locket from steamer trunk.\nYou found your grandmother's heirloom.\nYou lift the locket from the trunk. Inside, your grandmother smiles back at you from a faded photograph. This is what she wanted you to have.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "locket"
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "passed": 41,
+        "failed": 0,
+        "skipped": 0,
+        "duration": 408
+      }
+    },
+    {
+      "file": "unconventional-commands.transcript",
+      "title": "Unconventional Commands",
+      "description": "Commands that feel valid in English but aren't standard IF — tests disambiguation and parser coverage",
+      "commands": [
+        {
+          "lineNumber": 9,
+          "input": "look",
+          "output": "Guess the Verb\nBy John Googol\n\nType HELP for instructions.\n\nFront Porch\n\nA sagging wooden porch wraps around the front of the house. A woven doormat lies before the front door. A tarnished brass doorbell is set beside the frame.\n\nThe front door leads inside to the east.\n\nYou can see front door, woven doormat, brass doorbell, sagging porch here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Front Porch"
+            }
+          ],
+          "comment": "# Front Porch — alternate verbs and nouns"
+        },
+        {
+          "lineNumber": 13,
+          "input": "examine mat",
+          "output": "A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "doormat"
+            }
+          ],
+          "comment": "Alternate nouns for doormat"
+        },
+        {
+          "lineNumber": 16,
+          "input": "examine rug",
+          "output": "A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "doormat"
+            }
+          ]
+        },
+        {
+          "lineNumber": 20,
+          "input": "examine bell",
+          "output": "A tarnished brass button set into the door frame.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "Alternate nouns for doorbell"
+        },
+        {
+          "lineNumber": 23,
+          "input": "examine buzzer",
+          "output": "A tarnished brass button set into the door frame.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 27,
+          "input": "knock on door",
+          "output": "You rap your knuckles on the door. No answer.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "Natural verb: knock"
+        },
+        {
+          "lineNumber": 31,
+          "input": "flip mat",
+          "output": "I don't understand that.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "\"flip\" the mat — physical manipulation (parser doesn't know \"flip\")"
+        },
+        {
+          "lineNumber": 35,
+          "input": "check under mat",
+          "output": "A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "\"check under\" — natural search phrasing"
+        },
+        {
+          "lineNumber": 39,
+          "input": "use key",
+          "output": "You can't see any such thing.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "Use-based phrasing (very common from non-IF players)"
+        },
+        {
+          "lineNumber": 42,
+          "input": "look under doormat",
+          "output": "You lift the corner of the doormat and find an iron key hidden underneath.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "key"
+            }
+          ]
+        },
+        {
+          "lineNumber": 45,
+          "input": "take key",
+          "output": "Taken.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Taken"
+            }
+          ]
+        },
+        {
+          "lineNumber": 48,
+          "input": "use key on door",
+          "output": "How do you want to use front door? Try a specific verb: OPEN, PUSH, PULL, TURN, EAT, WEAR, etc.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 51,
+          "input": "unlock door with key",
+          "output": "You unlock front door with iron key.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "unlock"
+            }
+          ]
+        },
+        {
+          "lineNumber": 54,
+          "input": "open door",
+          "output": "You open front door.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "open"
+            }
+          ]
+        },
+        {
+          "lineNumber": 57,
+          "input": "go east",
+          "output": "Hallway\n\nA dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.\n\nDoors lead east to a study and south to the kitchen. A narrow staircase leads up.\n\nYou can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Hallway"
+            }
+          ]
+        },
+        {
+          "lineNumber": 63,
+          "input": "examine coat",
+          "output": "A moth-eaten wool overcoat. The pockets look like they might hold something.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "\"coat\" for \"overcoat\""
+        },
+        {
+          "lineNumber": 67,
+          "input": "check overcoat",
+          "output": "A moth-eaten wool overcoat. The pockets look like they might hold something.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "\"check\" as examine synonym"
+        },
+        {
+          "lineNumber": 71,
+          "input": "look in pockets",
+          "output": "A moth-eaten wool overcoat. The pockets look like they might hold something.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "Part-of-noun: pockets"
+        },
+        {
+          "lineNumber": 74,
+          "input": "search overcoat",
+          "output": "You rummage through the overcoat's pockets and find a small book of matches from 'The Golden Lantern.'\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "# Hallway — alternate nouns and search phrasing"
+        },
+        {
+          "lineNumber": 79,
+          "input": "go upstairs",
+          "output": "You'll have to say which direction to go.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "\"go upstairs\" — not recognized as direction"
+        },
+        {
+          "lineNumber": 83,
+          "input": "ascend",
+          "output": "I don't understand that.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "\"ascend\" — not a recognized verb"
+        },
+        {
+          "lineNumber": 88,
+          "input": "east",
+          "output": "Study\n\nA wood-paneled study with built-in bookshelves. A heavy desk sits in the center, its drawers shut. An oil painting of a woman hangs on the far wall. A stone fireplace squats in the corner, cold and dark.\n\nThe hallway is back to the west.\n\nYou can see heavy desk, study bookshelves, oil painting, stone fireplace, hearthstone, wood paneling here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Study"
+            }
+          ],
+          "comment": "# Study — fire, painting, and safe puzzles"
+        },
+        {
+          "lineNumber": 91,
+          "input": "open desk",
+          "output": "You open heavy desk.\nInside the heavy desk you see winding key.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "open"
+            }
+          ],
+          "comment": "Direction synonyms"
+        },
+        {
+          "lineNumber": 94,
+          "input": "take winding key",
+          "output": "You take winding key from heavy desk.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 98,
+          "input": "examine picture",
+          "output": "A portrait of a stern woman in a high collar -- your grandmother, perhaps. The frame sits slightly askew on the wall.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "\"picture\" and \"portrait\" for painting"
+        },
+        {
+          "lineNumber": 101,
+          "input": "examine portrait",
+          "output": "A portrait of a stern woman in a high collar -- your grandmother, perhaps. The frame sits slightly askew on the wall.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 105,
+          "input": "look behind painting",
+          "output": "You push the painting aside, revealing a small wall safe hidden behind it.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "\"look behind\" — very natural English"
+        },
+        {
+          "lineNumber": 109,
+          "input": "slide painting",
+          "output": "You already moved the painting. The wall safe is visible.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "\"slide\" the painting"
+        },
+        {
+          "lineNumber": 113,
+          "input": "ignite fireplace",
+          "output": "You strike a match and light the logs. The fire catches quickly, casting warm light across the study.\n\nAs the flames illuminate the hearthstone, you notice numbers scratched into the soot-blackened surface: 7 - 3 - 9.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "Fire verbs — \"start fire\", \"ignite\""
+        },
+        {
+          "lineNumber": 116,
+          "input": "start fire",
+          "output": "The fire is already burning.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 119,
+          "input": "light fireplace",
+          "output": "The fire is already burning.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 124,
+          "input": "examine hearth",
+          "output": "The fireplace crackles with warm flames. The logs glow orange.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "\"hearth\" resolves to fireplace, not hearthstone"
+        },
+        {
+          "lineNumber": 129,
+          "input": "open safe",
+          "output": "Remembering the numbers on the hearthstone, you dial 7... 3... 9. Click. The safe door swings open.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "(Note: safe was already opened by dial, so \"open safe\" on already-open safe = blank — engine bug)"
+        },
+        {
+          "lineNumber": 132,
+          "input": "dial 7 3 9",
+          "output": "You dial 7... 3... 9. Click. The safe door swings open.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "Try opening safe before combo — should say something about needing the combo"
+        },
+        {
+          "lineNumber": 135,
+          "input": "take clock spring",
+          "output": "You take clock spring from wall safe.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "Alternate nouns for hearthstone"
+        },
+        {
+          "lineNumber": 140,
+          "input": "west",
+          "output": "Hallway\n\nA dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.\n\nDoors lead east to a study and south to the kitchen. A narrow staircase leads up.\n\nYou can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Hallway"
+            }
+          ],
+          "comment": "# Kitchen — passing through"
+        },
+        {
+          "lineNumber": 143,
+          "input": "south",
+          "output": "Kitchen\n\nA rustic kitchen with stone counters and a deep ceramic sink. Copper pots hang from hooks above. A handwritten recipe card sits on the counter.\n\nThe hallway is north. A doorway leads south to the garden.\n\nYou can see stone counters, ceramic sink, copper pots, recipe card here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Kitchen"
+            }
+          ]
+        },
+        {
+          "lineNumber": 147,
+          "input": "turn faucet",
+          "output": "You turn the faucet. Rusty water sputters out briefly, then runs clear. Nothing else happens.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "Kitchen atmospheric attempts"
+        },
+        {
+          "lineNumber": 150,
+          "input": "read recipe",
+          "output": "Recipe card reads:\nLavender shortbread -- butter, sugar, flour, and dried lavender from the garden.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 155,
+          "input": "south",
+          "output": "Garden\n\nAn overgrown garden behind the house. A flower bed runs along the back wall, thick with weeds. A small shed leans in one corner with its door ajar. A rusty trowel leans against the shed.\n\nThe kitchen doorway is back to the north.\n\nYou can see garden trowel, flower bed, garden shed here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Garden"
+            }
+          ],
+          "comment": "# Garden — dig variations"
+        },
+        {
+          "lineNumber": 158,
+          "input": "take trowel",
+          "output": "Taken.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Taken"
+            }
+          ]
+        },
+        {
+          "lineNumber": 162,
+          "input": "use trowel",
+          "output": "How do you want to use garden trowel? Try a specific verb: OPEN, PUSH, PULL, TURN, EAT, WEAR, etc.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "\"use trowel\" — generic USE"
+        },
+        {
+          "lineNumber": 166,
+          "input": "dig dirt",
+          "output": "You dig into the soft earth with the trowel and uncover a small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of a music box.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "Alternate dig nouns"
+        },
+        {
+          "lineNumber": 169,
+          "input": "dig ground",
+          "output": "You've already dug here and found the mechanism.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 172,
+          "input": "dig soil",
+          "output": "You've already dug here and found the mechanism.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 176,
+          "input": "excavate flower bed",
+          "output": "You've already dug here and found the mechanism.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "\"excavate\" as dig synonym"
+        },
+        {
+          "lineNumber": 179,
+          "input": "take mechanism",
+          "output": "Taken.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 184,
+          "input": "north",
+          "output": "Kitchen\n\nA rustic kitchen with stone counters and a deep ceramic sink. Copper pots hang from hooks above. A handwritten recipe card sits on the counter.\n\nThe hallway is north. A doorway leads south to the garden.\n\nYou can see stone counters, ceramic sink, copper pots, recipe card here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Kitchen"
+            }
+          ],
+          "comment": "# Attic — assembly and winding variations"
+        },
+        {
+          "lineNumber": 187,
+          "input": "north",
+          "output": "Hallway\n\nA dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.\n\nDoors lead east to a study and south to the kitchen. A narrow staircase leads up.\n\nYou can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Hallway"
+            }
+          ]
+        },
+        {
+          "lineNumber": 190,
+          "input": "up",
+          "output": "Attic\n\nA cramped attic under sloping eaves, thick with dust. A dusty shelf holds an old music box. A heavy steamer trunk sits against the wall.\n\nThe stairs lead back down.\n\nYou can see dusty shelf, steamer trunk, sloping eaves here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Attic"
+            }
+          ]
+        },
+        {
+          "lineNumber": 193,
+          "input": "take music box",
+          "output": "You take old music box from dusty shelf.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "music box"
+            }
+          ]
+        },
+        {
+          "lineNumber": 197,
+          "input": "attach mechanism to music box",
+          "output": "You put brass mechanism in old music box.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "Assembly synonyms"
+        },
+        {
+          "lineNumber": 200,
+          "input": "put mechanism in music box",
+          "output": "(first taking the brass mechanism)\nYou take brass mechanism from old music box.\nYou put brass mechanism in old music box.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "mechanism"
+            }
+          ]
+        },
+        {
+          "lineNumber": 204,
+          "input": "install spring in music box",
+          "output": "You put clock spring in old music box.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "\"install\" as insert synonym"
+        },
+        {
+          "lineNumber": 207,
+          "input": "put spring in music box",
+          "output": "(first taking the clock spring)\nYou take clock spring from old music box.\nYou put clock spring in old music box.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "spring"
+            }
+          ]
+        },
+        {
+          "lineNumber": 211,
+          "input": "fix music box",
+          "output": "The music box has both the mechanism and the spring installed. Try winding it.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "\"fix\" / \"repair\" as assembly verbs"
+        },
+        {
+          "lineNumber": 215,
+          "input": "crank music box",
+          "output": "You insert the winding key and turn it gently. The music box comes alive -- a delicate melody fills the attic, tinkling and sweet.\n\nAs the last note fades, you hear a mechanical click from the steamer trunk -- its lock releases and the lid swings open.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "Wind variations"
+        },
+        {
+          "lineNumber": 218,
+          "input": "wind up music box",
+          "output": "You insert the winding key and turn it gently. The music box comes alive -- a delicate melody fills the attic, tinkling and sweet.\n\nAs the last note fades, you hear a mechanical click from the steamer trunk -- its lock releases and the lid swings open.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 221,
+          "input": "wind music box with key",
+          "output": "You insert the winding key and turn it gently. The music box comes alive -- a delicate melody fills the attic, tinkling and sweet.\n\nAs the last note fades, you hear a mechanical click from the steamer trunk -- its lock releases and the lid swings open.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 224,
+          "input": "wind music box",
+          "output": "You insert the winding key and turn it gently. The music box comes alive -- a delicate melody fills the attic, tinkling and sweet.\n\nAs the last note fades, you hear a mechanical click from the steamer trunk -- its lock releases and the lid swings open.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 227,
+          "input": "open trunk",
+          "output": "Steamer trunk is already open.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 230,
+          "input": "take locket",
+          "output": "You take family locket from steamer trunk.\nYou found your grandmother's heirloom.\nYou lift the locket from the trunk. Inside, your grandmother smiles back at you from a faded photograph. This is what she wanted you to have.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "locket"
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "passed": 62,
+        "failed": 0,
+        "skipped": 0,
+        "duration": 648
+      }
+    },
+    {
+      "file": "verb-synonyms.transcript",
+      "title": "Verb Synonym Coverage",
+      "description": "Test that verb synonyms from FINDINGS.md produce output (not blank)",
+      "commands": [
+        {
+          "lineNumber": 9,
+          "input": "look",
+          "output": "Guess the Verb\nBy John Googol\n\nType HELP for instructions.\n\nFront Porch\n\nA sagging wooden porch wraps around the front of the house. A woven doormat lies before the front door. A tarnished brass doorbell is set beside the frame.\n\nThe front door leads inside to the east.\n\nYou can see front door, woven doormat, brass doorbell, sagging porch here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Front Porch"
+            }
+          ],
+          "comment": "# Front Porch — take/lift/grab synonyms"
+        },
+        {
+          "lineNumber": 13,
+          "input": "grab doormat",
+          "output": "You lift the corner of the doormat and find an iron key hidden underneath.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "iron key"
+            }
+          ],
+          "comment": "TAKE synonyms on doormat — all reveal the key, then report already-found"
+        },
+        {
+          "lineNumber": 16,
+          "input": "pick up doormat",
+          "output": "You already found the key here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "already"
+            }
+          ]
+        },
+        {
+          "lineNumber": 20,
+          "input": "push doorbell",
+          "output": "You press the doorbell. A faint chime echoes inside the house, unanswered.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "doorbell"
+            }
+          ],
+          "comment": "PUSH synonyms on doorbell"
+        },
+        {
+          "lineNumber": 23,
+          "input": "press doorbell",
+          "output": "You press the doorbell. A faint chime echoes inside the house, unanswered.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "doorbell"
+            }
+          ]
+        },
+        {
+          "lineNumber": 27,
+          "input": "inspect doormat",
+          "output": "A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "doormat"
+            }
+          ],
+          "comment": "EXAMINE synonyms"
+        },
+        {
+          "lineNumber": 30,
+          "input": "look at doorbell",
+          "output": "A tarnished brass button set into the door frame.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "brass"
+            }
+          ]
+        },
+        {
+          "lineNumber": 35,
+          "input": "look under doormat",
+          "output": "You already found the key here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "key"
+            }
+          ],
+          "comment": "# Unlock and enter"
+        },
+        {
+          "lineNumber": 38,
+          "input": "take key",
+          "output": "Taken.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Taken"
+            }
+          ]
+        },
+        {
+          "lineNumber": 41,
+          "input": "unlock door with key",
+          "output": "You unlock front door with iron key.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "unlock"
+            }
+          ]
+        },
+        {
+          "lineNumber": 44,
+          "input": "open door",
+          "output": "You open front door.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "open"
+            }
+          ]
+        },
+        {
+          "lineNumber": 47,
+          "input": "east",
+          "output": "Hallway\n\nA dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.\n\nDoors lead east to a study and south to the kitchen. A narrow staircase leads up.\n\nYou can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Hallway"
+            }
+          ]
+        },
+        {
+          "lineNumber": 53,
+          "input": "rummage overcoat",
+          "output": "You rummage through the overcoat's pockets and find a small book of matches from 'The Golden Lantern.'\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "SEARCH synonyms"
+        },
+        {
+          "lineNumber": 58,
+          "input": "east",
+          "output": "Study\n\nA wood-paneled study with built-in bookshelves. A heavy desk sits in the center, its drawers shut. An oil painting of a woman hangs on the far wall. A stone fireplace squats in the corner, cold and dark.\n\nThe hallway is back to the west.\n\nYou can see heavy desk, study bookshelves, oil painting, stone fireplace, hearthstone, wood paneling here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Study"
+            }
+          ],
+          "comment": "# Study — fire and move synonyms"
+        },
+        {
+          "lineNumber": 61,
+          "input": "open desk",
+          "output": "You open heavy desk.\nInside the heavy desk you see winding key.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "open"
+            }
+          ],
+          "comment": "# Hallway — search synonyms"
+        },
+        {
+          "lineNumber": 64,
+          "input": "take winding key",
+          "output": "You take winding key from heavy desk.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 68,
+          "input": "move painting",
+          "output": "You push the painting aside, revealing a small wall safe hidden behind it.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "PUSH/MOVE synonyms on painting"
+        },
+        {
+          "lineNumber": 72,
+          "input": "kindle fireplace",
+          "output": "You strike a match and light the logs. The fire catches quickly, casting warm light across the study.\n\nAs the flames illuminate the hearthstone, you notice numbers scratched into the soot-blackened surface: 7 - 3 - 9.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "BURN synonyms"
+        },
+        {
+          "lineNumber": 75,
+          "input": "dial 7 3 9",
+          "output": "You dial 7... 3... 9. Click. The safe door swings open.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 78,
+          "input": "take clock spring",
+          "output": "You take clock spring from wall safe.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ]
+        },
+        {
+          "lineNumber": 83,
+          "input": "west",
+          "output": "Hallway\n\nA dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.\n\nDoors lead east to a study and south to the kitchen. A narrow staircase leads up.\n\nYou can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Hallway"
+            }
+          ],
+          "comment": "# Garden — dig synonyms"
+        },
+        {
+          "lineNumber": 86,
+          "input": "south",
+          "output": "Kitchen\n\nA rustic kitchen with stone counters and a deep ceramic sink. Copper pots hang from hooks above. A handwritten recipe card sits on the counter.\n\nThe hallway is north. A doorway leads south to the garden.\n\nYou can see stone counters, ceramic sink, copper pots, recipe card here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Kitchen"
+            }
+          ]
+        },
+        {
+          "lineNumber": 89,
+          "input": "south",
+          "output": "Garden\n\nAn overgrown garden behind the house. A flower bed runs along the back wall, thick with weeds. A small shed leans in one corner with its door ajar. A rusty trowel leans against the shed.\n\nThe kitchen doorway is back to the north.\n\nYou can see garden trowel, flower bed, garden shed here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Garden"
+            }
+          ]
+        },
+        {
+          "lineNumber": 92,
+          "input": "take trowel",
+          "output": "Taken.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Taken"
+            }
+          ]
+        },
+        {
+          "lineNumber": 96,
+          "input": "dig earth",
+          "output": "You dig into the soft earth with the trowel and uncover a small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of a music box.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "DIG synonyms"
+        },
+        {
+          "lineNumber": 99,
+          "input": "take mechanism",
+          "output": "Taken.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Taken"
+            }
+          ]
+        },
+        {
+          "lineNumber": 104,
+          "input": "north",
+          "output": "Kitchen\n\nA rustic kitchen with stone counters and a deep ceramic sink. Copper pots hang from hooks above. A handwritten recipe card sits on the counter.\n\nThe hallway is north. A doorway leads south to the garden.\n\nYou can see stone counters, ceramic sink, copper pots, recipe card here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Kitchen"
+            }
+          ],
+          "comment": "# Attic — assembly and wind synonyms"
+        },
+        {
+          "lineNumber": 107,
+          "input": "north",
+          "output": "Hallway\n\nA dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.\n\nDoors lead east to a study and south to the kitchen. A narrow staircase leads up.\n\nYou can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Hallway"
+            }
+          ]
+        },
+        {
+          "lineNumber": 110,
+          "input": "up",
+          "output": "Attic\n\nA cramped attic under sloping eaves, thick with dust. A dusty shelf holds an old music box. A heavy steamer trunk sits against the wall.\n\nThe stairs lead back down.\n\nYou can see dusty shelf, steamer trunk, sloping eaves here.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "Attic"
+            }
+          ]
+        },
+        {
+          "lineNumber": 113,
+          "input": "take music box",
+          "output": "You take old music box from dusty shelf.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "music box"
+            }
+          ]
+        },
+        {
+          "lineNumber": 117,
+          "input": "put mechanism in music box",
+          "output": "You put brass mechanism in old music box.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "mechanism"
+            }
+          ],
+          "comment": "PUT/INSERT synonyms"
+        },
+        {
+          "lineNumber": 120,
+          "input": "put spring in music box",
+          "output": "You put clock spring in old music box.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "spring"
+            }
+          ]
+        },
+        {
+          "lineNumber": 124,
+          "input": "wind music box",
+          "output": "You insert the winding key and turn it gently. The music box comes alive -- a delicate melody fills the attic, tinkling and sweet.\n\nAs the last note fades, you hear a mechanical click from the steamer trunk -- its lock releases and the lid swings open.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains-any",
+              "passed": true
+            }
+          ],
+          "comment": "WIND synonyms"
+        },
+        {
+          "lineNumber": 127,
+          "input": "take locket",
+          "output": "You take family locket from steamer trunk.\nYou found your grandmother's heirloom.\nYou lift the locket from the trunk. Inside, your grandmother smiles back at you from a faded photograph. This is what she wanted you to have.\n",
+          "passed": true,
+          "skipped": false,
+          "assertions": [
+            {
+              "type": "ok-contains",
+              "passed": true,
+              "value": "locket"
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "passed": 34,
+        "failed": 0,
+        "skipped": 0,
+        "duration": 304
+      }
+    }
+  ],
+  "summary": {
+    "totalPassed": 137,
+    "totalFailed": 0,
+    "totalSkipped": 0,
+    "totalDuration": 1360
+  }
+}
