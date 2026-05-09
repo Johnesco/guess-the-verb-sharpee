@@ -1,6 +1,6 @@
 {
   "storyId": "guess-the-verb-sharpee",
-  "timestamp": "2026-04-18T06:02:53.652Z",
+  "timestamp": "2026-05-09T21:13:36.104Z",
   "transcripts": [
     {
       "file": "naive-playthrough.transcript",
@@ -30,7 +30,7 @@
               "value": "doorbell"
             }
           ],
-          "comment": "A naive player looks around first"
+          "comment": "# Front Porch — fumbling around\nA naive player looks around first"
         },
         {
           "lineNumber": 16,
@@ -59,8 +59,7 @@
               "passed": true,
               "value": "brass"
             }
-          ],
-          "comment": "# Front Porch — fumbling around"
+          ]
         },
         {
           "lineNumber": 23,
@@ -140,7 +139,7 @@
         {
           "lineNumber": 43,
           "input": "unlock door with key",
-          "output": "You unlock front door with iron key.\n",
+          "output": "You unlock the front door with the iron key.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -155,7 +154,7 @@
         {
           "lineNumber": 46,
           "input": "open door",
-          "output": "You open front door.\n",
+          "output": "You open the front door.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -193,7 +192,7 @@
               "value": "overcoat"
             }
           ],
-          "comment": "They see the overcoat mentioned and try natural verbs"
+          "comment": "# Hallway — searching and climbing\nThey see the overcoat mentioned and try natural verbs"
         },
         {
           "lineNumber": 59,
@@ -219,7 +218,14 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "up",
+                "Up",
+                "UP",
+                "stairs",
+                "Attic"
+              ]
             }
           ],
           "comment": "They see a staircase mentioned, try to climb it"
@@ -252,7 +258,7 @@
               "value": "Hallway"
             }
           ],
-          "comment": "They went up, now back down to continue exploring"
+          "comment": "# Study — fire and painting puzzles\nThey went up, now back down to continue exploring"
         },
         {
           "lineNumber": 76,
@@ -266,13 +272,12 @@
               "passed": true,
               "value": "Study"
             }
-          ],
-          "comment": "# Study — fire and painting puzzles"
+          ]
         },
         {
           "lineNumber": 80,
           "input": "open desk",
-          "output": "You open heavy desk.\nInside the heavy desk you see winding key.\n",
+          "output": "You open the heavy desk.\nInside the heavy desk you see winding key.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -287,13 +292,17 @@
         {
           "lineNumber": 84,
           "input": "take winding key",
-          "output": "You take winding key from heavy desk.\n",
+          "output": "You take the winding key from the heavy desk.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Taken",
+                "winding"
+              ]
             }
           ],
           "comment": "Take what's inside"
@@ -307,7 +316,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "painting",
+                "safe",
+                "wall"
+              ]
             }
           ],
           "comment": "They see a painting and try to look behind it"
@@ -321,7 +335,15 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "fire",
+                "match",
+                "glow",
+                "warmth",
+                "7",
+                "hearthstone"
+              ]
             }
           ],
           "comment": "They notice the fireplace and try to light it"
@@ -350,7 +372,13 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Click",
+                "click",
+                "open",
+                "safe"
+              ]
             }
           ],
           "comment": "They know the combo now, try to open the safe"
@@ -358,13 +386,18 @@
         {
           "lineNumber": 104,
           "input": "take spring",
-          "output": "You take clock spring from wall safe.\n",
+          "output": "You take the clock spring from the wall safe.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Taken",
+                "spring",
+                "clock"
+              ]
             }
           ],
           "comment": "Take what's inside"
@@ -396,8 +429,7 @@
               "passed": true,
               "value": "Kitchen"
             }
-          ],
-          "comment": "# Hallway — searching and climbing"
+          ]
         },
         {
           "lineNumber": 115,
@@ -437,7 +469,13 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "dig",
+                "flower",
+                "earth",
+                "soft"
+              ]
             }
           ],
           "comment": "A naive player might just type \"dig\" with no target"
@@ -451,7 +489,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "mechanism",
+                "brass",
+                "music"
+              ]
             }
           ],
           "comment": "Or they might try \"dig flower bed\""
@@ -531,7 +574,7 @@
         {
           "lineNumber": 148,
           "input": "take music box",
-          "output": "You take old music box from dusty shelf.\n",
+          "output": "You take the old music box from the dusty shelf.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -545,7 +588,7 @@
         {
           "lineNumber": 151,
           "input": "put mechanism in music box",
-          "output": "You put brass mechanism in old music box.\n",
+          "output": "You put the brass mechanism in the old music box.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -559,7 +602,7 @@
         {
           "lineNumber": 154,
           "input": "put spring in music box",
-          "output": "You put clock spring in old music box.\n",
+          "output": "You put the clock spring in the old music box.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -579,7 +622,13 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "melody",
+                "wind",
+                "release",
+                "trunk"
+              ]
             }
           ],
           "comment": "Now wind it"
@@ -593,7 +642,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "open",
+                "trunk",
+                "locket"
+              ]
             }
           ],
           "comment": "The trunk opened! A naive player opens it"
@@ -601,7 +655,7 @@
         {
           "lineNumber": 165,
           "input": "take locket",
-          "output": "You take family locket from steamer trunk.\nYou found your grandmother's heirloom.\nYou lift the locket from the trunk. Inside, your grandmother smiles back at you from a faded photograph. This is what she wanted you to have.\n",
+          "output": "You take the family locket from the steamer trunk.\nYou found your grandmother's heirloom.\nYou lift the locket from the trunk. Inside, your grandmother smiles back at you from a faded photograph. This is what she wanted you to have.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -617,7 +671,7 @@
         "passed": 41,
         "failed": 0,
         "skipped": 0,
-        "duration": 408
+        "duration": 171
       }
     },
     {
@@ -678,7 +732,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "brass",
+                "button",
+                "doorbell"
+              ]
             }
           ],
           "comment": "Alternate nouns for doorbell"
@@ -692,7 +751,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "brass",
+                "button",
+                "doorbell"
+              ]
             }
           ]
         },
@@ -705,7 +769,14 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "door",
+                "knock",
+                "no one",
+                "nobody",
+                "locked"
+              ]
             }
           ],
           "comment": "Natural verb: knock"
@@ -719,7 +790,14 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "doormat",
+                "key",
+                "flip",
+                "can't",
+                "don't understand"
+              ]
             }
           ],
           "comment": "\"flip\" the mat — physical manipulation (parser doesn't know \"flip\")"
@@ -733,7 +811,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "key",
+                "doormat",
+                "under"
+              ]
             }
           ],
           "comment": "\"check under\" — natural search phrasing"
@@ -747,7 +830,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "key",
+                "use",
+                "can't see"
+              ]
             }
           ],
           "comment": "Use-based phrasing (very common from non-IF players)"
@@ -789,14 +877,20 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "unlock",
+                "key",
+                "door",
+                "use"
+              ]
             }
           ]
         },
         {
           "lineNumber": 51,
           "input": "unlock door with key",
-          "output": "You unlock front door with iron key.\n",
+          "output": "You unlock the front door with the iron key.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -810,7 +904,7 @@
         {
           "lineNumber": 54,
           "input": "open door",
-          "output": "You open front door.\n",
+          "output": "You open the front door.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -844,10 +938,15 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "overcoat",
+                "coat",
+                "wool"
+              ]
             }
           ],
-          "comment": "\"coat\" for \"overcoat\""
+          "comment": "# Hallway — alternate nouns and search phrasing\n\"coat\" for \"overcoat\""
         },
         {
           "lineNumber": 67,
@@ -858,7 +957,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "overcoat",
+                "coat",
+                "wool"
+              ]
             }
           ],
           "comment": "\"check\" as examine synonym"
@@ -872,7 +976,13 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "pockets",
+                "matches",
+                "matchbook",
+                "overcoat"
+              ]
             }
           ],
           "comment": "Part-of-noun: pockets"
@@ -886,10 +996,14 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "matches",
+                "matchbook",
+                "pockets"
+              ]
             }
-          ],
-          "comment": "# Hallway — alternate nouns and search phrasing"
+          ]
         },
         {
           "lineNumber": 79,
@@ -900,10 +1014,18 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Attic",
+                "up",
+                "UP",
+                "stairs",
+                "can't",
+                "which direction"
+              ]
             }
           ],
-          "comment": "\"go upstairs\" — not recognized as direction"
+          "comment": "Direction synonyms\n\"go upstairs\" — not recognized as direction"
         },
         {
           "lineNumber": 83,
@@ -914,7 +1036,14 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Attic",
+                "up",
+                "UP",
+                "can't",
+                "don't understand"
+              ]
             }
           ],
           "comment": "\"ascend\" — not a recognized verb"
@@ -937,7 +1066,7 @@
         {
           "lineNumber": 91,
           "input": "open desk",
-          "output": "You open heavy desk.\nInside the heavy desk you see winding key.\n",
+          "output": "You open the heavy desk.\nInside the heavy desk you see winding key.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -946,19 +1075,22 @@
               "passed": true,
               "value": "open"
             }
-          ],
-          "comment": "Direction synonyms"
+          ]
         },
         {
           "lineNumber": 94,
           "input": "take winding key",
-          "output": "You take winding key from heavy desk.\n",
+          "output": "You take the winding key from the heavy desk.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Taken",
+                "winding"
+              ]
             }
           ]
         },
@@ -971,7 +1103,13 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "painting",
+                "portrait",
+                "picture",
+                "oil"
+              ]
             }
           ],
           "comment": "\"picture\" and \"portrait\" for painting"
@@ -985,7 +1123,13 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "painting",
+                "portrait",
+                "picture",
+                "oil"
+              ]
             }
           ]
         },
@@ -998,7 +1142,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "painting",
+                "safe",
+                "wall"
+              ]
             }
           ],
           "comment": "\"look behind\" — very natural English"
@@ -1012,7 +1161,14 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "painting",
+                "safe",
+                "wall",
+                "can't",
+                "slide"
+              ]
             }
           ],
           "comment": "\"slide\" the painting"
@@ -1026,7 +1182,15 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "fire",
+                "match",
+                "glow",
+                "warmth",
+                "can't",
+                "ignite"
+              ]
             }
           ],
           "comment": "Fire verbs — \"start fire\", \"ignite\""
@@ -1040,7 +1204,14 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "fire",
+                "match",
+                "burn",
+                "what",
+                "can't"
+              ]
             }
           ]
         },
@@ -1053,7 +1224,15 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "fire",
+                "match",
+                "glow",
+                "warmth",
+                "7",
+                "hearthstone"
+              ]
             }
           ]
         },
@@ -1066,10 +1245,19 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "hearthstone",
+                "hearth",
+                "fireplace",
+                "flames",
+                "fire",
+                "stone",
+                "7"
+              ]
             }
           ],
-          "comment": "\"hearth\" resolves to fireplace, not hearthstone"
+          "comment": "Alternate nouns for hearthstone\n\"hearth\" resolves to fireplace, not hearthstone"
         },
         {
           "lineNumber": 129,
@@ -1080,10 +1268,20 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "safe",
+                "combo",
+                "combination",
+                "locked",
+                "dial",
+                "Click",
+                "already",
+                "open"
+              ]
             }
           ],
-          "comment": "(Note: safe was already opened by dial, so \"open safe\" on already-open safe = blank — engine bug)"
+          "comment": "Try opening safe before combo — should say something about needing the combo\n(Note: safe was already opened by dial, so \"open safe\" on already-open safe = blank — engine bug)"
         },
         {
           "lineNumber": 132,
@@ -1094,24 +1292,31 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Click",
+                "click",
+                "open"
+              ]
             }
-          ],
-          "comment": "Try opening safe before combo — should say something about needing the combo"
+          ]
         },
         {
           "lineNumber": 135,
           "input": "take clock spring",
-          "output": "You take clock spring from wall safe.\n",
+          "output": "You take the clock spring from the wall safe.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Taken",
+                "spring"
+              ]
             }
-          ],
-          "comment": "Alternate nouns for hearthstone"
+          ]
         },
         {
           "lineNumber": 140,
@@ -1151,7 +1356,14 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "faucet",
+                "water",
+                "tap",
+                "turn",
+                "can't"
+              ]
             }
           ],
           "comment": "Kitchen atmospheric attempts"
@@ -1159,13 +1371,18 @@
         {
           "lineNumber": 150,
           "input": "read recipe",
-          "output": "Recipe card reads:\nLavender shortbread -- butter, sugar, flour, and dried lavender from the garden.\n",
+          "output": "The recipe card reads:\nLavender shortbread -- butter, sugar, flour, and dried lavender from the garden.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "recipe",
+                "read",
+                "can't see"
+              ]
             }
           ]
         },
@@ -1207,7 +1424,13 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "trowel",
+                "dig",
+                "use",
+                "can't"
+              ]
             }
           ],
           "comment": "\"use trowel\" — generic USE"
@@ -1221,7 +1444,14 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "dig",
+                "flower",
+                "earth",
+                "mechanism",
+                "soft"
+              ]
             }
           ],
           "comment": "Alternate dig nouns"
@@ -1235,7 +1465,15 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "dig",
+                "flower",
+                "earth",
+                "mechanism",
+                "soft",
+                "ground"
+              ]
             }
           ]
         },
@@ -1248,7 +1486,15 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "dig",
+                "flower",
+                "earth",
+                "mechanism",
+                "soft",
+                "soil"
+              ]
             }
           ]
         },
@@ -1261,7 +1507,14 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "dig",
+                "flower",
+                "mechanism",
+                "excavate",
+                "can't"
+              ]
             }
           ],
           "comment": "\"excavate\" as dig synonym"
@@ -1275,7 +1528,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Taken",
+                "mechanism",
+                "already"
+              ]
             }
           ]
         },
@@ -1325,7 +1583,7 @@
         {
           "lineNumber": 193,
           "input": "take music box",
-          "output": "You take old music box from dusty shelf.\n",
+          "output": "You take the old music box from the dusty shelf.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -1339,13 +1597,20 @@
         {
           "lineNumber": 197,
           "input": "attach mechanism to music box",
-          "output": "You put brass mechanism in old music box.\n",
+          "output": "You put the brass mechanism in the old music box.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "mechanism",
+                "attach",
+                "put",
+                "music box",
+                "can't"
+              ]
             }
           ],
           "comment": "Assembly synonyms"
@@ -1353,7 +1618,7 @@
         {
           "lineNumber": 200,
           "input": "put mechanism in music box",
-          "output": "(first taking the brass mechanism)\nYou take brass mechanism from old music box.\nYou put brass mechanism in old music box.\n",
+          "output": "(first taking the brass mechanism)\nYou take the brass mechanism from the old music box.\nYou put the brass mechanism in the old music box.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -1367,13 +1632,20 @@
         {
           "lineNumber": 204,
           "input": "install spring in music box",
-          "output": "You put clock spring in old music box.\n",
+          "output": "You put the clock spring in the old music box.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "spring",
+                "install",
+                "put",
+                "music box",
+                "can't"
+              ]
             }
           ],
           "comment": "\"install\" as insert synonym"
@@ -1381,7 +1653,7 @@
         {
           "lineNumber": 207,
           "input": "put spring in music box",
-          "output": "(first taking the clock spring)\nYou take clock spring from old music box.\nYou put clock spring in old music box.\n",
+          "output": "(first taking the clock spring)\nYou take the clock spring from the old music box.\nYou put the clock spring in the old music box.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -1401,7 +1673,14 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "music box",
+                "fix",
+                "repair",
+                "can't",
+                "wind"
+              ]
             }
           ],
           "comment": "\"fix\" / \"repair\" as assembly verbs"
@@ -1415,7 +1694,13 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "melody",
+                "crank",
+                "wind",
+                "can't"
+              ]
             }
           ],
           "comment": "Wind variations"
@@ -1429,7 +1714,14 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "melody",
+                "wind",
+                "release",
+                "trunk",
+                "can't"
+              ]
             }
           ]
         },
@@ -1442,7 +1734,14 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "melody",
+                "wind",
+                "release",
+                "trunk",
+                "key"
+              ]
             }
           ]
         },
@@ -1455,7 +1754,13 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "melody",
+                "wind",
+                "release",
+                "trunk"
+              ]
             }
           ]
         },
@@ -1468,14 +1773,19 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "open",
+                "trunk",
+                "locket"
+              ]
             }
           ]
         },
         {
           "lineNumber": 230,
           "input": "take locket",
-          "output": "You take family locket from steamer trunk.\nYou found your grandmother's heirloom.\nYou lift the locket from the trunk. Inside, your grandmother smiles back at you from a faded photograph. This is what she wanted you to have.\n",
+          "output": "You take the family locket from the steamer trunk.\nYou found your grandmother's heirloom.\nYou lift the locket from the trunk. Inside, your grandmother smiles back at you from a faded photograph. This is what she wanted you to have.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -1491,7 +1801,7 @@
         "passed": 62,
         "failed": 0,
         "skipped": 0,
-        "duration": 648
+        "duration": 134
       }
     },
     {
@@ -1633,7 +1943,7 @@
         {
           "lineNumber": 41,
           "input": "unlock door with key",
-          "output": "You unlock front door with iron key.\n",
+          "output": "You unlock the front door with the iron key.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -1647,7 +1957,7 @@
         {
           "lineNumber": 44,
           "input": "open door",
-          "output": "You open front door.\n",
+          "output": "You open the front door.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -1681,10 +1991,16 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "matchbook",
+                "matches",
+                "pockets",
+                "overcoat"
+              ]
             }
           ],
-          "comment": "SEARCH synonyms"
+          "comment": "# Hallway — search synonyms\nSEARCH synonyms"
         },
         {
           "lineNumber": 58,
@@ -1704,7 +2020,7 @@
         {
           "lineNumber": 61,
           "input": "open desk",
-          "output": "You open heavy desk.\nInside the heavy desk you see winding key.\n",
+          "output": "You open the heavy desk.\nInside the heavy desk you see winding key.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -1713,19 +2029,22 @@
               "passed": true,
               "value": "open"
             }
-          ],
-          "comment": "# Hallway — search synonyms"
+          ]
         },
         {
           "lineNumber": 64,
           "input": "take winding key",
-          "output": "You take winding key from heavy desk.\n",
+          "output": "You take the winding key from the heavy desk.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Taken",
+                "winding"
+              ]
             }
           ]
         },
@@ -1738,7 +2057,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "painting",
+                "safe",
+                "wall"
+              ]
             }
           ],
           "comment": "PUSH/MOVE synonyms on painting"
@@ -1752,7 +2076,13 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "fire",
+                "match",
+                "glow",
+                "warmth"
+              ]
             }
           ],
           "comment": "BURN synonyms"
@@ -1766,20 +2096,29 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Click",
+                "click",
+                "open"
+              ]
             }
           ]
         },
         {
           "lineNumber": 78,
           "input": "take clock spring",
-          "output": "You take clock spring from wall safe.\n",
+          "output": "You take the clock spring from the wall safe.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "Taken",
+                "spring"
+              ]
             }
           ]
         },
@@ -1849,7 +2188,13 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "mechanism",
+                "brass",
+                "dig",
+                "soft"
+              ]
             }
           ],
           "comment": "DIG synonyms"
@@ -1914,7 +2259,7 @@
         {
           "lineNumber": 113,
           "input": "take music box",
-          "output": "You take old music box from dusty shelf.\n",
+          "output": "You take the old music box from the dusty shelf.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -1928,7 +2273,7 @@
         {
           "lineNumber": 117,
           "input": "put mechanism in music box",
-          "output": "You put brass mechanism in old music box.\n",
+          "output": "You put the brass mechanism in the old music box.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -1943,7 +2288,7 @@
         {
           "lineNumber": 120,
           "input": "put spring in music box",
-          "output": "You put clock spring in old music box.\n",
+          "output": "You put the clock spring in the old music box.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -1963,7 +2308,12 @@
           "assertions": [
             {
               "type": "ok-contains-any",
-              "passed": true
+              "passed": true,
+              "values": [
+                "melody",
+                "release",
+                "trunk"
+              ]
             }
           ],
           "comment": "WIND synonyms"
@@ -1971,7 +2321,7 @@
         {
           "lineNumber": 127,
           "input": "take locket",
-          "output": "You take family locket from steamer trunk.\nYou found your grandmother's heirloom.\nYou lift the locket from the trunk. Inside, your grandmother smiles back at you from a faded photograph. This is what she wanted you to have.\n",
+          "output": "You take the family locket from the steamer trunk.\nYou found your grandmother's heirloom.\nYou lift the locket from the trunk. Inside, your grandmother smiles back at you from a faded photograph. This is what she wanted you to have.\n",
           "passed": true,
           "skipped": false,
           "assertions": [
@@ -1987,7 +2337,7 @@
         "passed": 34,
         "failed": 0,
         "skipped": 0,
-        "duration": 304
+        "duration": 75
       }
     }
   ],
@@ -1995,6 +2345,6 @@
     "totalPassed": 137,
     "totalFailed": 0,
     "totalSkipped": 0,
-    "totalDuration": 1360
+    "totalDuration": 380
   }
 }
