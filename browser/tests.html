@@ -1,1419 +1,895 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Tests</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en"><head><meta charset="utf-8"><title>Tests — guess-the-verb-sharpee</title><style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #6b6b6b;
+  --pass: #1a7f37;
+  --pass-bg: #dcffe4;
+  --fail: #b81a3e;
+  --fail-bg: #ffd9e0;
+  --warn: #b87800;
+  --code-bg: #f1efe9;
+  --line: #d8d4cb;
+  --accent: #4a3a25;
+  --hover: #f3efe8;
+  /* Game text — what the interpreter prints. Monospace, slightly warm. */
+  --game-font: ui-monospace, "SF Mono", "Cascadia Code", "Fira Code", Consolas, monospace;
+  /* Test/UI text — labels, counts, status. Proportional. */
+  --ui-font: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+  /* Mono used inside UI for things that quote literal game/assertion text. */
+  --mono: ui-monospace, "SF Mono", Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.5 var(--ui-font);
+  padding: 24px 32px 64px;
+  max-width: 1100px;
+}
+h1 { font-size: 22px; margin: 0 0 4px; font-weight: 600; }
+h2 {
+  font-size: 13px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  color: var(--muted);
+  margin: 32px 0 10px; padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
+h3 { font-size: 16px; margin: 0 0 4px; font-weight: 600; }
+h4 {
+  font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  color: var(--muted);
+  margin: 14px 0 6px;
+}
+h4:first-child { margin-top: 0; }
+.subtitle { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
 
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ─── summary card ─────────────────────────────────────────────── */
+.summary {
+  display: flex; gap: 24px; flex-wrap: wrap;
+  padding: 12px 16px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.summary .item { display: flex; align-items: baseline; gap: 6px; }
+.summary .num { font-size: 22px; font-weight: 600; }
+.summary .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+.summary .pass-num { color: var(--pass); }
+.summary .fail-num { color: var(--fail); }
 
-html, body {
-  height: 100%;
-  background: #0a0a0a;
-  color: #d4c5a9;
-  font-family: Georgia, "Times New Roman", serif;
+/* ─── games card ───────────────────────────────────────────────── */
+.games {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 4px 16px;
+}
+.game-row {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 16px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.game-row:last-child { border-bottom: none; }
+.game-name { font-weight: 600; font-family: var(--mono); }
+.game-paths { font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+.game-paths .relpath { color: var(--accent); }
+.game-paths .abspath { display: block; margin-top: 2px; }
+.game-paths .seed { color: var(--warn); margin-left: 8px; }
+
+.glyph { display: inline-block; width: 16px; text-align: center; font-weight: 700; }
+.glyph.pass { color: var(--pass); }
+.glyph.fail { color: var(--fail); }
+.glyph.error { color: var(--fail); }
+.outcome-walkthrough { color: var(--pass); font-weight: 600; }
+.outcome-scenario { color: var(--muted); }
+.outcome-error { color: var(--fail); font-weight: 600; }
+
+/* ─── test list (collapsible per-test cards) ─────────────────── */
+.tests { background: transparent; border: none; }
+details.test {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-bottom: 18px;
   overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
 }
 
-/* --- Layout --- */
-.container {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-}
-
-/* --- Status banner --- */
-.status-banner {
-  padding: 6px 20px;
-  font-family: "SF Mono", "Fira Code", Consolas, "Courier New", monospace;
-  font-size: 0.82em;
-  letter-spacing: 0.3px;
-  text-align: center;
-  flex-shrink: 0;
-}
-
-.status-banner.all-passed {
-  background: #141e12;
-  border-bottom: 1px solid #2a3a20;
-  color: #8bab6e;
-}
-
-.status-banner.has-failures {
-  background: #1e1410;
-  border-bottom: 1px solid #3a2418;
-  color: #cc6644;
-}
-
-.status-banner.no-data {
-  background: #1a1810;
-  border-bottom: 1px solid #2a2418;
-  color: #887755;
-}
-
-/* --- Body layout --- */
-.body-wrap {
-  display: flex;
-  flex: 1;
-  overflow: hidden;
-}
-
-/* --- Sidebar --- */
-.sidebar {
-  width: 260px;
-  min-width: 260px;
-  background: #0e0e0c;
-  border-right: 1px solid #1e1a14;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.sidebar-header {
-  padding: 16px 16px 12px;
-  border-bottom: 1px solid #1e1a14;
-}
-
-.sidebar-header h1 {
-  font-size: 0.95em;
-  color: #c4b48a;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
-}
-
-.sidebar-header .timestamp {
-  font-size: 0.75em;
-  color: #665544;
-  font-family: "SF Mono", "Fira Code", Consolas, "Courier New", monospace;
-}
-
-.nav {
-  flex: 1;
-  overflow-y: auto;
-  padding: 8px 0;
-}
-
-.nav::-webkit-scrollbar { width: 6px; }
-.nav::-webkit-scrollbar-track { background: #0e0e0c; }
-.nav::-webkit-scrollbar-thumb { background: #2a2418; border-radius: 3px; }
-
-.nav-group {
-  margin-bottom: 4px;
-}
-
-.nav-transcript {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 16px;
-  font-family: "SF Mono", "Fira Code", Consolas, "Courier New", monospace;
-  font-size: 0.75em;
-  color: #998866;
-  text-decoration: none;
+/* Heavy, inverted-color title bar so it's unmistakable when scrolling
+   between multiple open tests where one ends and the next begins. */
+summary.test-summary {
   cursor: pointer;
-  border-left: 2px solid transparent;
-  transition: background 0.1s, color 0.1s;
-}
-
-.nav-transcript:hover {
-  background: #151510;
-  color: #c4b48a;
-}
-
-.nav-transcript.active {
-  background: #18160f;
-  color: #e8d090;
-  border-left-color: #e8d090;
-}
-
-.nav-transcript .nav-file {
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.nav-badge {
-  font-size: 0.85em;
-  padding: 1px 6px;
-  border-radius: 3px;
-  font-weight: bold;
-  flex-shrink: 0;
-}
-
-.nav-badge.pass {
-  background: #1a2a16;
-  color: #8bab6e;
-}
-
-.nav-badge.fail {
-  background: #2a1810;
-  color: #cc6644;
-}
-
-.nav-commands {
-  padding-left: 8px;
-  display: none;
-}
-
-.nav-transcript.active + .nav-commands,
-.nav-commands.expanded {
-  display: block;
-}
-
-.nav-cmd {
-  display: flex;
+  padding: 18px 22px;
+  display: grid;
+  grid-template-columns: 18px 28px minmax(160px, 1fr) auto;
+  gap: 16px;
   align-items: center;
-  gap: 6px;
-  padding: 3px 16px 3px 28px;
-  font-family: "SF Mono", "Fira Code", Consolas, "Courier New", monospace;
-  font-size: 0.7em;
-  color: #776655;
+  user-select: none;
+  list-style: none;
+  background: #2b231a;
+  color: #fafafa;
+  border-left: 6px solid var(--pass);
+}
+details.test[data-status="fail"] summary.test-summary {
+  background: #4a1626;
+  border-left-color: var(--fail);
+}
+summary.test-summary::-webkit-details-marker { display: none; }
+summary.test-summary::before {
+  content: "▶";
+  color: rgba(255,255,255,0.55);
+  font-size: 12px;
+  transition: transform 0.15s;
+}
+details.test[open] > summary.test-summary::before { transform: rotate(90deg); }
+summary.test-summary:hover { filter: brightness(1.18); }
+summary.test-summary .glyph { font-size: 22px; }
+summary.test-summary .glyph.pass { color: #6fcf97; }
+summary.test-summary .glyph.fail { color: #ff7a91; }
+.test-name {
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.2px;
+}
+.test-summary-meta {
+  color: rgba(255,255,255,0.78);
+  font-size: 13.5px;
+  font-variant-numeric: tabular-nums;
+}
+.test-summary-meta .outcome-walkthrough { color: #6fcf97; font-weight: 600; }
+.test-summary-meta .outcome-scenario { color: rgba(255,255,255,0.72); }
+.test-summary-meta .outcome-error { color: #ff7a91; font-weight: 600; }
+
+.test-body {
+  padding: 0;
+  background: white;
+}
+
+/* ─── setup section (.before turns) ──────────────────────────── */
+details.setup {
+  background: #f7f3ea;
+  border-bottom: 1px solid var(--line);
+}
+summary.setup-summary {
   cursor: pointer;
-  transition: background 0.1s, color 0.1s;
-}
-
-.nav-cmd:hover {
-  background: #151510;
-  color: #aa9966;
-}
-
-.nav-cmd.active {
-  color: #c4b48a;
-}
-
-.nav-cmd-icon {
-  flex-shrink: 0;
-  font-size: 0.9em;
-}
-
-.nav-cmd-icon.pass { color: #8bab6e; }
-.nav-cmd-icon.fail { color: #cc6644; }
-
-.nav-cmd-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-/* --- Main content --- */
-.main {
-  flex: 1;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.toolbar {
-  padding: 8px 20px;
-  background: #0e0e0c;
-  border-bottom: 1px solid #1e1a14;
+  list-style: none;
+  padding: 10px 22px;
+  font-size: 12.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  font-weight: 600;
+  user-select: none;
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.85em;
-  color: #887755;
   flex-wrap: wrap;
 }
-
-.toggle-btn {
-  background: #1a1810;
-  border: 1px solid #2a2418;
-  border-radius: 4px;
-  color: #887755;
-  font-family: inherit;
-  font-size: 0.85em;
-  padding: 3px 12px;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
-  white-space: nowrap;
-}
-
-.toggle-btn:hover {
-  background: #2a2010;
-  color: #c4b48a;
-  border-color: #7a6a50;
-}
-
-.toggle-btn.active {
-  background: #2a2010;
-  border-color: #5a4a30;
-  color: #e8d090;
-}
-
-.search-box {
-  background: #111;
-  border: 1px solid #2a2418;
-  border-radius: 4px;
-  color: #d4c5a9;
-  font-family: "SF Mono", "Fira Code", Consolas, "Courier New", monospace;
-  font-size: 0.9em;
-  padding: 3px 8px;
-  width: 180px;
-  outline: none;
-}
-
-.search-box:focus {
-  border-color: #7a6a50;
-}
-
-.search-box::placeholder {
-  color: #554433;
-}
-
-.toolbar .spacer {
-  flex: 1;
-}
-
-.total-badge {
-  font-family: "SF Mono", "Fira Code", Consolas, "Courier New", monospace;
-  font-size: 0.9em;
-  padding: 2px 10px;
-  border-radius: 4px;
-  font-weight: bold;
-}
-
-.total-badge.all-pass {
-  background: #1a2a16;
-  color: #8bab6e;
-}
-
-.total-badge.has-fail {
-  background: #2a1810;
-  color: #cc6644;
-}
-
-.content-wrap {
-  flex: 1;
-  overflow: auto;
-  padding: 24px 40px 40px;
-}
-
-.content-wrap::-webkit-scrollbar { width: 8px; }
-.content-wrap::-webkit-scrollbar-track { background: #0a0a0a; }
-.content-wrap::-webkit-scrollbar-thumb { background: #2a2418; border-radius: 4px; }
-.content-wrap::-webkit-scrollbar-thumb:hover { background: #3a3020; }
-
-/* --- Summary view --- */
-.summary-card {
-  background: #0e0e0c;
-  border: 1px solid #1e1a14;
-  border-radius: 6px;
-  padding: 20px 24px;
-  margin-bottom: 16px;
-}
-
-.summary-card-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  gap: 12px;
-}
-
-.summary-card-title {
-  font-size: 1.05em;
-  font-weight: bold;
-  color: #e8d8b0;
-}
-
-.summary-card-desc {
-  font-size: 0.85em;
-  color: #887755;
-  margin-top: 2px;
-  line-height: 1.4;
-}
-
-.summary-card-badges {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.badge {
-  font-family: "SF Mono", "Fira Code", Consolas, "Courier New", monospace;
-  font-size: 0.8em;
-  padding: 2px 8px;
-  border-radius: 3px;
-  font-weight: bold;
-}
-
-.badge.pass {
-  background: #1a2a16;
-  color: #8bab6e;
-}
-
-.badge.fail {
-  background: #2a1810;
-  color: #cc6644;
-}
-
-.badge.skip {
-  background: #1a1810;
-  color: #887755;
-}
-
-.badge.duration {
-  background: #1a1810;
-  color: #887755;
-  font-weight: normal;
-}
-
-.summary-commands {
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid #1e1a14;
-}
-
-.summary-cmd {
-  display: flex;
-  align-items: baseline;
-  padding: 3px 0;
-  font-family: "SF Mono", "Fira Code", Consolas, "Courier New", monospace;
-  font-size: 0.82em;
-  line-height: 1.5;
-}
-
-.summary-cmd-icon {
-  width: 20px;
-  flex-shrink: 0;
-  text-align: center;
-}
-
-.summary-cmd-icon.pass { color: #8bab6e; }
-.summary-cmd-icon.fail { color: #cc6644; }
-
-.summary-cmd-num {
-  min-width: 28px;
-  text-align: right;
-  padding-right: 10px;
-  color: #7a6a50;
-  user-select: none;
-  font-size: 0.85em;
-}
-
-.summary-cmd-prompt {
-  color: #5a4a30;
-  margin-right: 6px;
-  user-select: none;
-}
-
-.summary-cmd-text {
-  color: #c4b48a;
-}
-
-.summary-cmd-text.fail {
-  color: #cc6644;
-}
-
-.summary-cmd-assert-count {
+.setup-end-state {
   margin-left: auto;
-  color: #665544;
-  font-size: 0.85em;
-  padding-left: 12px;
-  white-space: nowrap;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  color: var(--muted);
+  font-family: var(--ui-font);
+  font-size: 12.5px;
+}
+.setup-end-room {
+  color: #6b3a8a;
+  font-family: var(--mono);
+}
+summary.setup-summary::-webkit-details-marker { display: none; }
+summary.setup-summary::before {
+  content: "▶";
+  font-size: 9px;
+  color: var(--muted);
+  transition: transform 0.15s;
+}
+details.setup[open] > summary.setup-summary::before { transform: rotate(90deg); }
+summary.setup-summary:hover { background: var(--hover); }
+.setup-count { color: var(--accent); }
+.setup-files { color: var(--muted); font-weight: 400; text-transform: none; letter-spacing: 0; font-family: var(--mono); }
+ul.setup-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #fdfbf6;
+  border-top: 1px dashed var(--line);
+}
+li.setup-step {
+  display: grid;
+  grid-template-columns: 28px 52px 1fr;
+  gap: 10px;
+  padding: 4px 22px 4px 28px;
+  font-family: var(--ui-font);
+  font-size: 13px;
+  color: var(--muted);
+  border-bottom: 1px solid #ebe6d9;
+}
+li.setup-step:last-child { border-bottom: none; }
+li.setup-step .setup-glyph { color: var(--muted); font-family: var(--mono); }
+li.setup-step .setup-tcount { color: var(--muted); font-variant-numeric: tabular-nums; }
+li.setup-step .setup-cmd { color: var(--accent); font-family: var(--mono); }
+li.setup-step .setup-room {
+  color: #6b3a8a;
+  font-family: var(--mono);
+  font-size: 12px;
+  margin-left: 8px;
+  opacity: 0.7;
 }
 
-/* --- Detail view --- */
-.detail-transcript {
-  margin-bottom: 32px;
+/* ─── transcript (per-turn collapsible rows) ─────────────────── */
+.transcript {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: white;
+  border: none;
+  border-radius: 0;
 }
-
-.detail-transcript-header {
-  font-size: 1.15em;
-  font-weight: bold;
-  color: #e8d8b0;
-  margin-bottom: 6px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #2a2418;
+li.turn {
+  border-bottom: 1px solid var(--line);
 }
-
-.detail-transcript-desc {
-  font-size: 0.85em;
-  color: #887755;
-  margin-bottom: 16px;
-  line-height: 1.4;
+li.turn:last-child { border-bottom: none; }
+details.turn-detail[data-status="fail"] {
+  background: var(--fail-bg);
 }
-
-.detail-command {
-  margin-bottom: 12px;
-  padding: 12px 16px;
-  background: #0e0e0c;
-  border: 1px solid #1e1a14;
-  border-radius: 4px;
-}
-
-.detail-command.has-failure {
-  border-color: #3a2418;
-}
-
-.detail-comment {
-  font-size: 0.8em;
-  color: #776655;
-  font-style: italic;
-  margin-bottom: 6px;
-  padding-left: 2px;
-}
-
-.detail-cmd-line {
-  display: flex;
-  align-items: baseline;
-  font-family: "SF Mono", "Fira Code", Consolas, "Courier New", monospace;
-  font-size: 0.9em;
-  margin-bottom: 8px;
-}
-
-.detail-cmd-num {
-  min-width: 28px;
-  text-align: right;
-  padding-right: 10px;
-  color: #7a6a50;
-  user-select: none;
-  font-size: 0.85em;
-}
-
-.detail-cmd-prompt {
-  color: #e8d090;
-  margin-right: 6px;
-  user-select: none;
-  font-weight: bold;
-}
-
-.detail-cmd-text {
-  color: #e8d090;
-  font-weight: bold;
-}
-
-.detail-assertions {
-  margin: 8px 0;
-  padding-left: 38px;
-}
-
-.detail-assertion {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  padding: 2px 0;
-  font-family: "SF Mono", "Fira Code", Consolas, "Courier New", monospace;
-  font-size: 0.82em;
-  line-height: 1.5;
-}
-
-.assert-icon {
-  flex-shrink: 0;
-  font-weight: bold;
-  width: 16px;
-  text-align: center;
-}
-
-.assert-icon.pass { color: #8bab6e; }
-.assert-icon.fail { color: #cc6644; }
-
-.assert-text { color: #b8a888; }
-.assert-text.fail { color: #cc6644; }
-
-.detail-output-toggle {
-  display: inline-block;
-  margin-top: 6px;
-  margin-left: 38px;
-  font-family: "SF Mono", "Fira Code", Consolas, "Courier New", monospace;
-  font-size: 0.78em;
-  color: #665544;
+/* Fixed pixel columns so room / score / turn counter / asserts align
+   vertically down the whole transcript instead of sliding with content.
+   The row is UI text (sans), but the > command and @ room are quoted
+   literal strings so they stay in mono. */
+summary.turn-row {
   cursor: pointer;
-  border-bottom: 1px solid transparent;
+  display: grid;
+  /* Trailing columns are fixed-width so the layout stays stable whether
+     a turn has assertions or not — no horizontal shift between rows. */
+  grid-template-columns:
+    14px              /* disclosure ▶ */
+    52px              /* T:N         */
+    minmax(140px, auto) /* > command */
+    1fr               /* Room name (right-aligned, hugs score column) */
+    78px              /* score N     */
+    40px              /* +N delta    */
+    50px              /* WIN/LOSE    */
+    100px;            /* asserts     */
+  gap: 12px;
+  padding: 10px 16px;
+  align-items: center;
+  font-family: var(--ui-font);
+  font-size: 14px;
+  /* Subtle warm tint distinguishes each turn header from the white
+     turn-body (and the bg-coloured extras section) when scrolling. */
+  background: #f1ebdb;
+  border-top: 1px solid #ddd5c0;
   user-select: none;
-  transition: color 0.1s;
+  list-style: none;
 }
-
-.detail-output-toggle:hover {
-  color: #aa9966;
-  border-bottom-color: #aa9966;
+li.turn:first-child summary.turn-row { border-top: none; }
+details.turn-detail[data-status="fail"] summary.turn-row {
+  background: var(--fail-bg);
+  border-top-color: #f0aab8;
 }
+summary.turn-row::-webkit-details-marker { display: none; }
+summary.turn-row::before {
+  content: "▶";
+  color: var(--muted);
+  font-size: 9px;
+  transition: transform 0.1s;
+}
+details.turn-detail[open] > summary.turn-row::before { transform: rotate(90deg); }
+summary.turn-row:hover { background: var(--hover); }
+details.turn-detail[data-status="fail"] summary.turn-row:hover { background: #ffc6d3; }
+.turn-room, .turn-cmd { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.turn-cmd {
+  font-weight: 600;
+  color: var(--accent);
+  font-family: var(--mono);  /* literal player input */
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.turn-room {
+  color: #6b3a8a;
+  font-family: var(--mono);  /* literal room name from game */
+  text-align: right;          /* hug the score column on the right */
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.room-fp {
+  border-bottom: 1px dotted currentColor;
+  cursor: help;
+}
+.turn-score { color: var(--warn); font-variant-numeric: tabular-nums; }
+.turn-tcount { color: var(--muted); font-variant-numeric: tabular-nums; }
+.turn-delta { color: var(--pass); font-weight: 600; font-variant-numeric: tabular-nums; }
+.turn-delta.neg { color: var(--fail); }
+.turn-outcome { font-weight: 700; }
+.turn-outcome.win { color: var(--pass); }
+.turn-outcome.lose { color: var(--fail); }
+.turn-outcome.end { color: var(--muted); }
+.turn-asserts {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.turn-asserts .pass { color: var(--pass); font-weight: 600; }
+.turn-asserts .fail { color: var(--fail); font-weight: 600; }
+.turn-asserts .pass + .fail { margin-left: 8px; }
 
-.detail-output {
-  display: none;
-  margin-top: 8px;
-  margin-left: 38px;
-  padding: 10px 14px;
-  background: #090908;
-  border: 1px solid #1e1a14;
-  border-radius: 3px;
-  font-family: "SF Mono", "Fira Code", Consolas, "Courier New", monospace;
-  font-size: 0.82em;
-  color: #998866;
+/* ─── transcript-style response ──────────────────────────────── */
+.turn-body { background: white; }
+pre.turn-response, pre.opening-text {
+  margin: 0;
+  padding: 16px 24px 16px 38px;
+  background: white;
+  font-family: var(--game-font);
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #2a2620;
   white-space: pre-wrap;
   word-wrap: break-word;
-  line-height: 1.5;
+  border-top: 1px dashed var(--line);
 }
+pre.turn-response .room-title,
+pre.opening-text .room-title {
+  font-weight: 700;
+  color: var(--accent);
+  display: inline-block;
+}
+li.opening { list-style: none; }
+li.opening pre.opening-text { border-top: none; padding-left: 24px; }
 
-.detail-output.visible {
+/* ─── per-turn extras (assertions, drift, metadata) ──────────── */
+details.turn-extras {
+  border-top: 1px dashed var(--line);
+}
+summary.turn-extras-summary {
+  cursor: pointer;
+  padding: 8px 16px 8px 38px;
+  font-size: 13px;
+  color: var(--muted);
+  user-select: none;
+  list-style: none;
+  font-family: var(--ui-font);
+}
+summary.turn-extras-summary::-webkit-details-marker { display: none; }
+summary.turn-extras-summary::before {
+  content: "▸ ";
+  font-size: 10px;
+}
+details.turn-extras[open] > summary.turn-extras-summary::before { content: "▾ "; }
+summary.turn-extras-summary:hover { background: var(--hover); }
+.turn-extras-body {
+  padding: 10px 24px 14px 38px;
+  background: var(--bg);
+}
+.turn-extras-body h4:first-child { margin-top: 0; }
+
+ul.assertions { margin: 0; padding-left: 4px; list-style: none; }
+ul.assertions li {
+  padding: 6px 0;
+  font-size: 13.5px;
+  font-family: var(--ui-font);  /* labels read as prose, not literal text */
+  position: relative;
+  padding-left: 22px;
+  line-height: 1.45;
+}
+ul.assertions li.pass::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--pass);
+  font-weight: 700;
+  font-size: 14px;
+}
+ul.assertions li.fail::before {
+  content: "✗";
+  position: absolute;
+  left: 0;
+  color: var(--fail);
+  font-weight: 700;
+  font-size: 14px;
+}
+ul.assertions li.pass .label { color: var(--pass); font-weight: 600; }
+ul.assertions li.fail .label { color: var(--fail); font-weight: 600; }
+ul.assertions li .pattern {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  margin-left: 8px;
+  font-weight: 400;
+}
+ul.assertions li .detail {
   display: block;
+  color: var(--fail);
+  margin-top: 2px;
+  font-size: 12px;
+  font-family: var(--mono);
 }
 
-.detail-output .room-name {
-  color: #e8d8b0;
-  font-weight: bold;
+/* Inline match highlight: clicking "show" on an assertion highlights
+   the satisfying span(s) in the game-output block above. Click the same
+   button again to clear; click a different button in the same turn to
+   swap (radio-style). Highlight spans start invisible and only show
+   when activated, so plain reading of the transcript is uncluttered. */
+button.match-toggle {
+  margin-left: 8px;
+  padding: 1px 8px;
+  font-family: var(--ui-font);
+  font-size: 11px;
+  background: white;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  cursor: pointer;
+  vertical-align: 1px;
+}
+button.match-toggle:hover { color: var(--accent); border-color: var(--accent); }
+button.match-toggle.active {
+  background: #ffe88a;
+  color: #5a4400;
+  border-color: #d9b840;
+  font-weight: 700;
+}
+li.fail button.match-toggle.active {
+  background: #ffd9e0;
+  color: var(--fail);
+  border-color: var(--fail);
+}
+.hl {
+  /* baseline: no visual treatment — only highlight when activated */
+}
+.hl.hl-active {
+  background: #ffe88a;
+  color: #5a4400;
+  padding: 1px 2px;
+  border-radius: 2px;
+  font-weight: 700;
+  box-shadow: 0 0 0 1px #d9b840;
+}
+li.fail.matches-active ~ pre.turn-response .hl.hl-active,
+.turn-detail[data-status="fail"] .hl.hl-active.hl-fail {
+  background: #ffd9e0;
+  color: var(--fail);
+  box-shadow: 0 0 0 1px var(--fail);
 }
 
-.detail-output .score-line {
-  color: #aa9966;
-  font-style: italic;
+/* ─── drift diff ──────────────────────────────────────────────── */
+.drift-diff {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 12px 14px;
+  font-family: var(--game-font);  /* it's quoting game text */
+  font-size: 13px;
+  line-height: 1.7;
 }
-
-/* --- Detail collapse/expand --- */
-.detail-command-header { cursor: pointer; user-select: none; }
-.detail-command-header:hover { background: #151510; }
-.detail-command-body { display: none; }
-.detail-command.expanded .detail-command-body { display: block; }
-.detail-command.has-failure .detail-command-body { display: block; }
-.detail-expand-icon { color: #665544; font-size: 0.8em; margin-right: 4px; transition: transform 0.15s; display: inline-block; }
-.detail-command.expanded .detail-expand-icon { transform: rotate(90deg); }
-
-/* --- Failures-only filter --- */
-.detail-command.hidden-by-filter,
-.summary-cmd.hidden-by-filter,
-.summary-card.hidden-by-filter { display: none; }
-
-/* --- Search highlights --- */
-.search-hit {
-  background: #5a4a10;
-  color: #ffe8a0;
+.drift-diff .equal { color: var(--muted); }
+.drift-diff .del {
+  background: var(--fail-bg);
+  color: var(--fail);
+  text-decoration: line-through;
+  padding: 1px 3px;
   border-radius: 2px;
 }
-
-.search-current {
-  background: #7a6a20;
-  outline: 1px solid #aa9930;
+.drift-diff .ins {
+  background: var(--pass-bg);
+  color: var(--pass);
+  padding: 1px 3px;
+  border-radius: 2px;
 }
-
-/* --- Loading / error / empty --- */
-.loading {
-  text-align: center;
-  padding: 80px 40px;
-  color: #887755;
-  font-size: 1.1em;
+.drift-legend {
+  font-size: 11px; color: var(--muted);
+  margin: 4px 0 6px;
+  display: flex; gap: 12px; flex-wrap: wrap;
 }
+.drift-legend .swatch { display: inline-block; padding: 0 4px; border-radius: 2px; margin-right: 4px; }
+.drift-legend .swatch.del { background: var(--fail-bg); color: var(--fail); text-decoration: line-through; }
+.drift-legend .swatch.ins { background: var(--pass-bg); color: var(--pass); }
 
-.loading em {
-  animation: pulse 1.5s ease-in-out infinite;
+.error {
+  background: var(--fail-bg);
+  border: 1px solid var(--fail);
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--fail);
 }
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
+.metadata {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 16px;
+  font-size: 12.5px;
+  font-family: var(--mono);
 }
+.metadata dt { color: var(--muted); }
+.metadata dd { margin: 0; }
+</style></head><body><h1>Tests — guess-the-verb-sharpee</h1><div class="subtitle">generated 2026-05-09 02:04:01 · 3 tests · 1360ms</div><div class="summary"><div class="item"><span class="num pass-num">3</span><span class="label">passed</span></div><div class="item"><span class="num fail-num">0</span><span class="label">failed</span></div><div class="item"><span class="num">0</span><span class="label">walkthroughs</span></div><div class="item"><span class="num">137</span><span class="label">turns</span></div><div class="item"><span class="num">139/139</span><span class="label">assertions</span></div></div><h2>Games under test</h2><div class="games"><div class="game-row"><div class="game-name">guess-the-verb-sharpee</div><div class="game-paths"><span class="relpath">guess-the-verb-sharpee</span><span class="seed">seed: (no seed)</span></div></div></div><h2>Tests</h2><div class="tests"><details class="test" data-status="pass"><summary class="test-summary"><span class="glyph pass">✓</span><span class="test-name">Naive Player Playthrough</span><span class="test-summary-meta">41 turns · <span class="outcome-scenario">scenario</span> · 43/43 ✓ · 408ms</span></summary><div class="test-body"><ul class="transcript"></ul><ul class="transcript"><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:1</span><span class="turn-cmd">&gt; look</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 3/3</span></span></summary><div class="turn-body"><pre class="turn-response">Guess the Verb
+By John Googol
 
-.error-msg {
-  text-align: center;
-  padding: 80px 40px;
-  color: #aa6644;
-}
+Type HELP for instructions.
 
-.empty-msg {
-  text-align: center;
-  padding: 80px 40px;
-  color: #887755;
-}
+<span class="hl" data-asserts="0">Front Porch</span>
 
-.empty-msg h2 {
-  color: #aa9966;
-  font-size: 1.2em;
-  margin-bottom: 16px;
-}
+A sagging wooden porch wraps around the front of the house. A woven <span class="hl" data-asserts="1">doormat</span> lies before the front door. A tarnished brass <span class="hl" data-asserts="2">doorbell</span> is set beside the frame.
 
-.empty-msg p {
-  font-size: 0.95em;
-  line-height: 1.7;
-  max-width: 520px;
-  margin: 0 auto;
-}
+The front door leads inside to the east.
 
-.empty-msg code {
-  font-family: "SF Mono", "Fira Code", Consolas, "Courier New", monospace;
-  font-size: 0.9em;
-  background: #1a1810;
-  padding: 2px 6px;
-  border-radius: 3px;
-  color: #c4b48a;
-}
+You can see front door, woven <span class="hl" data-asserts="1">doormat</span>, brass <span class="hl" data-asserts="2">doorbell</span>, sagging porch here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">3 checks ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Front Porch&quot;</span><span class="pattern">? Front Porch</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li><li class="pass"><span class="label">Contains &quot;doormat&quot;</span><span class="pattern">? doormat</span><button type="button" class="match-toggle" data-assertion-idx="1">show</button></li><li class="pass"><span class="label">Contains &quot;doorbell&quot;</span><span class="pattern">? doorbell</span><button type="button" class="match-toggle" data-assertion-idx="2">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:2</span><span class="turn-cmd">&gt; examine doormat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">A faded <span class="hl" data-asserts="0">doormat</span> reading &#x27;WELCOME&#x27;. One corner is curled up -- something glints underneath.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;doormat&quot;</span><span class="pattern">? doormat</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:3</span><span class="turn-cmd">&gt; examine doorbell</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">A tarnished <span class="hl" data-asserts="0">brass</span> button set into the door frame.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;brass&quot;</span><span class="pattern">? brass</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:4</span><span class="turn-cmd">&gt; ring doorbell</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You press the <span class="hl" data-asserts="0">doorbell</span>. A faint chime echoes inside the house, unanswered.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;doorbell&quot;</span><span class="pattern">? doorbell</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:5</span><span class="turn-cmd">&gt; take mat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You lift the corner of the doormat and find an <span class="hl" data-asserts="0">iron key</span> hidden underneath.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;iron key&quot;</span><span class="pattern">? iron key</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:6</span><span class="turn-cmd">&gt; lift mat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You <span class="hl" data-asserts="0">already</span> found the key here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;already&quot;</span><span class="pattern">? already</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:7</span><span class="turn-cmd">&gt; look under mat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You already found the <span class="hl" data-asserts="0">key</span> here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;key&quot;</span><span class="pattern">? key</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:8</span><span class="turn-cmd">&gt; take key</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Taken</span>.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Taken&quot;</span><span class="pattern">? Taken</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:9</span><span class="turn-cmd">&gt; unlock door with key</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You <span class="hl" data-asserts="0">unlock</span> front door with iron key.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;unlock&quot;</span><span class="pattern">? unlock</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:10</span><span class="turn-cmd">&gt; open door</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You <span class="hl" data-asserts="0">open</span> front door.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;open&quot;</span><span class="pattern">? open</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:11</span><span class="turn-cmd">&gt; east</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Hallway</span>
 
-/* --- Responsive --- */
-@media (max-width: 700px) {
-  .sidebar { display: none; }
-  .content-wrap { padding: 16px 20px 40px; }
-}
-</style>
-</head>
-<body>
+A dim <span class="hl" data-asserts="0">hallway</span> with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
 
-<div class="container">
-  <div class="status-banner no-data" id="status-banner">Loading test results...</div>
-  <div class="body-wrap">
-    <div class="sidebar">
-      <div class="sidebar-header">
-        <h1>Tests</h1>
-        <div class="timestamp" id="sidebar-timestamp"></div>
-      </div>
-      <div class="nav" id="nav"></div>
-    </div>
-    <div class="main">
-      <div class="toolbar">
-        <button class="toggle-btn active" id="btn-summary">Summary</button>
-        <button class="toggle-btn" id="btn-detail">Detail</button>
-        <button class="toggle-btn" id="btn-expand-all" style="display:none">Expand All</button>
-        <button class="toggle-btn" id="btn-collapse-all" style="display:none">Collapse All</button>
-        <button class="toggle-btn" id="btn-failures-only">Failures only</button>
-        <input type="text" class="search-box" id="search" placeholder="Search... (Ctrl+F)">
-        <span class="spacer"></span>
-        <span class="total-badge all-pass" id="total-badge" style="display:none;"></span>
-      </div>
-      <div class="content-wrap" id="content-wrap">
-        <div class="loading"><em>Loading test results...</em></div>
-      </div>
-    </div>
-  </div>
-</div>
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
 
-<script>
-var DATA_URL = 'test-results.json';
-var testData = null;
-var currentView = 'summary';
-var activeTranscriptIndex = -1;
-var failuresOnly = false;
+You can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Hallway&quot;</span><span class="pattern">? Hallway</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:12</span><span class="turn-cmd">&gt; examine overcoat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">A moth-eaten wool <span class="hl" data-asserts="0">overcoat</span>. The pockets look like they might hold something.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;overcoat&quot;</span><span class="pattern">? overcoat</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:13</span><span class="turn-cmd">&gt; search pockets</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You rummage through the overcoat&#x27;s pockets and find a small book of <span class="hl" data-asserts="0">matches</span> from &#x27;The Golden Lantern.&#x27;
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;matches&quot;</span><span class="pattern">? matches</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:14</span><span class="turn-cmd">&gt; climb stairs</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">(Try going UP to climb the stairs.)
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:15</span><span class="turn-cmd">&gt; up</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Attic</span>
 
-function esc(s) {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
+A cramped <span class="hl" data-asserts="0">attic</span> under sloping eaves, thick with dust. A dusty shelf holds an old music box. A heavy steamer trunk sits against the wall.
 
-/* ---- Format assertion type into readable text ---- */
-function formatAssertion(assertion) {
-  var type = assertion.type || '';
-  var value = assertion.value || '';
+The stairs lead back down.
 
-  switch (type) {
-    case 'ok-contains':
-      return 'Contains "' + value + '"';
-    case 'ok-not-contains':
-      return 'Does not contain "' + value + '"';
-    case 'ok-matches':
-      return 'Matches /' + value + '/';
-    case 'ok-starts-with':
-      return 'Starts with "' + value + '"';
-    case 'ok-ends-with':
-      return 'Ends with "' + value + '"';
-    case 'ok-equals':
-      return 'Equals "' + value + '"';
-    case 'event':
-      return 'Event: ' + value;
-    case 'event-not':
-      return 'No event: ' + value;
-    case 'state':
-      return 'State: ' + value;
-    case 'state-not':
-      return 'Not state: ' + value;
-    default:
-      if (type.startsWith('ok')) return type.replace(/^ok-?/, '').replace(/-/g, ' ') + (value ? ' "' + value + '"' : '');
-      return type + (value ? ': ' + value : '');
-  }
-}
+You can see dusty shelf, steamer trunk, sloping eaves here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Attic&quot;</span><span class="pattern">? Attic</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:16</span><span class="turn-cmd">&gt; down</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Hallway</span>
 
-/* ---- Format duration ---- */
-function formatDuration(ms) {
-  if (ms < 1000) return ms + 'ms';
-  return (ms / 1000).toFixed(1) + 's';
-}
+A dim <span class="hl" data-asserts="0">hallway</span> with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
 
-/* ---- Format timestamp ---- */
-function formatTimestamp(isoStr) {
-  try {
-    var d = new Date(isoStr);
-    return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' }) + ' ' +
-           d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
-  } catch (e) {
-    return isoStr || '';
-  }
-}
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
 
-/* ---- Check if a command has any failures ---- */
-function commandFailed(cmd) {
-  if (cmd.passed === false) return true;
-  if (cmd.assertions) {
-    for (var i = 0; i < cmd.assertions.length; i++) {
-      if (!cmd.assertions[i].passed) return true;
-    }
-  }
-  return false;
-}
+You can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Hallway&quot;</span><span class="pattern">? Hallway</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:17</span><span class="turn-cmd">&gt; east</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Study</span>
 
-/* ---- Count assertions in a command ---- */
-function commandAssertionCount(cmd) {
-  return (cmd.assertions && cmd.assertions.length) || 0;
-}
+A wood-paneled <span class="hl" data-asserts="0">study</span> with built-in bookshelves. A heavy desk sits in the center, its drawers shut. An oil painting of a woman hangs on the far wall. A stone fireplace squats in the corner, cold and dark.
 
-/* ---- Classify output lines for highlighting ---- */
-function classifyOutputLine(line, lineIndex, allLines) {
-  if (line.match(/\[Your score/i)) return 'score';
-  if (lineIndex === 0 && line.trim() && !line.match(/^[\[\(]/) && line.length < 80) {
-    if (line.trim().match(/^[A-Z]/) && !line.trim().match(/\.\s*$/)) {
-      var nextLine = (lineIndex + 1 < allLines.length) ? allLines[lineIndex + 1] : '';
-      if (nextLine.match(/^You are |^You're |^$|^This is |^There is /)) return 'room';
-    }
-  }
-  return 'normal';
-}
+The hallway is back to the west.
 
-function renderOutputLine(line, lineIndex, allLines) {
-  var type = classifyOutputLine(line, lineIndex, allLines);
-  if (type === 'score') return '<span class="score-line">' + esc(line) + '</span>';
-  if (type === 'room') return '<span class="room-name">' + esc(line) + '</span>';
-  return esc(line);
-}
+You can see heavy desk, <span class="hl" data-asserts="0">study</span> bookshelves, oil painting, stone fireplace, hearthstone, wood paneling here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Study&quot;</span><span class="pattern">? Study</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:18</span><span class="turn-cmd">&gt; open desk</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You <span class="hl" data-asserts="0">open</span> heavy desk.
+Inside the heavy desk you see winding key.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;open&quot;</span><span class="pattern">? open</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:19</span><span class="turn-cmd">&gt; take winding key</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You take winding key from heavy desk.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:20</span><span class="turn-cmd">&gt; look behind painting</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You push the painting aside, revealing a small wall safe hidden behind it.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:21</span><span class="turn-cmd">&gt; light fireplace</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You strike a match and light the logs. The fire catches quickly, casting warm light across the study.
 
-/* ---- Update page title ---- */
-function updateTitle() {
-  if (!testData) return;
-  var version = testData.version || '';
-  // Try to build a title from the first transcript's title or from the storyId
-  var conceptName = '';
-  if (testData.transcripts && testData.transcripts.length > 0 && testData.transcripts[0].title) {
-    // Extract concept from "V01 -- A Single Room" style titles
-    var parts = testData.transcripts[0].title.split(/\s*[:\u2014\u2013-]+\s*/);
-    if (parts.length > 1) conceptName = parts.slice(1).join(' ').trim();
-  }
-  var title = 'Tests';
-  if (version) title += ' \u2014 Family Zoo Tutorial ' + version;
-  if (conceptName) title += ': ' + conceptName;
-  document.title = title;
-}
+As the flames illuminate the hearthstone, you notice numbers scratched into the soot-blackened surface: 7 - 3 - 9.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:22</span><span class="turn-cmd">&gt; examine hearthstone</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">In the firelight, you can make out numbers scratched into the hearthstone: <span class="hl" data-asserts="0">7</span> - 3 - 9.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;7&quot;</span><span class="pattern">? 7</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:23</span><span class="turn-cmd">&gt; dial 7 3 9</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You dial 7... 3... 9. Click. The safe door swings open.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:24</span><span class="turn-cmd">&gt; take spring</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You take clock spring from wall safe.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:25</span><span class="turn-cmd">&gt; west</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Hallway</span>
 
-/* ---- Update status banner ---- */
-function updateStatusBanner() {
-  var banner = document.getElementById('status-banner');
-  if (!testData) {
-    banner.className = 'status-banner no-data';
-    banner.textContent = 'No test data available';
-    return;
-  }
+A dim <span class="hl" data-asserts="0">hallway</span> with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
 
-  var total = testData.summary.totalPassed + testData.summary.totalFailed + testData.summary.totalSkipped;
-  var failed = testData.summary.totalFailed;
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
 
-  if (failed === 0) {
-    banner.className = 'status-banner all-passed';
-    banner.textContent = 'All ' + total + ' assertions passed';
-  } else {
-    banner.className = 'status-banner has-failures';
-    banner.textContent = failed + ' assertion' + (failed === 1 ? '' : 's') + ' failed out of ' + total;
-  }
-}
+You can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Hallway&quot;</span><span class="pattern">? Hallway</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:26</span><span class="turn-cmd">&gt; south</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Kitchen</span>
 
-/* ---- Update total badge ---- */
-function updateTotalBadge() {
-  var badge = document.getElementById('total-badge');
-  if (!testData) { badge.style.display = 'none'; return; }
+A rustic <span class="hl" data-asserts="0">kitchen</span> with stone counters and a deep ceramic sink. Copper pots hang from hooks above. A handwritten recipe card sits on the counter.
 
-  var total = testData.summary.totalPassed + testData.summary.totalFailed + testData.summary.totalSkipped;
-  var failed = testData.summary.totalFailed;
+The hallway is north. A doorway leads south to the garden.
 
-  badge.style.display = '';
-  badge.textContent = testData.summary.totalPassed + '/' + total + ' passed';
-  badge.className = failed > 0 ? 'total-badge has-fail' : 'total-badge all-pass';
-}
+You can see stone counters, ceramic sink, copper pots, recipe card here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Kitchen&quot;</span><span class="pattern">? Kitchen</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:27</span><span class="turn-cmd">&gt; south</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Garden</span>
 
-/* ---- Build sidebar navigation ---- */
-function buildNav() {
-  var nav = document.getElementById('nav');
-  if (!testData || !testData.transcripts) {
-    nav.innerHTML = '';
-    return;
-  }
+An overgrown <span class="hl" data-asserts="0">garden</span> behind the house. A flower bed runs along the back wall, thick with weeds. A small shed leans in one corner with its door ajar. A rusty trowel leans against the shed.
 
-  var html = '';
-  for (var t = 0; t < testData.transcripts.length; t++) {
-    var tr = testData.transcripts[t];
-    var failed = tr.summary.failed > 0;
-    var badgeClass = failed ? 'fail' : 'pass';
-    var badgeText = failed ? tr.summary.failed + ' fail' : tr.summary.passed + ' pass';
+The kitchen doorway is back to the north.
 
-    html += '<div class="nav-group">';
-    html += '<a class="nav-transcript' + (t === 0 ? ' active' : '') + '" data-index="' + t + '">';
-    html += '<span class="nav-file">' + esc(tr.file) + '</span>';
-    html += '<span class="nav-badge ' + badgeClass + '">' + badgeText + '</span>';
-    html += '</a>';
-    html += '<div class="nav-commands' + (t === 0 ? ' expanded' : '') + '" data-transcript="' + t + '">';
+You can see <span class="hl" data-asserts="0">garden</span> trowel, flower bed, <span class="hl" data-asserts="0">garden</span> shed here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Garden&quot;</span><span class="pattern">? Garden</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:28</span><span class="turn-cmd">&gt; take trowel</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Taken</span>.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Taken&quot;</span><span class="pattern">? Taken</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:29</span><span class="turn-cmd">&gt; dig</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You dig into the soft earth with the trowel and uncover a small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of a music box.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:30</span><span class="turn-cmd">&gt; dig flower bed</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You&#x27;ve already dug here and found the mechanism.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:31</span><span class="turn-cmd">&gt; take mechanism</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Taken</span>.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Taken&quot;</span><span class="pattern">? Taken</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:32</span><span class="turn-cmd">&gt; north</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Kitchen</span>
 
-    for (var c = 0; c < tr.commands.length; c++) {
-      var cmd = tr.commands[c];
-      var cmdFailed = commandFailed(cmd);
-      var iconClass = cmdFailed ? 'fail' : 'pass';
-      var icon = cmdFailed ? '\u2717' : '\u2713';
+A rustic <span class="hl" data-asserts="0">kitchen</span> with stone counters and a deep ceramic sink. Copper pots hang from hooks above. A handwritten recipe card sits on the counter.
 
-      html += '<a class="nav-cmd" data-transcript="' + t + '" data-command="' + c + '">';
-      html += '<span class="nav-cmd-icon ' + iconClass + '">' + icon + '</span>';
-      html += '<span class="nav-cmd-text">' + esc(cmd.input) + '</span>';
-      html += '</a>';
-    }
+The hallway is north. A doorway leads south to the garden.
 
-    html += '</div>';
-    html += '</div>';
-  }
+You can see stone counters, ceramic sink, copper pots, recipe card here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Kitchen&quot;</span><span class="pattern">? Kitchen</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:33</span><span class="turn-cmd">&gt; north</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Hallway</span>
 
-  nav.innerHTML = html;
+A dim <span class="hl" data-asserts="0">hallway</span> with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
 
-  // Click handlers for transcript headers
-  nav.addEventListener('click', function(e) {
-    var transcriptEl = e.target.closest('.nav-transcript');
-    var cmdEl = e.target.closest('.nav-cmd');
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
 
-    if (cmdEl) {
-      var tIdx = parseInt(cmdEl.getAttribute('data-transcript'));
-      var cIdx = parseInt(cmdEl.getAttribute('data-command'));
-      scrollToCommand(tIdx, cIdx);
-      return;
-    }
+You can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Hallway&quot;</span><span class="pattern">? Hallway</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:34</span><span class="turn-cmd">&gt; up</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Attic</span>
 
-    if (transcriptEl) {
-      var idx = parseInt(transcriptEl.getAttribute('data-index'));
+A cramped <span class="hl" data-asserts="0">attic</span> under sloping eaves, thick with dust. A dusty shelf holds an old music box. A heavy steamer trunk sits against the wall.
 
-      // Toggle active state
-      nav.querySelectorAll('.nav-transcript').forEach(function(el) {
-        el.classList.remove('active');
-      });
-      transcriptEl.classList.add('active');
+The stairs lead back down.
 
-      // Toggle commands list
-      nav.querySelectorAll('.nav-commands').forEach(function(el) {
-        el.classList.remove('expanded');
-      });
-      var cmds = nav.querySelector('.nav-commands[data-transcript="' + idx + '"]');
-      if (cmds) cmds.classList.add('expanded');
+You can see dusty shelf, steamer trunk, sloping eaves here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Attic&quot;</span><span class="pattern">? Attic</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:35</span><span class="turn-cmd">&gt; examine music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">A wooden <span class="hl" data-asserts="0">music box</span> with a rose-carved lid and a small keyhole on the side. Inside, the cavity is empty -- the mechanism has been removed.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;music box&quot;</span><span class="pattern">? music box</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:36</span><span class="turn-cmd">&gt; take music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You take old <span class="hl" data-asserts="0">music box</span> from dusty shelf.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;music box&quot;</span><span class="pattern">? music box</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:37</span><span class="turn-cmd">&gt; put mechanism in music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You put brass <span class="hl" data-asserts="0">mechanism</span> in old music box.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;mechanism&quot;</span><span class="pattern">? mechanism</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:38</span><span class="turn-cmd">&gt; put spring in music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You put clock <span class="hl" data-asserts="0">spring</span> in old music box.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;spring&quot;</span><span class="pattern">? spring</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:39</span><span class="turn-cmd">&gt; wind music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You insert the winding key and turn it gently. The music box comes alive -- a delicate melody fills the attic, tinkling and sweet.
 
-      activeTranscriptIndex = idx;
-      scrollToTranscript(idx);
-    }
+As the last note fades, you hear a mechanical click from the steamer trunk -- its lock releases and the lid swings open.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:40</span><span class="turn-cmd">&gt; open trunk</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">Steamer trunk is already open.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:41</span><span class="turn-cmd">&gt; take locket</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You take family <span class="hl" data-asserts="0">locket</span> from steamer trunk.
+You found your grandmother&#x27;s heirloom.
+You lift the <span class="hl" data-asserts="0">locket</span> from the trunk. Inside, your grandmother smiles back at you from a faded photograph. This is what she wanted you to have.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;locket&quot;</span><span class="pattern">? locket</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li></ul></div></details><details class="test" data-status="pass"><summary class="test-summary"><span class="glyph pass">✓</span><span class="test-name">Unconventional Commands</span><span class="test-summary-meta">62 turns · <span class="outcome-scenario">scenario</span> · 62/62 ✓ · 648ms</span></summary><div class="test-body"><ul class="transcript"></ul><ul class="transcript"><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:1</span><span class="turn-cmd">&gt; look</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">Guess the Verb
+By John Googol
+
+Type HELP for instructions.
+
+<span class="hl" data-asserts="0">Front Porch</span>
+
+A sagging wooden porch wraps around the front of the house. A woven doormat lies before the front door. A tarnished brass doorbell is set beside the frame.
+
+The front door leads inside to the east.
+
+You can see front door, woven doormat, brass doorbell, sagging porch here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Front Porch&quot;</span><span class="pattern">? Front Porch</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:2</span><span class="turn-cmd">&gt; examine mat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">A faded <span class="hl" data-asserts="0">doormat</span> reading &#x27;WELCOME&#x27;. One corner is curled up -- something glints underneath.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;doormat&quot;</span><span class="pattern">? doormat</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:3</span><span class="turn-cmd">&gt; examine rug</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">A faded <span class="hl" data-asserts="0">doormat</span> reading &#x27;WELCOME&#x27;. One corner is curled up -- something glints underneath.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;doormat&quot;</span><span class="pattern">? doormat</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:4</span><span class="turn-cmd">&gt; examine bell</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">A tarnished brass button set into the door frame.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:5</span><span class="turn-cmd">&gt; examine buzzer</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">A tarnished brass button set into the door frame.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:6</span><span class="turn-cmd">&gt; knock on door</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You rap your knuckles on the door. No answer.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:7</span><span class="turn-cmd">&gt; flip mat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">I don&#x27;t understand that.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:8</span><span class="turn-cmd">&gt; check under mat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">A faded doormat reading &#x27;WELCOME&#x27;. One corner is curled up -- something glints underneath.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:9</span><span class="turn-cmd">&gt; use key</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You can&#x27;t see any such thing.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:10</span><span class="turn-cmd">&gt; look under doormat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You lift the corner of the doormat and find an iron <span class="hl" data-asserts="0">key</span> hidden underneath.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;key&quot;</span><span class="pattern">? key</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:11</span><span class="turn-cmd">&gt; take key</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Taken</span>.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Taken&quot;</span><span class="pattern">? Taken</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:12</span><span class="turn-cmd">&gt; use key on door</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">How do you want to use front door? Try a specific verb: OPEN, PUSH, PULL, TURN, EAT, WEAR, etc.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:13</span><span class="turn-cmd">&gt; unlock door with key</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You <span class="hl" data-asserts="0">unlock</span> front door with iron key.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;unlock&quot;</span><span class="pattern">? unlock</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:14</span><span class="turn-cmd">&gt; open door</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You <span class="hl" data-asserts="0">open</span> front door.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;open&quot;</span><span class="pattern">? open</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:15</span><span class="turn-cmd">&gt; go east</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Hallway</span>
+
+A dim <span class="hl" data-asserts="0">hallway</span> with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
+
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
+
+You can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Hallway&quot;</span><span class="pattern">? Hallway</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:16</span><span class="turn-cmd">&gt; examine coat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">A moth-eaten wool overcoat. The pockets look like they might hold something.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:17</span><span class="turn-cmd">&gt; check overcoat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">A moth-eaten wool overcoat. The pockets look like they might hold something.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:18</span><span class="turn-cmd">&gt; look in pockets</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">A moth-eaten wool overcoat. The pockets look like they might hold something.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:19</span><span class="turn-cmd">&gt; search overcoat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You rummage through the overcoat&#x27;s pockets and find a small book of matches from &#x27;The Golden Lantern.&#x27;
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:20</span><span class="turn-cmd">&gt; go upstairs</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You&#x27;ll have to say which direction to go.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:21</span><span class="turn-cmd">&gt; ascend</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">I don&#x27;t understand that.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:22</span><span class="turn-cmd">&gt; east</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Study</span>
+
+A wood-paneled <span class="hl" data-asserts="0">study</span> with built-in bookshelves. A heavy desk sits in the center, its drawers shut. An oil painting of a woman hangs on the far wall. A stone fireplace squats in the corner, cold and dark.
+
+The hallway is back to the west.
+
+You can see heavy desk, <span class="hl" data-asserts="0">study</span> bookshelves, oil painting, stone fireplace, hearthstone, wood paneling here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Study&quot;</span><span class="pattern">? Study</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:23</span><span class="turn-cmd">&gt; open desk</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You <span class="hl" data-asserts="0">open</span> heavy desk.
+Inside the heavy desk you see winding key.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;open&quot;</span><span class="pattern">? open</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:24</span><span class="turn-cmd">&gt; take winding key</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You take winding key from heavy desk.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:25</span><span class="turn-cmd">&gt; examine picture</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">A portrait of a stern woman in a high collar -- your grandmother, perhaps. The frame sits slightly askew on the wall.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:26</span><span class="turn-cmd">&gt; examine portrait</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">A portrait of a stern woman in a high collar -- your grandmother, perhaps. The frame sits slightly askew on the wall.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:27</span><span class="turn-cmd">&gt; look behind painting</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You push the painting aside, revealing a small wall safe hidden behind it.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:28</span><span class="turn-cmd">&gt; slide painting</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You already moved the painting. The wall safe is visible.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:29</span><span class="turn-cmd">&gt; ignite fireplace</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You strike a match and light the logs. The fire catches quickly, casting warm light across the study.
+
+As the flames illuminate the hearthstone, you notice numbers scratched into the soot-blackened surface: 7 - 3 - 9.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:30</span><span class="turn-cmd">&gt; start fire</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">The fire is already burning.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:31</span><span class="turn-cmd">&gt; light fireplace</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">The fire is already burning.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:32</span><span class="turn-cmd">&gt; examine hearth</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">The fireplace crackles with warm flames. The logs glow orange.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:33</span><span class="turn-cmd">&gt; open safe</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">Remembering the numbers on the hearthstone, you dial 7... 3... 9. Click. The safe door swings open.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:34</span><span class="turn-cmd">&gt; dial 7 3 9</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You dial 7... 3... 9. Click. The safe door swings open.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:35</span><span class="turn-cmd">&gt; take clock spring</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You take clock spring from wall safe.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:36</span><span class="turn-cmd">&gt; west</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Hallway</span>
+
+A dim <span class="hl" data-asserts="0">hallway</span> with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
+
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
+
+You can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Hallway&quot;</span><span class="pattern">? Hallway</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:37</span><span class="turn-cmd">&gt; south</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Kitchen</span>
+
+A rustic <span class="hl" data-asserts="0">kitchen</span> with stone counters and a deep ceramic sink. Copper pots hang from hooks above. A handwritten recipe card sits on the counter.
+
+The hallway is north. A doorway leads south to the garden.
+
+You can see stone counters, ceramic sink, copper pots, recipe card here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Kitchen&quot;</span><span class="pattern">? Kitchen</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:38</span><span class="turn-cmd">&gt; turn faucet</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You turn the faucet. Rusty water sputters out briefly, then runs clear. Nothing else happens.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:39</span><span class="turn-cmd">&gt; read recipe</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">Recipe card reads:
+Lavender shortbread -- butter, sugar, flour, and dried lavender from the garden.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:40</span><span class="turn-cmd">&gt; south</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Garden</span>
+
+An overgrown <span class="hl" data-asserts="0">garden</span> behind the house. A flower bed runs along the back wall, thick with weeds. A small shed leans in one corner with its door ajar. A rusty trowel leans against the shed.
+
+The kitchen doorway is back to the north.
+
+You can see <span class="hl" data-asserts="0">garden</span> trowel, flower bed, <span class="hl" data-asserts="0">garden</span> shed here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Garden&quot;</span><span class="pattern">? Garden</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:41</span><span class="turn-cmd">&gt; take trowel</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Taken</span>.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Taken&quot;</span><span class="pattern">? Taken</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:42</span><span class="turn-cmd">&gt; use trowel</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">How do you want to use garden trowel? Try a specific verb: OPEN, PUSH, PULL, TURN, EAT, WEAR, etc.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:43</span><span class="turn-cmd">&gt; dig dirt</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You dig into the soft earth with the trowel and uncover a small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of a music box.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:44</span><span class="turn-cmd">&gt; dig ground</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You&#x27;ve already dug here and found the mechanism.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:45</span><span class="turn-cmd">&gt; dig soil</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You&#x27;ve already dug here and found the mechanism.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:46</span><span class="turn-cmd">&gt; excavate flower bed</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You&#x27;ve already dug here and found the mechanism.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:47</span><span class="turn-cmd">&gt; take mechanism</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">Taken.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:48</span><span class="turn-cmd">&gt; north</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Kitchen</span>
+
+A rustic <span class="hl" data-asserts="0">kitchen</span> with stone counters and a deep ceramic sink. Copper pots hang from hooks above. A handwritten recipe card sits on the counter.
+
+The hallway is north. A doorway leads south to the garden.
+
+You can see stone counters, ceramic sink, copper pots, recipe card here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Kitchen&quot;</span><span class="pattern">? Kitchen</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:49</span><span class="turn-cmd">&gt; north</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Hallway</span>
+
+A dim <span class="hl" data-asserts="0">hallway</span> with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
+
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
+
+You can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Hallway&quot;</span><span class="pattern">? Hallway</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:50</span><span class="turn-cmd">&gt; up</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Attic</span>
+
+A cramped <span class="hl" data-asserts="0">attic</span> under sloping eaves, thick with dust. A dusty shelf holds an old music box. A heavy steamer trunk sits against the wall.
+
+The stairs lead back down.
+
+You can see dusty shelf, steamer trunk, sloping eaves here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Attic&quot;</span><span class="pattern">? Attic</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:51</span><span class="turn-cmd">&gt; take music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You take old <span class="hl" data-asserts="0">music box</span> from dusty shelf.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;music box&quot;</span><span class="pattern">? music box</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:52</span><span class="turn-cmd">&gt; attach mechanism to music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You put brass mechanism in old music box.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:53</span><span class="turn-cmd">&gt; put mechanism in music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">(first taking the brass <span class="hl" data-asserts="0">mechanism</span>)
+You take brass <span class="hl" data-asserts="0">mechanism</span> from old music box.
+You put brass <span class="hl" data-asserts="0">mechanism</span> in old music box.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;mechanism&quot;</span><span class="pattern">? mechanism</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:54</span><span class="turn-cmd">&gt; install spring in music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You put clock spring in old music box.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:55</span><span class="turn-cmd">&gt; put spring in music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">(first taking the clock <span class="hl" data-asserts="0">spring</span>)
+You take clock <span class="hl" data-asserts="0">spring</span> from old music box.
+You put clock <span class="hl" data-asserts="0">spring</span> in old music box.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;spring&quot;</span><span class="pattern">? spring</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:56</span><span class="turn-cmd">&gt; fix music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">The music box has both the mechanism and the spring installed. Try winding it.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:57</span><span class="turn-cmd">&gt; crank music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You insert the winding key and turn it gently. The music box comes alive -- a delicate melody fills the attic, tinkling and sweet.
+
+As the last note fades, you hear a mechanical click from the steamer trunk -- its lock releases and the lid swings open.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:58</span><span class="turn-cmd">&gt; wind up music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You insert the winding key and turn it gently. The music box comes alive -- a delicate melody fills the attic, tinkling and sweet.
+
+As the last note fades, you hear a mechanical click from the steamer trunk -- its lock releases and the lid swings open.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:59</span><span class="turn-cmd">&gt; wind music box with key</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You insert the winding key and turn it gently. The music box comes alive -- a delicate melody fills the attic, tinkling and sweet.
+
+As the last note fades, you hear a mechanical click from the steamer trunk -- its lock releases and the lid swings open.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:60</span><span class="turn-cmd">&gt; wind music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You insert the winding key and turn it gently. The music box comes alive -- a delicate melody fills the attic, tinkling and sweet.
+
+As the last note fades, you hear a mechanical click from the steamer trunk -- its lock releases and the lid swings open.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:61</span><span class="turn-cmd">&gt; open trunk</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">Steamer trunk is already open.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:62</span><span class="turn-cmd">&gt; take locket</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You take family <span class="hl" data-asserts="0">locket</span> from steamer trunk.
+You found your grandmother&#x27;s heirloom.
+You lift the <span class="hl" data-asserts="0">locket</span> from the trunk. Inside, your grandmother smiles back at you from a faded photograph. This is what she wanted you to have.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;locket&quot;</span><span class="pattern">? locket</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li></ul></div></details><details class="test" data-status="pass"><summary class="test-summary"><span class="glyph pass">✓</span><span class="test-name">Verb Synonym Coverage</span><span class="test-summary-meta">34 turns · <span class="outcome-scenario">scenario</span> · 34/34 ✓ · 304ms</span></summary><div class="test-body"><ul class="transcript"></ul><ul class="transcript"><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:1</span><span class="turn-cmd">&gt; look</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">Guess the Verb
+By John Googol
+
+Type HELP for instructions.
+
+<span class="hl" data-asserts="0">Front Porch</span>
+
+A sagging wooden porch wraps around the front of the house. A woven doormat lies before the front door. A tarnished brass doorbell is set beside the frame.
+
+The front door leads inside to the east.
+
+You can see front door, woven doormat, brass doorbell, sagging porch here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Front Porch&quot;</span><span class="pattern">? Front Porch</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:2</span><span class="turn-cmd">&gt; grab doormat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You lift the corner of the doormat and find an <span class="hl" data-asserts="0">iron key</span> hidden underneath.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;iron key&quot;</span><span class="pattern">? iron key</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:3</span><span class="turn-cmd">&gt; pick up doormat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You <span class="hl" data-asserts="0">already</span> found the key here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;already&quot;</span><span class="pattern">? already</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:4</span><span class="turn-cmd">&gt; push doorbell</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You press the <span class="hl" data-asserts="0">doorbell</span>. A faint chime echoes inside the house, unanswered.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;doorbell&quot;</span><span class="pattern">? doorbell</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:5</span><span class="turn-cmd">&gt; press doorbell</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You press the <span class="hl" data-asserts="0">doorbell</span>. A faint chime echoes inside the house, unanswered.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;doorbell&quot;</span><span class="pattern">? doorbell</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:6</span><span class="turn-cmd">&gt; inspect doormat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">A faded <span class="hl" data-asserts="0">doormat</span> reading &#x27;WELCOME&#x27;. One corner is curled up -- something glints underneath.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;doormat&quot;</span><span class="pattern">? doormat</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:7</span><span class="turn-cmd">&gt; look at doorbell</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">A tarnished <span class="hl" data-asserts="0">brass</span> button set into the door frame.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;brass&quot;</span><span class="pattern">? brass</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:8</span><span class="turn-cmd">&gt; look under doormat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You already found the <span class="hl" data-asserts="0">key</span> here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;key&quot;</span><span class="pattern">? key</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:9</span><span class="turn-cmd">&gt; take key</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Taken</span>.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Taken&quot;</span><span class="pattern">? Taken</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:10</span><span class="turn-cmd">&gt; unlock door with key</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You <span class="hl" data-asserts="0">unlock</span> front door with iron key.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;unlock&quot;</span><span class="pattern">? unlock</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:11</span><span class="turn-cmd">&gt; open door</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You <span class="hl" data-asserts="0">open</span> front door.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;open&quot;</span><span class="pattern">? open</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:12</span><span class="turn-cmd">&gt; east</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Hallway</span>
+
+A dim <span class="hl" data-asserts="0">hallway</span> with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
+
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
+
+You can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Hallway&quot;</span><span class="pattern">? Hallway</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:13</span><span class="turn-cmd">&gt; rummage overcoat</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You rummage through the overcoat&#x27;s pockets and find a small book of matches from &#x27;The Golden Lantern.&#x27;
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:14</span><span class="turn-cmd">&gt; east</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Study</span>
+
+A wood-paneled <span class="hl" data-asserts="0">study</span> with built-in bookshelves. A heavy desk sits in the center, its drawers shut. An oil painting of a woman hangs on the far wall. A stone fireplace squats in the corner, cold and dark.
+
+The hallway is back to the west.
+
+You can see heavy desk, <span class="hl" data-asserts="0">study</span> bookshelves, oil painting, stone fireplace, hearthstone, wood paneling here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Study&quot;</span><span class="pattern">? Study</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:15</span><span class="turn-cmd">&gt; open desk</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You <span class="hl" data-asserts="0">open</span> heavy desk.
+Inside the heavy desk you see winding key.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;open&quot;</span><span class="pattern">? open</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:16</span><span class="turn-cmd">&gt; take winding key</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You take winding key from heavy desk.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:17</span><span class="turn-cmd">&gt; move painting</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You push the painting aside, revealing a small wall safe hidden behind it.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:18</span><span class="turn-cmd">&gt; kindle fireplace</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You strike a match and light the logs. The fire catches quickly, casting warm light across the study.
+
+As the flames illuminate the hearthstone, you notice numbers scratched into the soot-blackened surface: 7 - 3 - 9.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:19</span><span class="turn-cmd">&gt; dial 7 3 9</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You dial 7... 3... 9. Click. The safe door swings open.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:20</span><span class="turn-cmd">&gt; take clock spring</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You take clock spring from wall safe.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:21</span><span class="turn-cmd">&gt; west</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Hallway</span>
+
+A dim <span class="hl" data-asserts="0">hallway</span> with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
+
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
+
+You can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Hallway&quot;</span><span class="pattern">? Hallway</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:22</span><span class="turn-cmd">&gt; south</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Kitchen</span>
+
+A rustic <span class="hl" data-asserts="0">kitchen</span> with stone counters and a deep ceramic sink. Copper pots hang from hooks above. A handwritten recipe card sits on the counter.
+
+The hallway is north. A doorway leads south to the garden.
+
+You can see stone counters, ceramic sink, copper pots, recipe card here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Kitchen&quot;</span><span class="pattern">? Kitchen</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:23</span><span class="turn-cmd">&gt; south</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Garden</span>
+
+An overgrown <span class="hl" data-asserts="0">garden</span> behind the house. A flower bed runs along the back wall, thick with weeds. A small shed leans in one corner with its door ajar. A rusty trowel leans against the shed.
+
+The kitchen doorway is back to the north.
+
+You can see <span class="hl" data-asserts="0">garden</span> trowel, flower bed, <span class="hl" data-asserts="0">garden</span> shed here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Garden&quot;</span><span class="pattern">? Garden</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:24</span><span class="turn-cmd">&gt; take trowel</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Taken</span>.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Taken&quot;</span><span class="pattern">? Taken</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:25</span><span class="turn-cmd">&gt; dig earth</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You dig into the soft earth with the trowel and uncover a small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of a music box.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:26</span><span class="turn-cmd">&gt; take mechanism</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Taken</span>.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Taken&quot;</span><span class="pattern">? Taken</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:27</span><span class="turn-cmd">&gt; north</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Kitchen</span>
+
+A rustic <span class="hl" data-asserts="0">kitchen</span> with stone counters and a deep ceramic sink. Copper pots hang from hooks above. A handwritten recipe card sits on the counter.
+
+The hallway is north. A doorway leads south to the garden.
+
+You can see stone counters, ceramic sink, copper pots, recipe card here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Kitchen&quot;</span><span class="pattern">? Kitchen</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:28</span><span class="turn-cmd">&gt; north</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Hallway</span>
+
+A dim <span class="hl" data-asserts="0">hallway</span> with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
+
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
+
+You can see coat rack, old overcoat, narrow staircase, faded wallpaper, creaking floorboards here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Hallway&quot;</span><span class="pattern">? Hallway</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:29</span><span class="turn-cmd">&gt; up</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response"><span class="hl" data-asserts="0">Attic</span>
+
+A cramped <span class="hl" data-asserts="0">attic</span> under sloping eaves, thick with dust. A dusty shelf holds an old music box. A heavy steamer trunk sits against the wall.
+
+The stairs lead back down.
+
+You can see dusty shelf, steamer trunk, sloping eaves here.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;Attic&quot;</span><span class="pattern">? Attic</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:30</span><span class="turn-cmd">&gt; take music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You take old <span class="hl" data-asserts="0">music box</span> from dusty shelf.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;music box&quot;</span><span class="pattern">? music box</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:31</span><span class="turn-cmd">&gt; put mechanism in music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You put brass <span class="hl" data-asserts="0">mechanism</span> in old music box.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;mechanism&quot;</span><span class="pattern">? mechanism</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:32</span><span class="turn-cmd">&gt; put spring in music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You put clock <span class="hl" data-asserts="0">spring</span> in old music box.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;spring&quot;</span><span class="pattern">? spring</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:33</span><span class="turn-cmd">&gt; wind music box</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You insert the winding key and turn it gently. The music box comes alive -- a delicate melody fills the attic, tinkling and sweet.
+
+As the last note fades, you hear a mechanical click from the steamer trunk -- its lock releases and the lid swings open.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">ok-contains-any: </span><span class="pattern">?</span></li></ul></div></details></div></details></li><li class="turn"><details class="turn-detail" data-status="pass"><summary class="turn-row"><span class="turn-tcount">T:34</span><span class="turn-cmd">&gt; take locket</span><span class="turn-room">—</span><span class="turn-score"></span><span class="turn-delta"></span><span class="turn-outcome "></span><span class="turn-asserts"><span class="pass">✓ 1/1</span></span></summary><div class="turn-body"><pre class="turn-response">You take family <span class="hl" data-asserts="0">locket</span> from steamer trunk.
+You found your grandmother&#x27;s heirloom.
+You lift the <span class="hl" data-asserts="0">locket</span> from the trunk. Inside, your grandmother smiles back at you from a faded photograph. This is what she wanted you to have.
+</pre><details class="turn-extras"><summary class="turn-extras-summary">1 check ✓  ·  0ms</summary><div class="turn-extras-body"><h4>Checks</h4><ul class="assertions"><li class="pass"><span class="label">Contains &quot;locket&quot;</span><span class="pattern">? locket</span><button type="button" class="match-toggle" data-assertion-idx="0">show</button></li></ul></div></details></div></details></li></ul></div></details></div><script>
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest && e.target.closest('.match-toggle');
+  if (!btn) return;
+  var turn = btn.closest('.turn-detail');
+  if (!turn) return;
+  var idx = btn.getAttribute('data-assertion-idx');
+  var wasActive = btn.classList.contains('active');
+  // Reset every toggle + highlight in this turn (radio-style: only one
+  // assertion's highlights visible at a time within a turn).
+  Array.prototype.forEach.call(turn.querySelectorAll('.match-toggle.active'),
+    function (b) { b.classList.remove('active'); });
+  Array.prototype.forEach.call(turn.querySelectorAll('.hl.hl-active'),
+    function (s) { s.classList.remove('hl-active'); });
+  if (wasActive) return;  // re-click on the active toggle deselects → done
+  btn.classList.add('active');
+  Array.prototype.forEach.call(turn.querySelectorAll('.hl'), function (span) {
+    var ids = (span.getAttribute('data-asserts') || '').split(' ');
+    if (ids.indexOf(idx) >= 0) span.classList.add('hl-active');
   });
-}
-
-/* ---- Scroll to a transcript section ---- */
-function scrollToTranscript(index) {
-  var target;
-  if (currentView === 'summary') {
-    target = document.getElementById('summary-' + index);
-  } else {
-    target = document.getElementById('detail-' + index);
-  }
-  if (target) target.scrollIntoView({ block: 'start', behavior: 'smooth' });
-}
-
-/* ---- Scroll to a specific command ---- */
-function scrollToCommand(transcriptIndex, commandIndex) {
-  var target = document.getElementById('cmd-' + transcriptIndex + '-' + commandIndex);
-  if (target) {
-    target.scrollIntoView({ block: 'start', behavior: 'smooth' });
-    // Brief highlight
-    target.style.outline = '1px solid #5a4a30';
-    setTimeout(function() { target.style.outline = ''; }, 1500);
-  } else {
-    // If in summary view, switch to detail for the scroll
-    if (currentView === 'summary') {
-      showDetail();
-      setTimeout(function() {
-        var el = document.getElementById('cmd-' + transcriptIndex + '-' + commandIndex);
-        if (el) {
-          el.scrollIntoView({ block: 'start', behavior: 'smooth' });
-          el.style.outline = '1px solid #5a4a30';
-          setTimeout(function() { el.style.outline = ''; }, 1500);
-        }
-      }, 50);
-    }
-  }
-}
-
-/* ---- Render Summary view ---- */
-function renderSummary() {
-  if (!testData || !testData.transcripts) return '<div class="empty-msg">No transcripts found.</div>';
-
-  var html = '';
-
-  for (var t = 0; t < testData.transcripts.length; t++) {
-    var tr = testData.transcripts[t];
-    var hasFail = tr.summary.failed > 0;
-
-    html += '<div class="summary-card" id="summary-' + t + '">';
-
-    // Header
-    html += '<div class="summary-card-header">';
-    html += '<div>';
-    html += '<div class="summary-card-title">' + esc(tr.title || tr.file) + '</div>';
-    if (tr.description) {
-      html += '<div class="summary-card-desc">' + esc(tr.description) + '</div>';
-    }
-    html += '</div>';
-    html += '<div class="summary-card-badges">';
-    html += '<span class="badge pass">' + tr.summary.passed + ' passed</span>';
-    if (tr.summary.failed > 0) {
-      html += '<span class="badge fail">' + tr.summary.failed + ' failed</span>';
-    }
-    if (tr.summary.skipped > 0) {
-      html += '<span class="badge skip">' + tr.summary.skipped + ' skipped</span>';
-    }
-    if (tr.summary.duration != null) {
-      html += '<span class="badge duration">' + formatDuration(tr.summary.duration) + '</span>';
-    }
-    html += '</div>';
-    html += '</div>';
-
-    // Commands list
-    html += '<div class="summary-commands">';
-    for (var c = 0; c < tr.commands.length; c++) {
-      var cmd = tr.commands[c];
-      var cmdFail = commandFailed(cmd);
-      var icon = cmdFail ? '\u2717' : '\u2713';
-      var iconClass = cmdFail ? 'fail' : 'pass';
-      var textClass = cmdFail ? ' fail' : '';
-      var assertCount = commandAssertionCount(cmd);
-
-      html += '<div class="summary-cmd" id="cmd-' + t + '-' + c + '">';
-      html += '<span class="summary-cmd-icon ' + iconClass + '">' + icon + '</span>';
-      html += '<span class="summary-cmd-num">' + (c + 1) + '</span>';
-      html += '<span class="summary-cmd-prompt">&gt;</span>';
-      html += '<span class="summary-cmd-text' + textClass + '">' + esc(cmd.input) + '</span>';
-      if (assertCount > 0) {
-        var passedCount = 0;
-        for (var a = 0; a < cmd.assertions.length; a++) {
-          if (cmd.assertions[a].passed) passedCount++;
-        }
-        html += '<span class="summary-cmd-assert-count">' + passedCount + '/' + assertCount + '</span>';
-      }
-      html += '</div>';
-    }
-    html += '</div>';
-
-    html += '</div>';
-  }
-
-  return html;
-}
-
-/* ---- Render Detail view ---- */
-function renderDetail() {
-  if (!testData || !testData.transcripts) return '<div class="empty-msg">No transcripts found.</div>';
-
-  var html = '';
-
-  for (var t = 0; t < testData.transcripts.length; t++) {
-    var tr = testData.transcripts[t];
-
-    html += '<div class="detail-transcript" id="detail-' + t + '">';
-
-    // Transcript header
-    html += '<div class="detail-transcript-header">' + esc(tr.title || tr.file) + '</div>';
-    if (tr.description) {
-      html += '<div class="detail-transcript-desc">' + esc(tr.description) + '</div>';
-    }
-
-    // Commands
-    for (var c = 0; c < tr.commands.length; c++) {
-      var cmd = tr.commands[c];
-      var cmdFail = commandFailed(cmd);
-      var outputId = 'output-' + t + '-' + c;
-
-      html += '<div class="detail-command' + (cmdFail ? ' has-failure' : '') + '" id="cmd-' + t + '-' + c + '">';
-
-      // Clickable header: expand icon + comment + command line
-      html += '<div class="detail-command-header">';
-      var expandIcon = cmdFail ? '\u25be' : '\u25b8';
-      if (cmd.comment) {
-        html += '<div class="detail-comment"><span class="detail-expand-icon">' + expandIcon + '</span>' + esc(cmd.comment) + '</div>';
-      }
-      html += '<div class="detail-cmd-line">';
-      if (!cmd.comment) {
-        html += '<span class="detail-expand-icon">' + expandIcon + '</span>';
-      }
-      html += '<span class="detail-cmd-num">' + (c + 1) + '</span>';
-      html += '<span class="detail-cmd-prompt">&gt;</span>';
-      html += '<span class="detail-cmd-text">' + esc(cmd.input) + '</span>';
-      html += '</div>';
-      html += '</div>';
-
-      // Collapsible body: assertions + output
-      html += '<div class="detail-command-body">';
-
-      // Assertions
-      if (cmd.assertions && cmd.assertions.length > 0) {
-        html += '<div class="detail-assertions">';
-        for (var a = 0; a < cmd.assertions.length; a++) {
-          var assertion = cmd.assertions[a];
-          var aIcon = assertion.passed ? '\u2713' : '\u2717';
-          var aClass = assertion.passed ? 'pass' : 'fail';
-
-          html += '<div class="detail-assertion">';
-          html += '<span class="assert-icon ' + aClass + '">' + aIcon + '</span>';
-          html += '<span class="assert-text' + (assertion.passed ? '' : ' fail') + '">' + esc(formatAssertion(assertion)) + '</span>';
-          html += '</div>';
-        }
-        html += '</div>';
-      }
-
-      // Output toggle
-      if (cmd.output) {
-        html += '<span class="detail-output-toggle" data-output="' + outputId + '">Show output</span>';
-
-        var outputLines = cmd.output.split('\n');
-        var outputHtml = '';
-        for (var o = 0; o < outputLines.length; o++) {
-          outputHtml += renderOutputLine(outputLines[o], o, outputLines);
-          if (o < outputLines.length - 1) outputHtml += '\n';
-        }
-
-        html += '<div class="detail-output" id="' + outputId + '">' + outputHtml + '</div>';
-      }
-
-      html += '</div>'; // end detail-command-body
-
-      html += '</div>';
-    }
-
-    html += '</div>';
-  }
-
-  return html;
-}
-
-/* ---- Render empty/missing state ---- */
-function renderEmpty() {
-  var html = '<div class="empty-msg">';
-  html += '<h2>No test results found</h2>';
-  html += '<p>This page displays transcript test results for this version of Family Zoo. ';
-  html += 'To generate test results, run the transcript tests and place a ';
-  html += '<code>test-results.json</code> file in this directory.</p>';
-  html += '<p style="margin-top:12px;">Expected format: a JSON file with transcript results, ';
-  html += 'assertions, and pass/fail status per command.</p>';
-  html += '</div>';
-  return html;
-}
-
-/* ---- View switching ---- */
-function showSummary() {
-  currentView = 'summary';
-  var wrap = document.getElementById('content-wrap');
-  wrap.innerHTML = testData ? renderSummary() : renderEmpty();
-  document.getElementById('btn-summary').classList.add('active');
-  document.getElementById('btn-detail').classList.remove('active');
-  document.getElementById('btn-expand-all').style.display = 'none';
-  document.getElementById('btn-collapse-all').style.display = 'none';
-  saveViewPref('summary');
-  applyFailuresFilter();
-  clearSearch();
-  var q = document.getElementById('search').value;
-  if (q && q.length >= 2) doSearch(q);
-}
-
-function showDetail() {
-  currentView = 'detail';
-  var wrap = document.getElementById('content-wrap');
-  wrap.innerHTML = testData ? renderDetail() : renderEmpty();
-  document.getElementById('btn-summary').classList.remove('active');
-  document.getElementById('btn-detail').classList.add('active');
-  document.getElementById('btn-expand-all').style.display = '';
-  document.getElementById('btn-collapse-all').style.display = '';
-  saveViewPref('detail');
-
-  // Attach header click handlers for collapse/expand
-  document.querySelectorAll('.detail-command-header').forEach(function(el) {
-    el.addEventListener('click', function() {
-      var cmd = this.closest('.detail-command');
-      cmd.classList.toggle('expanded');
-      // Update expand icon
-      var icon = cmd.querySelector('.detail-expand-icon');
-      if (icon) {
-        icon.textContent = cmd.classList.contains('expanded') || cmd.classList.contains('has-failure') ? '\u25be' : '\u25b8';
-      }
-    });
-  });
-
-  // Attach output toggle handlers
-  document.querySelectorAll('.detail-output-toggle').forEach(function(el) {
-    el.addEventListener('click', function(e) {
-      e.stopPropagation();
-      var outputId = this.getAttribute('data-output');
-      var outputEl = document.getElementById(outputId);
-      if (outputEl) {
-        var isVisible = outputEl.classList.contains('visible');
-        outputEl.classList.toggle('visible');
-        this.textContent = isVisible ? 'Show output' : 'Hide output';
-      }
-    });
-  });
-
-  applyFailuresFilter();
-  clearSearch();
-  var q = document.getElementById('search').value;
-  if (q && q.length >= 2) doSearch(q);
-}
-
-/* ---- localStorage for view preference ---- */
-function getStorageKey() {
-  if (testData && testData.storyId) {
-    return testData.storyId + '-tests-view';
-  }
-  return 'familyzoo-tests-view';
-}
-
-function saveViewPref(view) {
-  try { localStorage.setItem(getStorageKey(), view); } catch (e) { /* noop */ }
-}
-
-function loadViewPref() {
-  try { return localStorage.getItem(getStorageKey()); } catch (e) { return null; }
-}
-
-/* ---- Search ---- */
-var searchHits = [];
-var currentHit = -1;
-
-function clearSearch() {
-  document.querySelectorAll('.search-hit').forEach(function(el) {
-    el.outerHTML = el.textContent;
-  });
-  searchHits = [];
-  currentHit = -1;
-}
-
-function highlightMatches(el, query) {
-  var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
-  var lower = query.toLowerCase();
-  var nodes = [];
-  while (walker.nextNode()) nodes.push(walker.currentNode);
-
-  nodes.forEach(function(node) {
-    var text = node.textContent;
-    var idx = text.toLowerCase().indexOf(lower);
-    if (idx === -1) return;
-
-    var before = text.slice(0, idx);
-    var match = text.slice(idx, idx + query.length);
-    var after = text.slice(idx + query.length);
-
-    var span = document.createElement('span');
-    span.className = 'search-hit';
-    span.textContent = match;
-
-    var parent = node.parentNode;
-    if (before) parent.insertBefore(document.createTextNode(before), node);
-    parent.insertBefore(span, node);
-    if (after) parent.insertBefore(document.createTextNode(after), node);
-    parent.removeChild(node);
-
-    if (after.toLowerCase().includes(lower)) {
-      var afterNode = span.nextSibling;
-      if (afterNode && afterNode.nodeType === Node.TEXT_NODE) {
-        var temp = document.createElement('span');
-        temp.appendChild(afterNode.cloneNode(true));
-        parent.replaceChild(temp, afterNode);
-        highlightMatches(temp, query);
-        while (temp.firstChild) parent.insertBefore(temp.firstChild, temp);
-        parent.removeChild(temp);
-      }
-    }
-  });
-}
-
-function doSearch(query) {
-  clearSearch();
-  if (!query || query.length < 2) return;
-
-  var wrap = document.getElementById('content-wrap');
-  var selectors = [
-    '.summary-card-title', '.summary-card-desc', '.summary-cmd-text',
-    '.detail-transcript-header', '.detail-transcript-desc', '.detail-cmd-text',
-    '.detail-comment', '.assert-text', '.detail-output'
-  ];
-  var els = wrap.querySelectorAll(selectors.join(', '));
-
-  els.forEach(function(el) {
-    if (el.textContent.toLowerCase().includes(query.toLowerCase())) {
-      highlightMatches(el, query);
-    }
-  });
-
-  searchHits = Array.from(document.querySelectorAll('.search-hit'));
-  if (searchHits.length > 0) {
-    currentHit = 0;
-    searchHits[0].classList.add('search-current');
-    searchHits[0].scrollIntoView({ block: 'center' });
-  }
-}
-
-function nextHit() {
-  if (searchHits.length === 0) return;
-  searchHits[currentHit].classList.remove('search-current');
-  currentHit = (currentHit + 1) % searchHits.length;
-  searchHits[currentHit].classList.add('search-current');
-  searchHits[currentHit].scrollIntoView({ block: 'center' });
-}
-
-function prevHit() {
-  if (searchHits.length === 0) return;
-  searchHits[currentHit].classList.remove('search-current');
-  currentHit = (currentHit - 1 + searchHits.length) % searchHits.length;
-  searchHits[currentHit].classList.add('search-current');
-  searchHits[currentHit].scrollIntoView({ block: 'center' });
-}
-
-/* ---- Failures-only filter ---- */
-function applyFailuresFilter() {
-  if (!failuresOnly) {
-    // Remove all filter classes
-    document.querySelectorAll('.hidden-by-filter').forEach(function(el) {
-      el.classList.remove('hidden-by-filter');
-    });
-    return;
-  }
-
-  if (currentView === 'summary') {
-    // Hide passing commands
-    document.querySelectorAll('.summary-cmd').forEach(function(el) {
-      var icon = el.querySelector('.summary-cmd-icon');
-      var isPass = icon && icon.classList.contains('pass');
-      if (isPass) {
-        el.classList.add('hidden-by-filter');
-      } else {
-        el.classList.remove('hidden-by-filter');
-      }
-    });
-    // Hide summary cards where all commands pass
-    document.querySelectorAll('.summary-card').forEach(function(el) {
-      var cmds = el.querySelectorAll('.summary-cmd');
-      var allPass = true;
-      cmds.forEach(function(cmd) {
-        var icon = cmd.querySelector('.summary-cmd-icon');
-        if (icon && icon.classList.contains('fail')) allPass = false;
-      });
-      if (allPass) {
-        el.classList.add('hidden-by-filter');
-      } else {
-        el.classList.remove('hidden-by-filter');
-      }
-    });
-  } else {
-    // Detail view: hide commands without has-failure
-    document.querySelectorAll('.detail-command').forEach(function(el) {
-      if (!el.classList.contains('has-failure')) {
-        el.classList.add('hidden-by-filter');
-      } else {
-        el.classList.remove('hidden-by-filter');
-      }
-    });
-  }
-}
-
-/* ---- Init ---- */
-async function init() {
-  var wrap = document.getElementById('content-wrap');
-
-  try {
-    var resp = await fetch(DATA_URL);
-    if (!resp.ok) {
-      throw { notFound: true };
-    }
-    testData = await resp.json();
-  } catch (e) {
-    if (e.notFound) {
-      // No test-results.json — show helpful empty state
-      testData = null;
-      wrap.innerHTML = renderEmpty();
-      document.getElementById('status-banner').className = 'status-banner no-data';
-      document.getElementById('status-banner').textContent = 'No test results file found';
-      return;
-    }
-    wrap.innerHTML = '<div class="error-msg">Failed to load test results. ' + esc(e.message || String(e)) + '</div>';
-    return;
-  }
-
-  // Update page metadata
-  updateTitle();
-  updateStatusBanner();
-  updateTotalBadge();
-
-  // Timestamp in sidebar
-  if (testData.timestamp) {
-    document.getElementById('sidebar-timestamp').textContent = formatTimestamp(testData.timestamp);
-  }
-
-  // Build sidebar
-  buildNav();
-
-  // Restore view preference
-  var pref = loadViewPref();
-  if (pref === 'detail') {
-    showDetail();
-  } else {
-    showSummary();
-  }
-
-  // Toggle buttons
-  document.getElementById('btn-summary').addEventListener('click', showSummary);
-  document.getElementById('btn-detail').addEventListener('click', showDetail);
-
-  // Expand All / Collapse All
-  document.getElementById('btn-expand-all').addEventListener('click', function() {
-    document.querySelectorAll('.detail-command').forEach(function(el) {
-      el.classList.add('expanded');
-      var icon = el.querySelector('.detail-expand-icon');
-      if (icon) icon.textContent = '\u25be';
-    });
-  });
-  document.getElementById('btn-collapse-all').addEventListener('click', function() {
-    document.querySelectorAll('.detail-command').forEach(function(el) {
-      el.classList.remove('expanded');
-      var icon = el.querySelector('.detail-expand-icon');
-      if (icon) icon.textContent = el.classList.contains('has-failure') ? '\u25be' : '\u25b8';
-    });
-  });
-
-  // Failures only filter
-  document.getElementById('btn-failures-only').addEventListener('click', function() {
-    failuresOnly = !failuresOnly;
-    this.classList.toggle('active', failuresOnly);
-    applyFailuresFilter();
-  });
-
-  // Search
-  var searchInput = document.getElementById('search');
-  var debounce;
-  searchInput.addEventListener('input', function() {
-    clearTimeout(debounce);
-    var self = this;
-    debounce = setTimeout(function() { doSearch(self.value); }, 200);
-  });
-
-  searchInput.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      if (e.shiftKey) prevHit(); else nextHit();
-    }
-    if (e.key === 'Escape') {
-      clearSearch();
-      this.value = '';
-      this.blur();
-    }
-  });
-
-  // Keyboard shortcuts
-  document.addEventListener('keydown', function(e) {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
-      e.preventDefault();
-      searchInput.focus();
-      searchInput.select();
-      return;
-    }
-  });
-}
-
-init();
-</script>
-
-</body>
-</html>
+});
+</script></body></html>
