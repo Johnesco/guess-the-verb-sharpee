@@ -27,7 +27,6 @@ jobs:
         run: |
           mkdir -p _site
           [ -d web ] && cp -r web/* _site/ || true
-          [ -d browser ] && cp -r browser/* _site/ || true
           [ -d lib ] && cp -r lib _site/ || true
           [ -d assets ] && cp -r assets _site/ || true
           [ -d audio ] && cp -r audio _site/ || true
@@ -41,7 +40,6 @@ jobs:
           cp *.bas _site/ 2>/dev/null || true
           cp *.js _site/ 2>/dev/null || true
           cp *.css _site/ 2>/dev/null || true
-          cp *.ts _site/ 2>/dev/null || true
           cp *.rez _site/ 2>/dev/null || true
       - uses: actions/upload-pages-artifact@v3
         with:

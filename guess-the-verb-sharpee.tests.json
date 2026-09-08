@@ -1,0 +1,218 @@
+{
+  "version": 1,
+  "story": "guess-the-verb-sharpee",
+  "seed": 42,
+  "cards": [
+    {
+      "type": "opening",
+      "assertions": {
+        "channels": [
+          { "id": "info.title", "is": "Guess the Verb" },
+          { "id": "info.description", "is": "Explore your grandmother's old house and find the family heirloom she left behind. Every room tests a different verb pattern." }
+        ]
+      }
+    },
+    {
+      "type": "boot",
+      "assertions": { "contains": ["Front Porch", "A woven doormat lies before the front door.", "You can see a woven doormat here."] },
+      "branches": [
+        { "branch": 1, "cards": [
+          { "type": "turn", "command": "examine rug",
+            "assertions": { "contains": ["A faded doormat reading 'WELCOME'."] } },
+          { "type": "turn", "command": "examine buzzer",
+            "assertions": { "contains": ["A tarnished brass button set into the door frame."] } },
+          { "type": "turn", "command": "ring doorbell",
+            "assertions": { "contains": ["A faint chime echoes inside the house, unanswered."] } },
+          { "type": "turn", "command": "push doorbell",
+            "assertions": { "contains": ["A faint chime echoes inside the house, unanswered."] } },
+          { "type": "turn", "command": "pull doorbell",
+            "assertions": { "contains": ["It's a push button, not a pull cord."] } },
+          { "type": "turn", "command": "knock on door",
+            "assertions": { "contains": ["You rap your knuckles on the door. No answer."] } },
+          { "type": "turn", "command": "hello",
+            "assertions": { "contains": ["No one answers. The house is quiet."] } },
+          { "type": "turn", "command": "help",
+            "assertions": { "contains": ["Type VERBS for a full list of commands."] } },
+          { "type": "turn", "command": "verbs",
+            "assertions": { "contains": ["AVAILABLE COMMANDS:"] } },
+          { "type": "turn", "command": "where am i",
+            "assertions": { "contains": ["Front Porch"] } },
+          { "type": "turn", "command": "examine me",
+            "assertions": { "contains": ["As good-looking as ever."] } },
+          { "type": "turn", "command": "grab mat",
+            "assertions": { "contains": ["Taken.", "You lift the corner of the doormat and find an iron key hidden underneath."], "states": ["the woven doormat is lifted"] } },
+          { "type": "turn", "command": "pick up mat",
+            "assertions": { "contains": ["You already found the key here."] } },
+          { "type": "turn", "command": "search mat",
+            "assertions": { "contains": ["You already found the key here."] } },
+          { "type": "turn", "command": "take key",
+            "assertions": { "contains": ["Taken."] } },
+          { "type": "turn", "command": "use key",
+            "assertions": { "contains": ["How do you want to use that?"] } },
+          { "type": "turn", "command": "use key on door",
+            "assertions": { "contains": ["Try UNLOCK it WITH the key"] } }
+        ] }
+      ]
+    },
+    { "type": "turn", "command": "look under doormat",
+      "assertions": { "contains": ["You lift the corner of the doormat and find an iron key hidden underneath."], "states": ["the woven doormat is lifted"] } },
+    { "type": "turn", "command": "take iron key",
+      "assertions": { "contains": ["Taken."], "states": ["player.inventory contains iron key"] } },
+    { "type": "turn", "command": "unlock front door with iron key",
+      "assertions": { "contains": ["You unlock the front door with the iron key."] } },
+    { "type": "turn", "command": "open front door",
+      "assertions": { "contains": ["You open the front door."] } },
+    { "type": "turn", "command": "east",
+      "assertions": { "contains": ["Hallway", "A coat rack stands by the door with an old overcoat hanging from it."], "states": ["player.location = Hallway"] },
+      "branches": [
+        { "branch": 2, "cards": [
+          { "type": "turn", "command": "check overcoat",
+            "assertions": { "contains": ["A moth-eaten wool overcoat."] } },
+          { "type": "turn", "command": "look in pockets",
+            "assertions": { "contains": ["find a small book of matches from 'The Golden Lantern.'"], "states": ["player.inventory contains matchbook"] } },
+          { "type": "turn", "command": "rummage overcoat",
+            "assertions": { "contains": ["You've already found the matchbook."] } },
+          { "type": "turn", "command": "take coat",
+            "assertions": { "contains": ["The coat is too moth-eaten to carry."] } },
+          { "type": "turn", "command": "wear coat",
+            "assertions": { "contains": ["The overcoat is too moth-eaten to wear."] } },
+          { "type": "turn", "command": "climb stairs",
+            "assertions": { "contains": ["(Try going UP to climb the stairs.)"] } },
+          { "type": "turn", "command": "up",
+            "assertions": { "contains": ["Attic", "On the dusty shelf you see an old music box."], "states": ["player.location = Attic"] } },
+          { "type": "turn", "command": "down",
+            "assertions": { "contains": ["Hallway"] } }
+        ] }
+      ] },
+    { "type": "turn", "command": "search overcoat",
+      "assertions": { "contains": ["You rummage through the overcoat's pockets and find a small book of matches"], "states": ["player.inventory contains matchbook"] } },
+    { "type": "turn", "command": "east",
+      "assertions": { "contains": ["Study", "A stone fireplace squats in the corner, cold and dark."] },
+      "branches": [
+        { "branch": 3, "cards": [
+          { "type": "turn", "command": "examine desk",
+            "assertions": { "contains": ["The drawers are closed."] } },
+          { "type": "turn", "command": "open safe",
+            "assertions": { "contains": ["You can't see any such thing."] } },
+          { "type": "turn", "command": "look behind painting",
+            "assertions": { "contains": ["revealing a small wall safe hidden behind it."], "states": ["the oil painting is aside"] } },
+          { "type": "turn", "command": "push painting",
+            "assertions": { "contains": ["You already moved the painting. The wall safe is visible."] } },
+          { "type": "turn", "command": "turn dial",
+            "assertions": { "contains": ["You don't know the combination yet."] } },
+          { "type": "turn", "command": "open safe",
+            "assertions": { "contains": ["You don't know the combination yet."] } },
+          { "type": "turn", "command": "examine hearthstone",
+            "assertions": { "contains": ["Hard to make out any detail."] } }
+        ] }
+      ] },
+    { "type": "turn", "command": "open desk",
+      "assertions": { "contains": ["You open the heavy desk.", "In the heavy desk you see a winding key."] } },
+    { "type": "turn", "command": "take winding key",
+      "assertions": { "contains": ["You take the winding key from the heavy desk."], "states": ["player.inventory contains winding key"] } },
+    { "type": "turn", "command": "push painting",
+      "assertions": { "contains": ["You push the painting aside, revealing a small wall safe hidden behind it."], "states": ["the oil painting is aside"] } },
+    { "type": "turn", "command": "light fireplace",
+      "assertions": { "contains": ["You strike a match and light the logs.", "7 - 3 - 9"], "states": ["the stone fireplace is burning"] },
+      "branches": [
+        { "branch": 4, "cards": [
+          { "type": "turn", "command": "examine hearthstone",
+            "assertions": { "contains": ["numbers scratched into the hearthstone: 7 - 3 - 9."] } },
+          { "type": "turn", "command": "kindle fireplace",
+            "assertions": { "contains": ["The fire is already burning."] } },
+          { "type": "turn", "command": "turn dial",
+            "assertions": { "contains": ["You dial 7... 3... 9. Click."], "states": ["the wall safe is dialed"] } },
+          { "type": "turn", "command": "turn dial",
+            "assertions": { "contains": ["The safe is already dialed open."] } },
+          { "type": "turn", "command": "open safe",
+            "assertions": { "contains": ["You open the wall safe.", "In the wall safe you see a clock spring."] } }
+        ] }
+      ] },
+    { "type": "turn", "command": "open safe",
+      "assertions": { "contains": ["Remembering the numbers on the hearthstone, you dial 7... 3... 9. Click.", "In the wall safe you see a clock spring."], "states": ["the wall safe is dialed"] } },
+    { "type": "turn", "command": "take clock spring",
+      "assertions": { "contains": ["You take the clock spring from the wall safe."], "states": ["player.inventory contains clock spring"] } },
+    { "type": "turn", "command": "west",
+      "assertions": { "contains": ["Hallway"] } },
+    { "type": "turn", "command": "south",
+      "assertions": { "contains": ["Kitchen", "A handwritten recipe card sits on the counter."] },
+      "branches": [
+        { "branch": 5, "cards": [
+          { "type": "turn", "command": "turn faucet",
+            "assertions": { "contains": ["Rusty water sputters out briefly, then runs clear."] } },
+          { "type": "turn", "command": "read recipe",
+            "assertions": { "contains": ["Lavender shortbread -- butter, sugar, flour, and dried lavender from the garden."] } }
+        ] }
+      ] },
+    { "type": "turn", "command": "south",
+      "assertions": { "contains": ["Garden", "You can see a garden trowel here."] },
+      "branches": [
+        { "branch": 6, "cards": [
+          { "type": "turn", "command": "dig",
+            "assertions": { "contains": ["Dig what?"] } },
+          { "type": "turn", "command": "dig earth",
+            "assertions": { "contains": ["You'd need a tool to dig properly."] } },
+          { "type": "turn", "command": "take trowel",
+            "assertions": { "contains": ["Taken."] } },
+          { "type": "turn", "command": "dig dirt",
+            "assertions": { "contains": ["uncover a small brass mechanism"], "states": ["the flower bed is dug"] } },
+          { "type": "turn", "command": "excavate flower bed",
+            "assertions": { "contains": ["You've already dug here and found the mechanism."] } }
+        ] }
+      ] },
+    { "type": "turn", "command": "take trowel",
+      "assertions": { "contains": ["Taken."], "states": ["player.inventory contains garden trowel"] } },
+    { "type": "turn", "command": "dig flower bed",
+      "assertions": { "contains": ["You dig into the soft earth with the trowel and uncover a small brass mechanism"], "states": ["the flower bed is dug"] } },
+    { "type": "turn", "command": "take brass mechanism",
+      "assertions": { "contains": ["Taken."], "states": ["player.inventory contains brass mechanism"] } },
+    { "type": "turn", "command": "north",
+      "assertions": { "contains": ["Kitchen"] } },
+    { "type": "turn", "command": "north",
+      "assertions": { "contains": ["Hallway"] } },
+    { "type": "turn", "command": "up",
+      "assertions": { "contains": ["Attic"], "states": ["player.location = Attic"] } },
+    { "type": "turn", "command": "take music box",
+      "assertions": { "contains": ["You take the old music box from the dusty shelf."] },
+      "branches": [
+        { "branch": 7, "cards": [
+          { "type": "turn", "command": "fix music box",
+            "assertions": { "contains": ["Nothing is installed yet. Still missing: the mechanism and the spring."] } },
+          { "type": "turn", "command": "open trunk",
+            "assertions": { "contains": ["The trunk has no keyhole."] } },
+          { "type": "turn", "command": "unlock trunk",
+            "assertions": { "contains": ["The trunk has no keyhole."] } },
+          { "type": "turn", "command": "wind music box",
+            "assertions": { "contains": ["The music box is still missing its mechanism."] } },
+          { "type": "turn", "command": "attach mechanism to music box",
+            "assertions": { "contains": ["You put the brass mechanism in the old music box."] } },
+          { "type": "turn", "command": "fix music box",
+            "assertions": { "contains": ["The mechanism is installed. Still missing: the spring."] } },
+          { "type": "turn", "command": "combine spring with music box",
+            "assertions": { "contains": ["Try: PUT one part IN the music box."] } },
+          { "type": "turn", "command": "crank music box",
+            "assertions": { "contains": ["The music box is still missing its spring."] } }
+        ] }
+      ] },
+    { "type": "turn", "command": "put mechanism in music box",
+      "assertions": { "contains": ["You put the brass mechanism in the old music box."] } },
+    { "type": "turn", "command": "put spring in music box",
+      "assertions": { "contains": ["You put the clock spring in the old music box."] } },
+    { "type": "turn", "command": "examine music box",
+      "assertions": { "contains": ["The mechanism and spring are installed inside, ready to be wound."] } },
+    { "type": "turn", "command": "wind music box",
+      "assertions": { "contains": ["a delicate melody fills the attic", "its lock releases."], "states": ["the steamer trunk is released"] } },
+    { "type": "turn", "command": "open trunk",
+      "assertions": { "contains": ["You open the steamer trunk.", "In the steamer trunk you see a family locket."] },
+      "branches": [
+        { "branch": 8, "cards": [
+          { "type": "turn", "command": "wind up music box",
+            "assertions": { "contains": ["The trunk has already answered."] } },
+          { "type": "turn", "command": "examine trunk",
+            "assertions": { "contains": ["The lock has been released."] } }
+        ] }
+      ] },
+    { "type": "turn", "command": "take locket",
+      "assertions": { "contains": ["You lift the locket from the trunk.", "You found your grandmother's heirloom."] } }
+  ]
+}
