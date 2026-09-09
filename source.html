@@ -1082,12 +1082,18 @@ pre { margin: 0; padding: 14px 18px 60px; white-space: pre; overflow-x: auto; }
 <script>
 ThemeListener.init({
   buildCSS: function(g, sb) {
-    return 'body { background: ' + g.bodyBg + ' !important; color: ' + g.bufferFg + ' !important; }\n' +
-      'header, .meta { color: ' + g.gridFg + ' !important; border-color: ' + g.gridBg + ' !important; }\n' +
-      'pre, code { color: ' + g.bufferFg + ' !important; font-family: ' + g.monoFamily + ' !important; }\n' +
-      '.ln { color: ' + g.gridFg + ' !important; }\n' +
-      '.cmd { color: ' + g.inputFg + ' !important; }\n' +
-      '* { scrollbar-color: ' + sb.thumb + ' ' + sb.track + '; }\n';
+    return 'body { background: ' + g.bodyBg + ' !important; color: ' + g.bufferFg + ' !important; }
+' +
+      'header, .meta { color: ' + g.gridFg + ' !important; border-color: ' + g.gridBg + ' !important; }
+' +
+      'pre, code { color: ' + g.bufferFg + ' !important; font-family: ' + g.monoFamily + ' !important; }
+' +
+      '.ln { color: ' + g.gridFg + ' !important; }
+' +
+      '.cmd { color: ' + g.inputFg + ' !important; }
+' +
+      '* { scrollbar-color: ' + sb.thumb + ' ' + sb.track + '; }
+';
   },
   dispatchResize: false
 });
