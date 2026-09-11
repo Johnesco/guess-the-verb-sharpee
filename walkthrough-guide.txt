@@ -7,7 +7,7 @@
 # to, and any verb the story defines itself. Refusals are coverage too
 # — taking scenery should fail, and the transcript records that it did.
 #
-# 6 of 6 rooms swept, 27 of 34 things exercised, 157 commands.
+# 6 of 6 rooms swept, 27 of 34 things exercised, 148 commands.
 #
 # Not exercised — held inside a closed thing, carried from the
 # start, or the player character itself: brass mechanism, clock spring, front door, iron key, matchbook, visitor, wall safe.
@@ -16,7 +16,6 @@
 
 > look
 > x woven doormat
-> i
 > x mat
 > x brass doorbell
 > x bell
@@ -49,7 +48,6 @@
 > x bookshelves
 > x heavy desk
 > look in heavy desk
-> look in heavy desk
 > x desk
 > x oil painting
 > x painting
@@ -60,7 +58,6 @@
 > x wood paneling
 > x paneling
 > x winding key
-> i
 > x butterfly key
 > open desk
 > take winding key
@@ -92,7 +89,6 @@
 > x flower bed
 > x bed
 > x garden trowel
-> i
 > x trowel
 > x garden shed
 > x shed
@@ -116,17 +112,13 @@
 > x shelf
 > x steamer trunk
 > look in steamer trunk
-> look in steamer trunk
 > x trunk
 > x sloping eaves
 > x eaves
 > x old music box
 > look in old music box
-> look in old music box
-> i
 > x box
 > x family locket
-> i
 > x locket
 > take music box
 > put mechanism in music box
@@ -223,5 +215,4 @@
 > take family locket
 > drop family locket
 > score
-> inventory
 > take locket

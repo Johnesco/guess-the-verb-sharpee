@@ -1,6 +1,5 @@
 look
 x woven doormat
-i
 x mat
 x brass doorbell
 x bell
@@ -27,7 +26,6 @@ x study bookshelves
 x bookshelves
 x heavy desk
 look in heavy desk
-look in heavy desk
 x desk
 x oil painting
 x painting
@@ -38,7 +36,6 @@ x hearth stone
 x wood paneling
 x paneling
 x winding key
-i
 x butterfly key
 open desk
 take winding key
@@ -61,7 +58,6 @@ south
 x flower bed
 x bed
 x garden trowel
-i
 x trowel
 x garden shed
 x shed
@@ -76,17 +72,13 @@ look on dusty shelf
 x shelf
 x steamer trunk
 look in steamer trunk
-look in steamer trunk
 x trunk
 x sloping eaves
 x eaves
 x old music box
 look in old music box
-look in old music box
-i
 x box
 x family locket
-i
 x locket
 take music box
 put mechanism in music box
@@ -153,5 +145,4 @@ winding old music box
 take family locket
 drop family locket
 score
-inventory
 take locket

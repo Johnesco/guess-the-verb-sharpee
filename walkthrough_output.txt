@@ -16,9 +16,6 @@ You can see a woven doormat here.
 > x woven doormat
 A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath.
 
-> i
-You aren't carrying anything.
-
 > x mat
 A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath.
 
@@ -103,9 +100,6 @@ A mahogany desk with brass handles. The drawers are closed.
 > look in heavy desk
 The heavy desk is closed.
 
-> look in heavy desk
-The heavy desk is closed.
-
 > x desk
 A mahogany desk with brass handles. The drawers are closed.
 
@@ -135,11 +129,6 @@ Dark wood panels line the walls, polished but dusty.
 
 > x winding key
 You can't see any such thing.
-
-> i
-You are carrying:
-
-an iron key, matchbook
 
 > x butterfly key
 You can't see any such thing.
@@ -226,11 +215,6 @@ A raised bed of dark soil tangled with dead weeds. The earth looks soft -- someo
 > x garden trowel
 A short-handled garden trowel, rusty but solid.
 
-> i
-You are carrying:
-
-an iron key, matchbook, winding key, clock spring
-
 > x trowel
 A short-handled garden trowel, rusty but solid.
 
@@ -288,9 +272,6 @@ A battered steamer trunk with brass fittings. The lock has no keyhole -- just a 
 > look in steamer trunk
 The steamer trunk is closed.
 
-> look in steamer trunk
-The steamer trunk is closed.
-
 > x trunk
 A battered steamer trunk with brass fittings. The lock has no keyhole -- just a small slot that looks mechanically connected to the shelf above.
 
@@ -306,24 +287,11 @@ A wooden music box with a rose-carved lid and a small keyhole on the side. Insid
 > look in old music box
 The old music box is empty.
 
-> look in old music box
-The old music box is empty.
-
-> i
-You are carrying:
-
-an iron key, matchbook, winding key, clock spring, garden trowel, brass mechanism
-
 > x box
 A wooden music box with a rose-carved lid and a small keyhole on the side. Inside, the cavity is empty -- the mechanism has been removed.
 
 > x family locket
 You can't see any such thing.
-
-> i
-You are carrying:
-
-an iron key, matchbook, winding key, clock spring, garden trowel, brass mechanism
 
 > x locket
 You can't see any such thing.
@@ -567,9 +535,6 @@ You found your grandmother's heirloom.
 Error: Engine is not running
 
 > score
-Error: Engine is not running
-
-> inventory
 Error: Engine is not running
 
 > take locket
