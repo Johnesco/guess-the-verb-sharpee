@@ -5,6 +5,35 @@ The front door leads inside to the east.
 
 You can see a woven doormat here.
 
+> look
+Front Porch
+A sagging wooden porch wraps around the front of the house. A woven doormat lies before the front door. A tarnished brass doorbell is set beside the frame.
+
+The front door leads inside to the east.
+
+You can see a woven doormat here.
+
+> x woven doormat
+A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath.
+
+> i
+You aren't carrying anything.
+
+> x mat
+A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath.
+
+> x brass doorbell
+A tarnished brass button set into the door frame.
+
+> x bell
+A tarnished brass button set into the door frame.
+
+> x sagging porch
+Weathered boards that sag under your weight. The paint peeled away long ago.
+
+> x boards
+Weathered boards that sag under your weight. The paint peeled away long ago.
+
 > look under doormat
 You lift the corner of the doormat and find an iron key hidden underneath.
 
@@ -23,6 +52,36 @@ A dim hallway with faded wallpaper and creaking floorboards. A coat rack stands 
 
 Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
 
+> x coat rack
+A wooden coat rack, slightly tilted. An old overcoat hangs from one hook.
+
+> x rack
+A wooden coat rack, slightly tilted. An old overcoat hangs from one hook.
+
+> x old overcoat
+A moth-eaten wool overcoat. The pockets look like they might hold something.
+
+> x coat
+A moth-eaten wool overcoat. The pockets look like they might hold something.
+
+> x narrow staircase
+A wooden staircase with groaning steps. It leads up into shadows.
+
+> x stairs
+A wooden staircase with groaning steps. It leads up into shadows.
+
+> x faded wallpaper
+Yellowed wallpaper with a faded floral pattern, peeling at the seams.
+
+> x wallpaper
+Yellowed wallpaper with a faded floral pattern, peeling at the seams.
+
+> x creaking floorboards
+Dark wooden floorboards that creak underfoot.
+
+> x floor
+Dark wooden floorboards that creak underfoot.
+
 > search overcoat
 You rummage through the overcoat's pockets and find a small book of matches from 'The Golden Lantern.'
 
@@ -31,6 +90,59 @@ Study
 A wood-paneled study with built-in bookshelves. A heavy desk sits in the center, its drawers shut. An oil painting of a woman hangs on the far wall. A stone fireplace squats in the corner, cold and dark.
 
 The hallway is back to the west.
+
+> x study bookshelves
+Floor-to-ceiling shelves packed with dusty volumes. Nothing stands out.
+
+> x bookshelves
+Floor-to-ceiling shelves packed with dusty volumes. Nothing stands out.
+
+> x heavy desk
+A mahogany desk with brass handles. The drawers are closed.
+
+> look in heavy desk
+The heavy desk is closed.
+
+> look in heavy desk
+The heavy desk is closed.
+
+> x desk
+A mahogany desk with brass handles. The drawers are closed.
+
+> x oil painting
+A portrait of a stern woman in a high collar -- your grandmother, perhaps. The frame sits slightly askew on the wall.
+
+> x painting
+A portrait of a stern woman in a high collar -- your grandmother, perhaps. The frame sits slightly askew on the wall.
+
+> x stone fireplace
+A wide stone fireplace with old logs in the grate, ready to burn. The hearthstone is blackened with soot.
+
+> x fireplace
+A wide stone fireplace with old logs in the grate, ready to burn. The hearthstone is blackened with soot.
+
+> x hearthstone
+A broad flat stone at the base of the fireplace, blackened with soot. Hard to make out any detail.
+
+> x hearth stone
+A broad flat stone at the base of the fireplace, blackened with soot. Hard to make out any detail.
+
+> x wood paneling
+Dark wood panels line the walls, polished but dusty.
+
+> x paneling
+Dark wood panels line the walls, polished but dusty.
+
+> x winding key
+You can't see any such thing.
+
+> i
+You are carrying:
+
+an iron key, matchbook
+
+> x butterfly key
+You can't see any such thing.
 
 > open desk
 You open the heavy desk.
@@ -70,6 +182,33 @@ A rustic kitchen with stone counters and a deep ceramic sink. Copper pots hang f
 
 The hallway is north. A doorway leads south to the garden.
 
+> x stone counters
+Heavy stone countertops, cracked but solid.
+
+> x counter
+Heavy stone countertops, cracked but solid.
+
+> x ceramic sink
+A deep farmhouse sink with a brass faucet. It drips slowly.
+
+> x sink
+A deep farmhouse sink with a brass faucet. It drips slowly.
+
+> x copper pots
+Tarnished copper pots hanging from iron hooks. Decorative now.
+
+> x pots
+Tarnished copper pots hanging from iron hooks. Decorative now.
+
+> x recipe card
+Your grandmother's handwriting: 'Lavender shortbread -- butter, sugar, flour, and dried lavender from the garden.' The card is stained and well-loved.
+
+> read recipe card
+Lavender shortbread -- butter, sugar, flour, and dried lavender from the garden.
+
+> x recipe
+Your grandmother's handwriting: 'Lavender shortbread -- butter, sugar, flour, and dried lavender from the garden.' The card is stained and well-loved.
+
 > south
 Garden
 An overgrown garden behind the house. A flower bed runs along the back wall, thick with weeds. A small shed leans in one corner with its door ajar. A rusty trowel leans against the shed.
@@ -77,6 +216,29 @@ An overgrown garden behind the house. A flower bed runs along the back wall, thi
 The kitchen doorway is back to the north.
 
 You can see a garden trowel here.
+
+> x flower bed
+A raised bed of dark soil tangled with dead weeds. The earth looks soft -- someone was digging here recently.
+
+> x bed
+A raised bed of dark soil tangled with dead weeds. The earth looks soft -- someone was digging here recently.
+
+> x garden trowel
+A short-handled garden trowel, rusty but solid.
+
+> i
+You are carrying:
+
+an iron key, matchbook, winding key, clock spring
+
+> x trowel
+A short-handled garden trowel, rusty but solid.
+
+> x garden shed
+A small wooden shed with a sagging roof. The door hangs open, revealing empty shelves and cobwebs inside.
+
+> x shed
+A small wooden shed with a sagging roof. The door hangs open, revealing empty shelves and cobwebs inside.
 
 > take trowel
 Taken.
@@ -107,6 +269,65 @@ The stairs lead back down.
 
 On the dusty shelf you see an old music box.
 
+> x dusty shelf
+A rough plank shelf nailed to the wall studs.
+
+On the dusty shelf you see an old music box.
+
+> look on dusty shelf
+You can't see any such thing.
+
+> x shelf
+A rough plank shelf nailed to the wall studs.
+
+On the dusty shelf you see an old music box.
+
+> x steamer trunk
+A battered steamer trunk with brass fittings. The lock has no keyhole -- just a small slot that looks mechanically connected to the shelf above.
+
+> look in steamer trunk
+The steamer trunk is closed.
+
+> look in steamer trunk
+The steamer trunk is closed.
+
+> x trunk
+A battered steamer trunk with brass fittings. The lock has no keyhole -- just a small slot that looks mechanically connected to the shelf above.
+
+> x sloping eaves
+Low rafters and dusty beams. You have to duck in places.
+
+> x eaves
+Low rafters and dusty beams. You have to duck in places.
+
+> x old music box
+A wooden music box with a rose-carved lid and a small keyhole on the side. Inside, the cavity is empty -- the mechanism has been removed.
+
+> look in old music box
+The old music box is empty.
+
+> look in old music box
+The old music box is empty.
+
+> i
+You are carrying:
+
+an iron key, matchbook, winding key, clock spring, garden trowel, brass mechanism
+
+> x box
+A wooden music box with a rose-carved lid and a small keyhole on the side. Inside, the cavity is empty -- the mechanism has been removed.
+
+> x family locket
+You can't see any such thing.
+
+> i
+You are carrying:
+
+an iron key, matchbook, winding key, clock spring, garden trowel, brass mechanism
+
+> x locket
+You can't see any such thing.
+
 > take music box
 You take the old music box from the dusty shelf.
 
@@ -131,9 +352,225 @@ You open the steamer trunk.
 
 In the steamer trunk you see a family locket.
 
-> take locket
+> down
+Hallway
+A dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
+
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
+
+> west
+Front Porch
+A sagging wooden porch wraps around the front of the house. A woven doormat lies before the front door. A tarnished brass doorbell is set beside the frame.
+
+The front door leads inside to the east.
+
+You can see a woven doormat here.
+
+> take woven doormat
+You already found the key here.
+
+> drop woven doormat
+You aren't holding the woven doormat.
+
+> take brass doorbell
+The brass doorbell is fixed in place.
+
+> ringing brass doorbell
+I don't understand that.
+
+> take sagging porch
+The sagging porch is fixed in place.
+
+> open front door
+The front door is already open.
+
+> east
+Hallway
+A dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
+
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
+
+> take coat rack
+The coat rack is fixed in place.
+
+> take old overcoat
+The coat is too moth-eaten to carry. But you could search the pockets.
+
+> take narrow staircase
+The narrow staircase is fixed in place.
+
+> take faded wallpaper
+The faded wallpaper is fixed in place.
+
+> take creaking floorboards
+The creaking floorboards are fixed in place.
+
+> east
+Study
+A wood-paneled study with built-in bookshelves. A heavy desk sits in the center, its drawers shut. An oil painting of a woman hangs on the far wall. A stone fireplace squats in the corner, cold and dark.
+
+The hallway is back to the west.
+
+> take study bookshelves
+The study bookshelves are fixed in place.
+
+> open heavy desk
+The heavy desk is already open.
+
+> close heavy desk
+You close the heavy desk.
+
+> open heavy desk
+You open the heavy desk, which is empty.
+
+> open heavy desk
+The heavy desk is already open.
+
+> take heavy desk
+The desk is far too heavy to carry.
+
+> pull oil painting
+You already moved the painting. The wall safe is visible.
+
+> push oil painting
+You already moved the painting. The wall safe is visible.
+
+> take oil painting
+The oil painting is fixed in place.
+
+> take stone fireplace
+The stone fireplace is fixed in place.
+
+> lighting stone fireplace
+I don't understand that.
+
+> take hearthstone
+The hearthstone is fixed in place.
+
+> take wood paneling
+The wood paneling is fixed in place.
+
+> take winding key
+You already have the winding key.
+
+> drop winding key
+Dropped.
+
+> west
+Hallway
+A dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
+
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
+
+> south
+Kitchen
+A rustic kitchen with stone counters and a deep ceramic sink. Copper pots hang from hooks above. A handwritten recipe card sits on the counter.
+
+The hallway is north. A doorway leads south to the garden.
+
+> take stone counters
+The stone counters are fixed in place.
+
+> take ceramic sink
+The ceramic sink is fixed in place.
+
+> take copper pots
+The copper pots are fixed in place.
+
+> take recipe card
+The recipe card is fixed in place.
+
+> south
+Garden
+An overgrown garden behind the house. A flower bed runs along the back wall, thick with weeds. A small shed leans in one corner with its door ajar. A rusty trowel leans against the shed.
+
+The kitchen doorway is back to the north.
+
+> take flower bed
+The flower bed is fixed in place.
+
+> take garden trowel
+You already have the garden trowel.
+
+> drop garden trowel
+Dropped.
+
+> take garden shed
+The garden shed is fixed in place.
+
+> north
+Kitchen
+A rustic kitchen with stone counters and a deep ceramic sink. Copper pots hang from hooks above. A handwritten recipe card sits on the counter.
+
+The hallway is north. A doorway leads south to the garden.
+
+> north
+Hallway
+A dim hallway with faded wallpaper and creaking floorboards. A coat rack stands by the door with an old overcoat hanging from it.
+
+Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
+
+> up
+Attic
+A cramped attic under sloping eaves, thick with dust. A dusty shelf holds an old music box. A heavy steamer trunk sits against the wall.
+
+The stairs lead back down.
+
+In the steamer trunk you see a family locket.
+
+> take dusty shelf
+The shelf is nailed to the wall.
+
+> open steamer trunk
+The steamer trunk is already open.
+
+> close steamer trunk
+You close the steamer trunk.
+
+> open steamer trunk
+You open the steamer trunk.
+
+In the steamer trunk you see a family locket.
+
+> open steamer trunk
+The steamer trunk is already open.
+
+> take steamer trunk
+The trunk is far too heavy to lift.
+
+> take sloping eaves
+The sloping eaves are fixed in place.
+
+> open old music box
+The old music box can't be opened.
+
+> take old music box
+You already have the old music box.
+
+> drop old music box
+Dropped.
+
+> repairing old music box
+I don't understand that.
+
+> winding old music box
+I don't understand that.
+
+> take family locket
 You take the family locket from the steamer trunk.
 
 You lift the locket from the trunk. Inside, your grandmother smiles back at you from a faded photograph. This is what she wanted you to have.
 
 You found your grandmother's heirloom.
+
+> drop family locket
+Error: Engine is not running
+
+> score
+Error: Engine is not running
+
+> inventory
+Error: Engine is not running
+
+> take locket
+Error: Engine is not running

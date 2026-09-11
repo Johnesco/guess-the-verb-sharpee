@@ -1,0 +1,19 @@
+{
+  "generated": "derived from the story source",
+  "commands": 157,
+  "understood": 152,
+  "misses": 5,
+  "rooms_swept": 6,
+  "rooms_total": 6,
+  "things_covered": 27,
+  "things_total": 34,
+  "uncovered": [
+    "brass mechanism",
+    "clock spring",
+    "front door",
+    "iron key",
+    "matchbook",
+    "visitor",
+    "wall safe"
+  ]
+}

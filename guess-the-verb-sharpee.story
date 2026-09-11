@@ -42,7 +42,7 @@ create the Front Porch
 
 create the Hallway
   a room
-  aka hall
+  aka hall, dim hallway
   east to the Study
   south to the Kitchen
   up to the Attic
@@ -55,6 +55,7 @@ create the Hallway
 
 create the Study
   a room
+  aka wood-paneled study, paneled study
 
   A wood-paneled study with built-in bookshelves. A heavy desk sits in the
   center, its drawers shut. An oil painting of a woman hangs on the far wall.
@@ -64,6 +65,7 @@ create the Study
 
 create the Kitchen
   a room
+  aka rustic kitchen
   south to the Garden
 
   A rustic kitchen with stone counters and a deep ceramic sink. Copper pots
@@ -73,6 +75,7 @@ create the Kitchen
 
 create the Garden
   a room
+  aka overgrown garden
 
   An overgrown garden behind the house. A flower bed runs along the back
   wall, thick with weeds. A small shed leans in one corner with its door
@@ -82,6 +85,7 @@ create the Garden
 
 create the Attic
   a room
+  aka cramped attic
 
   A cramped attic under sloping eaves, thick with dust. A dusty shelf holds
   an old music box. A heavy steamer trunk sits against the wall.
@@ -106,7 +110,7 @@ create the visitor
 
 create the front door
   a door, lockable with the iron key, knockable
-  aka oak door, door, keyhole
+  aka oak door, door, keyhole, heavy door, old-fashioned keyhole
 
   A heavy oak door with peeling green paint and an old-fashioned keyhole.
 
@@ -145,7 +149,7 @@ create the iron key
   A heavy iron key, dark with age.
 
 create the brass doorbell
-  aka bell, button, buzzer, door bell, doorbell, door frame
+  aka bell, button, buzzer, door bell, doorbell, door frame, tarnished doorbell
   scenery, ringable
   in the Front Porch
 
@@ -172,7 +176,7 @@ create the sagging porch
 ## ===========================================================================
 
 create the coat rack
-  aka rack, hook, hooks, stand
+  aka rack, hook, hooks, stand, wooden rack
   scenery
   in the Hallway
 
@@ -186,7 +190,7 @@ create the coat rack
   end on
 
 create the old overcoat
-  aka coat, jacket, overcoat, wool coat, dusty coat, pockets, pocket
+  aka coat, jacket, overcoat, wool coat, dusty coat, pockets, pocket, moth-eaten coat
   scenery
   in the Hallway
 
@@ -209,12 +213,12 @@ create the old overcoat
   end on
 
 create the matchbook
-  aka matches, book of matches
+  aka matches, book of matches, small book
 
   A small book of matches from 'The Golden Lantern.' A few matches remain.
 
 create the narrow staircase
-  aka stairs, staircase, steps, stair
+  aka stairs, staircase, steps, stair, wooden staircase
   scenery, climbable
   in the Hallway
 
@@ -225,7 +229,7 @@ create the narrow staircase
   end on
 
 create the faded wallpaper
-  aka wallpaper, wall, walls, paper
+  aka wallpaper, wall, walls, paper, floral pattern, pattern
   scenery
   in the Hallway
 
@@ -279,7 +283,7 @@ create the winding key
   end after
 
 create the oil painting
-  aka painting, portrait, picture, frame, woman, grandmother
+  aka painting, portrait, picture, frame, woman, grandmother, stern woman
   scenery, pushable, pullable, hides-the-safe
   in the Study
   states: hung, aside
@@ -318,7 +322,7 @@ create the oil painting
   end after
 
 create the wall safe
-  aka safe, iron safe, combination, dial, dials, lock, combination lock
+  aka safe, iron safe, combination, dial, dials, lock, combination lock, three-dial lock, safe door
   scenery, a container, openable, dialable
   states: sealed, dialed
 
@@ -350,7 +354,7 @@ create the clock spring
   A tightly coiled metal spring, the kind found inside clockwork.
 
 create the stone fireplace
-  aka fireplace, hearth, grate, fire, logs, log, chimney
+  aka fireplace, hearth, grate, fire, logs, log, chimney, flames, flame, firelight
   scenery, lightable
   in the Study
   states: cold, burning
@@ -367,7 +371,7 @@ create the stone fireplace
   end on
 
 create the hearthstone
-  aka hearth stone, soot
+  aka hearth stone, soot, flat stone, broad stone
   scenery
   in the Study
 
@@ -384,7 +388,7 @@ create the hearthstone
   end on
 
 create the wood paneling
-  aka paneling, panels, panel, wood
+  aka paneling, panels, panel, wood, far wall
   scenery
   in the Study
 
@@ -402,7 +406,7 @@ create the stone counters
   Heavy stone countertops, cracked but solid.
 
 create the ceramic sink
-  aka sink, faucet, tap, basin
+  aka sink, faucet, tap, basin, farmhouse sink, brass faucet
   scenery
   in the Kitchen
 
@@ -457,19 +461,19 @@ create the flower bed
   end on
 
 create the garden trowel
-  aka trowel, spade, shovel, tool
+  aka trowel, spade, shovel, tool, short-handled trowel
   in the Garden
 
   A short-handled garden trowel, rusty but solid.
 
 create the brass mechanism
-  aka mechanism, gears, gear, clockwork, innards, drum, pins, pin, brass thing
+  aka mechanism, gears, gear, clockwork, innards, drum, pins, pin, brass thing, tiny drum
 
   A small brass mechanism -- gears, pins, and a tiny drum with raised bumps.
   The innards of a music box.
 
 create the garden shed
-  aka shed, shack, shed door, cobwebs, roof
+  aka shed, shack, shed door, cobwebs, roof, sagging roof
   scenery
   in the Garden
 
@@ -492,7 +496,7 @@ create the dusty shelf
   end on
 
 create the old music box
-  aka box, music box, wooden box, lid
+  aka box, music box, wooden box, lid, rose-carved lid, keyhole, melody, tune
   a container, windable, repairable
   on the dusty shelf
 
@@ -514,7 +518,7 @@ create the old music box
   end on
 
 create the steamer trunk
-  aka trunk, chest, old trunk, steamer, fittings, brass fittings, slot
+  aka trunk, chest, old trunk, steamer, fittings, brass fittings, slot, heavy trunk, battered trunk
   scenery, a container, openable
   in the Attic
   states: latched, released
@@ -544,7 +548,7 @@ create the steamer trunk
   end on
 
 create the family locket
-  aka locket, silver locket, heirloom, necklace, chain, photograph, photo
+  aka locket, silver locket, heirloom, necklace, chain, photograph, photo, fine chain, tiny photograph, faded photograph
   in the steamer trunk
 
   A silver locket on a fine chain. Inside, a tiny photograph shows your

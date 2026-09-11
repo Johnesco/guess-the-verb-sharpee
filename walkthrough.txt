@@ -1,10 +1,45 @@
+look
+x woven doormat
+i
+x mat
+x brass doorbell
+x bell
+x sagging porch
+x boards
 look under doormat
 take iron key
 unlock front door with iron key
 open front door
 east
+x coat rack
+x rack
+x old overcoat
+x coat
+x narrow staircase
+x stairs
+x faded wallpaper
+x wallpaper
+x creaking floorboards
+x floor
 search overcoat
 east
+x study bookshelves
+x bookshelves
+x heavy desk
+look in heavy desk
+look in heavy desk
+x desk
+x oil painting
+x painting
+x stone fireplace
+x fireplace
+x hearthstone
+x hearth stone
+x wood paneling
+x paneling
+x winding key
+i
+x butterfly key
 open desk
 take winding key
 push painting
@@ -13,17 +48,110 @@ open safe
 take clock spring
 west
 south
+x stone counters
+x counter
+x ceramic sink
+x sink
+x copper pots
+x pots
+x recipe card
+read recipe card
+x recipe
 south
+x flower bed
+x bed
+x garden trowel
+i
+x trowel
+x garden shed
+x shed
 take trowel
 dig flower bed
 take brass mechanism
 north
 north
 up
+x dusty shelf
+look on dusty shelf
+x shelf
+x steamer trunk
+look in steamer trunk
+look in steamer trunk
+x trunk
+x sloping eaves
+x eaves
+x old music box
+look in old music box
+look in old music box
+i
+x box
+x family locket
+i
+x locket
 take music box
 put mechanism in music box
 put spring in music box
 examine music box
 wind music box
 open trunk
+down
+west
+take woven doormat
+drop woven doormat
+take brass doorbell
+ringing brass doorbell
+take sagging porch
+open front door
+east
+take coat rack
+take old overcoat
+take narrow staircase
+take faded wallpaper
+take creaking floorboards
+east
+take study bookshelves
+open heavy desk
+close heavy desk
+open heavy desk
+open heavy desk
+take heavy desk
+pull oil painting
+push oil painting
+take oil painting
+take stone fireplace
+lighting stone fireplace
+take hearthstone
+take wood paneling
+take winding key
+drop winding key
+west
+south
+take stone counters
+take ceramic sink
+take copper pots
+take recipe card
+south
+take flower bed
+take garden trowel
+drop garden trowel
+take garden shed
+north
+north
+up
+take dusty shelf
+open steamer trunk
+close steamer trunk
+open steamer trunk
+open steamer trunk
+take steamer trunk
+take sloping eaves
+open old music box
+take old music box
+drop old music box
+repairing old music box
+winding old music box
+take family locket
+drop family locket
+score
+inventory
 take locket
