@@ -10,13 +10,13 @@
  */
 
 import { GameEngine, type Story } from '@sharpee/engine';
-import { WorldModel, EntityType } from '@sharpee/world-model';
+import { WorldModel } from '@sharpee/world-model';
 import { Parser } from '@sharpee/parser-en-us';
 import { LanguageProvider } from '@sharpee/lang-en-us';
 import { PerceptionService } from '@sharpee/stdlib';
 import { BrowserClient, BROWSER_CAPABILITIES, ThemeManager } from '@sharpee/platform-browser';
 import { createStory } from '@sharpee/story-loader';
-import { STORY_VERSION, ENGINE_VERSION, BUILD_DATE } from './version.js';
+import { STORY_VERSION, BUILD_DATE } from './version.js';
 // The story's TypeScript hatches (ADR-259 D1/D2), generated beside this file
 // at build time exactly as version.ts is. Empty for a pure-IR story.
 import { hatchModules } from './hatch-modules.js';
@@ -122,7 +122,7 @@ async function start(): Promise<void> {
   }
 
   if (!client) {
-    const author = story.config.author;
+    const authors = story.config.authors;
     // Author channels (ADR-318 D11 / ADR-310 D12): the IDE's testing page
     // sets this global before any client script runs, flipping the
     // `authorChannels` capability so the `character` channel's per-NPC rows
@@ -148,9 +148,8 @@ async function start(): Promise<void> {
       storyInfo: {
         title: story.config.title,
         description: story.config.description || '',
-        authors: Array.isArray(author) ? author.join(', ') : author,
+        authors: authors.join(', '),
         version: STORY_VERSION,
-        engineVersion: ENGINE_VERSION,
         buildDate: BUILD_DATE,
       },
     });
@@ -174,8 +173,6 @@ async function start(): Promise<void> {
   }
 
   const world = new WorldModel();
-  const player = world.createEntity('player', EntityType.ACTOR);
-  world.setPlayer(player.id);
 
   const language = new LanguageProvider();
   const parser = new Parser(language);
@@ -191,7 +188,7 @@ async function start(): Promise<void> {
   // The seed rides EngineConfig (options.config.seed) — a top-level `seed`
   // on the options object is silently ignored by the GameEngine constructor.
   const engine = new GameEngine({
-    world, player, parser, language, perceptionService,
+    world, parser, language, perceptionService,
     ...(playSeed !== undefined ? { config: { seed: playSeed } } : {}),
   });
   // Before any turn runs — including the client's own boot `look`, which may
@@ -199,7 +196,7 @@ async function start(): Promise<void> {
   applyPinnedPlayForces(engine);
 
   client.connectEngine(engine, world);
-  engine.setStory(story);
+  engine.installStory(story);
   engine.registerSaveRestoreHooks(client.getSaveRestoreHooks());
 
   await client.start();

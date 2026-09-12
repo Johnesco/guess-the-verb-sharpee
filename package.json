@@ -14,17 +14,17 @@
     "author": "John Googol"
   },
   "dependencies": {
-    "@sharpee/sharpee": "^5.0.0",
-    "@sharpee/chord": "^5.0.0",
-    "@sharpee/story-loader": "^5.0.0",
-    "@sharpee/engine": "^5.0.0",
-    "@sharpee/parser-en-us": "^5.0.0",
-    "@sharpee/lang-en-us": "^5.0.0",
-    "@sharpee/stdlib": "^5.0.0",
-    "@sharpee/platform-browser": "^5.0.0"
+    "@sharpee/sharpee": "5.4.1",
+    "@sharpee/chord": "5.4.1",
+    "@sharpee/story-loader": "5.4.1",
+    "@sharpee/engine": "5.4.1",
+    "@sharpee/parser-en-us": "5.4.1",
+    "@sharpee/lang-en-us": "5.4.1",
+    "@sharpee/stdlib": "5.4.1",
+    "@sharpee/platform-browser": "5.4.1"
   },
   "devDependencies": {
-    "@sharpee/devkit": "^5.3.0",
+    "@sharpee/devkit": "5.4.1",
     "esbuild": "^0.20.0"
   },
   "keywords": [
@@ -33,5 +33,41 @@
     "chord"
   ],
   "author": "John Googol",
-  "license": "MIT"
+  "license": "MIT",
+  "overrides": {
+    "@sharpee/bootstrap": "5.4.1",
+    "@sharpee/branch-tester": "5.4.1",
+    "@sharpee/channel-service": "5.4.1",
+    "@sharpee/character": "5.4.1",
+    "@sharpee/chord": "5.4.1",
+    "@sharpee/core": "5.4.1",
+    "@sharpee/devkit": "5.4.1",
+    "@sharpee/engine": "5.4.1",
+    "@sharpee/event-processor": "5.4.1",
+    "@sharpee/ext-basic-combat": "5.4.1",
+    "@sharpee/ext-chapters": "5.4.1",
+    "@sharpee/ext-hunger": "5.4.1",
+    "@sharpee/ext-scoring": "5.4.1",
+    "@sharpee/ext-testing": "5.4.1",
+    "@sharpee/helpers": "5.4.1",
+    "@sharpee/ide-protocol": "5.4.1",
+    "@sharpee/if-domain": "5.4.1",
+    "@sharpee/if-services": "5.4.1",
+    "@sharpee/lang-en-us": "5.4.1",
+    "@sharpee/media": "5.4.1",
+    "@sharpee/parser-en-us": "5.4.1",
+    "@sharpee/platform-browser": "5.4.1",
+    "@sharpee/plugin-scheduler": "5.4.1",
+    "@sharpee/plugin-state-machine": "5.4.1",
+    "@sharpee/plugins": "5.4.1",
+    "@sharpee/queries": "5.4.1",
+    "@sharpee/sharpee": "5.4.1",
+    "@sharpee/stdlib": "5.4.1",
+    "@sharpee/story-loader": "5.4.1",
+    "@sharpee/story-runtime-baseline": "5.4.1",
+    "@sharpee/text-blocks": "5.4.1",
+    "@sharpee/transcript-tester": "5.4.1",
+    "@sharpee/world-index": "5.4.1",
+    "@sharpee/world-model": "5.4.1"
+  }
 }
