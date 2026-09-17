@@ -210,6 +210,16 @@
             "assertions": { "contains": ["The trunk has already answered."] } },
           { "type": "turn", "command": "examine trunk",
             "assertions": { "contains": ["The lock has been released."] } }
+        ] },
+        { "branch": 9, "cards": [
+          { "type": "turn", "command": "take locket",
+            "assertions": { "contains": ["You lift the locket from the trunk.", "You found your grandmother's heirloom."] } },
+          { "type": "turn", "command": "look",
+            "assertions": { "contains": ["The game has ended"] } },
+          { "type": "turn", "command": "restart",
+            "assertions": { "contains": ["The story restarts."] } },
+          { "type": "turn", "command": "look",
+            "assertions": { "contains": ["Front Porch"], "notContains": ["The game has ended"] } }
         ] }
       ] },
     { "type": "turn", "command": "take locket",
