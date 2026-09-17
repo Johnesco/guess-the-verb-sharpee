@@ -4,8 +4,24 @@
     {
       "name": "browser-static",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["http-server", "browser", "-c-1"],
+      "runtimeArgs": [
+        "http-server",
+        "browser",
+        "-c-1"
+      ],
       "autoPort": true
+    },
+    {
+      "name": "play",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8002",
+        "--directory",
+        "."
+      ],
+      "port": 8002
     }
   ]
 }

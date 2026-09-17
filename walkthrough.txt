@@ -5,6 +5,10 @@ x brass doorbell
 x bell
 x sagging porch
 x boards
+x house
+x frame
+x paint
+x welcome
 look under doormat
 take iron key
 unlock front door with iron key
@@ -35,6 +39,9 @@ x hearthstone
 x hearth stone
 x wood paneling
 x paneling
+x wall
+x center
+x corner
 x winding key
 x butterfly key
 open desk
@@ -54,6 +61,8 @@ x pots
 x recipe card
 read recipe card
 x recipe
+x doorway
+x hooks
 south
 x flower bed
 x bed
@@ -61,6 +70,11 @@ x garden trowel
 x trowel
 x garden shed
 x shed
+x house
+x doorway
+x corner
+x shelves
+x wall
 take trowel
 dig flower bed
 take brass mechanism
@@ -75,6 +89,8 @@ look in steamer trunk
 x trunk
 x sloping eaves
 x eaves
+x stairs
+x wall
 x old music box
 look in old music box
 x box
@@ -91,7 +107,7 @@ west
 take woven doormat
 drop woven doormat
 take brass doorbell
-ringing brass doorbell
+ring brass doorbell
 take sagging porch
 open front door
 east
@@ -111,7 +127,7 @@ pull oil painting
 push oil painting
 take oil painting
 take stone fireplace
-lighting stone fireplace
+light stone fireplace
 take hearthstone
 take wood paneling
 take winding key
@@ -140,8 +156,8 @@ take sloping eaves
 open old music box
 take old music box
 drop old music box
-repairing old music box
-winding old music box
+repair old music box
+wind old music box
 take family locket
 drop family locket
 score

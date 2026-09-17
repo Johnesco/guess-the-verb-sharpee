@@ -110,12 +110,12 @@ create the visitor
 
 create the front door
   a door, lockable with the iron key, knockable
-  aka oak door, door, keyhole, heavy door, old-fashioned keyhole
+  aka oak door, door, keyhole, heavy door, old-fashioned keyhole, green paint, peeling paint
 
   A heavy oak door with peeling green paint and an old-fashioned keyhole.
 
 create the woven doormat
-  aka mat, rug, welcome mat, doormat, corner
+  aka mat, rug, welcome mat, doormat, corner, welcome
   hides-the-key
   in the Front Porch
   states: flat, lifted
@@ -149,7 +149,7 @@ create the iron key
   A heavy iron key, dark with age.
 
 create the brass doorbell
-  aka bell, button, buzzer, door bell, doorbell, door frame, tarnished doorbell
+  aka bell, button, buzzer, door bell, doorbell, door frame, tarnished doorbell, frame
   scenery, ringable
   in the Front Porch
 
@@ -164,12 +164,20 @@ create the brass doorbell
   end on
 
 create the sagging porch
-  aka boards, railing
+  aka boards, railing, wooden porch, front porch, paint, old paint
   scenery
   in the Front Porch
 
   Weathered boards that sag under your weight. The paint peeled away long
   ago.
+
+create the old house
+  aka house, home, facade, front of the house
+  scenery
+  in the Front Porch
+
+  Your grandmother's house, shut up for a season. The windows are dark and
+  the porch sags, but the place is sound.
 
 ## ===========================================================================
 ## HALLWAY
@@ -254,7 +262,7 @@ create the study bookshelves
   Floor-to-ceiling shelves packed with dusty volumes. Nothing stands out.
 
 create the heavy desk
-  aka desk, drawers, drawer, mahogany desk, handles, handle, brass handles
+  aka desk, drawers, drawer, mahogany desk, handles, handle, brass handles, center, centre
   scenery, a container, openable
   in the Study
 
@@ -354,7 +362,7 @@ create the clock spring
   A tightly coiled metal spring, the kind found inside clockwork.
 
 create the stone fireplace
-  aka fireplace, hearth, grate, fire, logs, log, chimney, flames, flame, firelight
+  aka fireplace, hearth, grate, fire, logs, log, chimney, flames, flame, firelight, corner
   scenery, lightable
   in the Study
   states: cold, burning
@@ -388,7 +396,7 @@ create the hearthstone
   end on
 
 create the wood paneling
-  aka paneling, panels, panel, wood, far wall
+  aka paneling, panels, panel, wood, far wall, wall, walls
   scenery
   in the Study
 
@@ -417,7 +425,7 @@ create the ceramic sink
   end on
 
 create the copper pots
-  aka pots, pans, pot, pan, iron hooks
+  aka pots, pans, pot, pan, iron hooks, hooks, hook
   scenery, plural
   in the Kitchen
 
@@ -438,12 +446,19 @@ create the recipe card
       the garden.
   end on
 
+create the kitchen doorway
+  aka doorway, south doorway, garden doorway
+  scenery
+  in the Kitchen
+
+  An open doorway to the south, letting in green light from the garden.
+
 ## ===========================================================================
 ## GARDEN
 ## ===========================================================================
 
 create the flower bed
-  aka bed, flowers, weeds, soil, dirt, earth, ground
+  aka bed, flowers, weeds, soil, dirt, earth, ground, back wall, wall
   scenery, diggable with the garden trowel
   in the Garden
   states: packed, dug
@@ -461,7 +476,7 @@ create the flower bed
   end on
 
 create the garden trowel
-  aka trowel, spade, shovel, tool, short-handled trowel
+  aka trowel, spade, shovel, tool, short-handled trowel, rusty trowel
   in the Garden
 
   A short-handled garden trowel, rusty but solid.
@@ -473,12 +488,27 @@ create the brass mechanism
   The innards of a music box.
 
 create the garden shed
-  aka shed, shack, shed door, cobwebs, roof, sagging roof
+  aka shed, shack, shed door, cobwebs, roof, sagging roof, corner, shelves, empty shelves
   scenery
   in the Garden
 
   A small wooden shed with a sagging roof. The door hangs open, revealing
   empty shelves and cobwebs inside.
+
+create the house behind
+  aka house, home, back of the house, rear
+  scenery
+  in the Garden
+
+  The back of the house, its windows blank. The kitchen doorway is the way
+  back in, to the north.
+
+create the garden doorway
+  aka doorway, kitchen doorway, north doorway
+  scenery
+  in the Garden
+
+  The kitchen doorway, standing open to the north.
 
 ## ===========================================================================
 ## ATTIC
@@ -561,7 +591,7 @@ create the family locket
   end after
 
 create the sloping eaves
-  aka eaves, rafters, beams, ceiling, dust
+  aka eaves, rafters, beams, ceiling, dust, wall, walls
   scenery, plural
   in the Attic
 
@@ -614,7 +644,6 @@ end trait
 define action ringing
   grammar
     ring the target
-    press the target
   the target must be reachable
   otherwise refuse ring-cant
 
@@ -718,6 +747,19 @@ define action repairing
   the target must be reachable
   otherwise refuse repair-not-broken
 
+define action digging-here
+  grammar
+    dig
+    dig here
+    dig ground
+  the player must be in the Garden: dig-nothing
+  refuse when the flower bed is dug: dig-already
+  the player must hold the garden trowel: dig-need-tool
+  change the flower bed to dug
+  move the brass mechanism to the Garden
+  award mechanism-found
+  phrase dig-here-found
+
 define action combining
   grammar
     combine the item with the other
@@ -741,10 +783,58 @@ define action using-with
   the other must be visible
   phrase use-with-hint
 
+define action going-to
+  grammar
+    go to porch
+    go to hallway
+    go to hall
+    go to study
+    go to kitchen
+    go to garden
+    go to attic
+    go to house
+    go to upstairs
+    go to downstairs
+    go to the target
+    walk to the target
+    travel to the target
+  phrase go-to-hint
+
+define action talking-to
+  grammar
+    talk to grandmother
+    talk to grandma
+    talk to woman
+    talk to her
+    talk to someone
+    talk to anyone
+    speak to grandmother
+    talk to the target
+    speak to the target
+    chat with the target
+    talk with the target
+  phrase talk-to-hint
+
+define action washing
+  grammar
+    wash the target
+    clean the target
+    scrub the target
+  the target must be reachable
+  phrase wash-hint
+
+define action cooking
+  grammar
+    cook
+    bake
+    make dinner
+  phrase cook-hint
+
 define action greeting
   grammar
     hello
     hi
+    hey
     hello there
   phrase greeting-text
 
@@ -774,6 +864,7 @@ extend action examining
     view the target
     peruse the target
     browse the target
+    flip the target
     browse through the target
     flip through the target
     leaf through the target
@@ -848,6 +939,7 @@ extend action closing
 
 extend action pushing
   grammar
+    press the target
     shove the target
     prod the target
     move the target
@@ -873,6 +965,8 @@ extend action searching
     rummage through the target
     look in the target
     look inside the target
+    look on the target
+    look on top of the target
     check the pockets of the target
     please search the target
 
@@ -894,18 +988,171 @@ extend action wearing
 
 extend action digging
   grammar
-    dig
-    dig here
     dig in the target
     dig up the target
     excavate the target
     dig the target with the tool
+
+extend action going
+  grammar
+    upstairs
+      means direction up
+    go upstairs
+      means direction up
+    ascend
+      means direction up
+    climb stairs
+      means direction up
+    climb staircase
+      means direction up
+    go up stairs
+      means direction up
+    downstairs
+      means direction down
+    go downstairs
+      means direction down
+    descend
+      means direction down
+    climb down
+      means direction down
+    go down stairs
+      means direction down
+    head north
+      means direction north
+    head south
+      means direction south
+    head east
+      means direction east
+    head west
+      means direction west
+    head up
+      means direction up
+    head down
+      means direction down
+    walk north
+      means direction north
+    walk south
+      means direction south
+    walk east
+      means direction east
+    walk west
+      means direction west
+    walk up
+      means direction up
+    walk down
+      means direction down
+    proceed north
+      means direction north
+    proceed south
+      means direction south
+    proceed east
+      means direction east
+    proceed west
+      means direction west
+    proceed up
+      means direction up
+    proceed down
+      means direction down
+
+extend action turning
+  grammar
+    rotate the target
+    twist the target
+    please turn the target
+
+extend action climbing
+  grammar
+    scale the target
 
 extend action inserting
   grammar
     attach the item to the container
     install the item in the container
     install the item into the container
+
+## ===========================================================================
+## LAYER 4 — TEACHING REFUSALS
+## ===========================================================================
+##
+## The Inform 7 sibling rewrites the parser's five error classes so no refusal
+## is a dead end (its FINDINGS.md, "Layer 4"). Chord cannot reach the parser's
+## own text, but it can rewrite any standard action's refusal through the
+## `override message` catalog, which is where most dead ends actually come
+## from. Each line below names a next move. See docs/adr/0001.
+
+override message taking-fixed-in-place
+  {You} {can't} move {the item}. Try EXAMINE, SEARCH, LOOK UNDER or LOOK
+  BEHIND it instead.
+end override
+
+override message taking-cannot-take
+  {You} {can't} take {the item}. Try EXAMINE, SEARCH or LOOK UNDER it.
+end override
+
+override message taking-already-have
+  {You} already {have} {the item}. Type I to see everything {you} {are}
+  carrying.
+end override
+
+override message going-no-exit
+  {You} {can't} go that way. Type LOOK to see the exits from here.
+end override
+
+override message going-no-exit-that-way
+  {You} {can't} go that way. Type LOOK to see the exits from here.
+end override
+
+override message examining-cant-see
+  {You} {can't} see {the item} here. Type LOOK to see what is around, or I
+  for what {you} {are} carrying.
+end override
+
+override message examining-not-visible
+  {You} {can't} see {the item} here. Type LOOK to see what is around, or I
+  for what {you} {are} carrying.
+end override
+
+override message examining-nothing-special
+  {You} {see} nothing special about {the item}. Some things here reward
+  SEARCH, LOOK UNDER or LOOK BEHIND instead.
+end override
+
+override message searching-nothing-special
+  {You} {find} nothing of interest. Try LOOK UNDER or LOOK BEHIND it.
+end override
+
+override message searching-not-visible
+  {You} {can't} see {the target} to search it. Type LOOK to see what is here.
+end override
+
+override message turning-cant-turn-that
+  {You} {can't} turn {the target}. Try PUSH, PULL, OPEN or LOOK BEHIND
+  instead.
+end override
+
+override message climbing-not-climbable
+  {You} {can't} climb {the object}. To change rooms, use a compass direction
+  or UP and DOWN.
+end override
+
+override message inserting-not-container
+  {You} {can't} insert things into {the destination}. Try PUT it ON something,
+  or find a thing that opens.
+end override
+
+override message opening-not-openable
+  {You} {can't} open {the item}. Try SEARCH, LOOK UNDER or LOOK BEHIND it
+  instead.
+end override
+
+override message opening-already-open
+  {You} {have} already opened {the item}. LOOK IN it to see what it holds.
+end override
+
+override message opening-locked
+  {You} {find} {the item} locked. Try UNLOCK it WITH something {you} {are}
+  carrying.
+end override
 
 ## ===========================================================================
 ## TEXT
@@ -939,7 +1186,8 @@ define phrases en-US
   fire-no-matches:
     You don't have anything to light the fire with.
   burn-cant:
-    You can't burn that.
+    That won't catch. The fireplace in the study is the only thing here
+    worth lighting.
   matchbook-found:
     You rummage through the overcoat's pockets and find a small book of
     matches from 'The Golden Lantern.'
@@ -953,8 +1201,14 @@ define phrases en-US
     You dig into the soft earth with the trowel and uncover a small brass
     mechanism -- gears, pins, and a tiny drum with raised bumps. The innards
     of a music box.
+  dig-here-found:
+    (digging the flower bed)
+
+    You dig into the soft earth with the trowel and uncover a small brass
+    mechanism -- gears, pins, and a tiny drum with raised bumps. The innards
+    of a music box.
   dig-nothing:
-    You dig around but find nothing.
+    There's nothing to dig here. The garden behind the house has soft earth.
   wind-wrong-target:
     You can't wind that.
   wind-no-key:
@@ -980,7 +1234,7 @@ define phrases en-US
     You press the doorbell. A faint chime echoes inside the house,
     unanswered.
   ring-cant:
-    You can't ring that.
+    That isn't a bell. Try PUSH it, or PULL it.
   doorbell-push:
     You press the doorbell. A faint chime echoes inside the house,
     unanswered.
@@ -993,6 +1247,8 @@ define phrases en-US
   turn-sink:
     You turn the faucet. Rusty water sputters out briefly, then runs clear.
     Nothing else happens.
+  climb-stairs-down:
+    (Try going DOWN to take the stairs back to the hallway.)
   climb-stairs:
     (Try going UP to climb the stairs.)
   overcoat-take:
@@ -1018,6 +1274,17 @@ define phrases en-US
     EAT, WEAR.
   use-with-hint:
     Try UNLOCK it WITH the key, or PUT one thing IN another.
+  go-to-hint:
+    Use a compass direction to move: GO NORTH, EAST, UP. Type LOOK to see the
+    exits from here.
+  talk-to-hint:
+    There is no one here to talk to. The house has been empty a long while.
+  wash-hint:
+    There's no time for cleaning. Whatever your grandmother left, it is still
+    hidden.
+  cook-hint:
+    The pantry is bare and the stove is cold. The recipe card is worth
+    reading, though.
   greeting-text:
     No one answers. The house is quiet. Type LOOK to see your surroundings,
     or HELP for hints.
@@ -1053,15 +1320,27 @@ end phrase
 
 define phrase verbs-text
   AVAILABLE COMMANDS:{br}
-  Movement:  N, S, E, W, U, D (or GO direction){br}
+  Movement:  N, S, E, W, U, D (or GO/HEAD/WALK direction){br}
+  Stairs:    UP, DOWN, UPSTAIRS, DOWNSTAIRS, CLIMB STAIRS{br}
   Looking:   LOOK, EXAMINE (X), LOOK UNDER, LOOK BEHIND, SEARCH{br}
   Taking:    TAKE, DROP, INVENTORY (I){br}
   Using:     OPEN, CLOSE, UNLOCK with, LOCK{br}
-  Special:   DIG, WIND, RING, KNOCK, LIGHT, CLIMB, TURN, PULL{br}
-  Assembly:  PUT IN, PUT ON, ATTACH to, INSTALL in{br}
+  Special:   DIG, WIND, RING, KNOCK, LIGHT, BURN, CLIMB, TURN, PULL{br}
+  Assembly:  PUT IN, PUT ON, ATTACH to, INSTALL in, COMBINE with{br}
   Self:      WEAR, EAT, READ{br}
   Meta:      HELP, VERBS, SAVE, RESTORE, QUIT
 end phrase
+
+create the attic stairs
+  aka stairs, staircase, steps, stair, stairway
+  scenery, climbable
+  in the Attic
+
+  The narrow staircase leads back down to the hallway.
+
+  on the player climbing
+    refuse climb-stairs-down
+  end on
 
 before the game starts
   change the player to the visitor

@@ -7,7 +7,7 @@
 # to, and any verb the story defines itself. Refusals are coverage too
 # — taking scenery should fail, and the transcript records that it did.
 #
-# 6 of 6 rooms swept, 27 of 34 things exercised, 148 commands.
+# 6 of 6 rooms swept, 32 of 39 things exercised, 164 commands.
 #
 # Not exercised — held inside a closed thing, carried from the
 # start, or the player character itself: brass mechanism, clock spring, front door, iron key, matchbook, visitor, wall safe.
@@ -21,6 +21,10 @@
 > x bell
 > x sagging porch
 > x boards
+> x house
+> x frame
+> x paint
+> x welcome
 > look under doormat
 > take iron key
 > unlock front door with iron key
@@ -57,6 +61,9 @@
 > x hearth stone
 > x wood paneling
 > x paneling
+> x wall
+> x center
+> x corner
 > x winding key
 > x butterfly key
 > open desk
@@ -82,6 +89,8 @@
 > x recipe card
 > read recipe card
 > x recipe
+> x doorway
+> x hooks
 
 ## Garden
 
@@ -92,6 +101,11 @@
 > x trowel
 > x garden shed
 > x shed
+> x house
+> x doorway
+> x corner
+> x shelves
+> x wall
 > take trowel
 > dig flower bed
 > take brass mechanism
@@ -115,6 +129,8 @@
 > x trunk
 > x sloping eaves
 > x eaves
+> x stairs
+> x wall
 > x old music box
 > look in old music box
 > x box
@@ -137,7 +153,7 @@
 > take woven doormat
 > drop woven doormat
 > take brass doorbell
-> ringing brass doorbell
+> ring brass doorbell
 > take sagging porch
 > open front door
 
@@ -163,7 +179,7 @@
 > push oil painting
 > take oil painting
 > take stone fireplace
-> lighting stone fireplace
+> light stone fireplace
 > take hearthstone
 > take wood paneling
 > take winding key
@@ -210,8 +226,8 @@
 > open old music box
 > take old music box
 > drop old music box
-> repairing old music box
-> winding old music box
+> repair old music box
+> wind old music box
 > take family locket
 > drop family locket
 > score

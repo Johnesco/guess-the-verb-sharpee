@@ -1,3 +1,7 @@
+Loading story from: C:\code\text-games\sharpee\guess-the-verb-sharpee
+
+--- Play Mode ---  (/quit or /q to exit)
+
 Front Porch
 A sagging wooden porch wraps around the front of the house. A woven doormat lies before the front door. A tarnished brass doorbell is set beside the frame.
 
@@ -30,6 +34,18 @@ Weathered boards that sag under your weight. The paint peeled away long ago.
 
 > x boards
 Weathered boards that sag under your weight. The paint peeled away long ago.
+
+> x house
+Your grandmother's house, shut up for a season. The windows are dark and the porch sags, but the place is sound.
+
+> x frame
+A tarnished brass button set into the door frame.
+
+> x paint
+Weathered boards that sag under your weight. The paint peeled away long ago.
+
+> x welcome
+A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath.
 
 > look under doormat
 You lift the corner of the doormat and find an iron key hidden underneath.
@@ -127,6 +143,15 @@ Dark wood panels line the walls, polished but dusty.
 > x paneling
 Dark wood panels line the walls, polished but dusty.
 
+> x wall
+Dark wood panels line the walls, polished but dusty.
+
+> x center
+A mahogany desk with brass handles. The drawers are closed.
+
+> x corner
+A wide stone fireplace with old logs in the grate, ready to burn. The hearthstone is blackened with soot.
+
 > x winding key
 You can't see any such thing.
 
@@ -198,6 +223,12 @@ Lavender shortbread -- butter, sugar, flour, and dried lavender from the garden.
 > x recipe
 Your grandmother's handwriting: 'Lavender shortbread -- butter, sugar, flour, and dried lavender from the garden.' The card is stained and well-loved.
 
+> x doorway
+An open doorway to the south, letting in green light from the garden.
+
+> x hooks
+Tarnished copper pots hanging from iron hooks. Decorative now.
+
 > south
 Garden
 An overgrown garden behind the house. A flower bed runs along the back wall, thick with weeds. A small shed leans in one corner with its door ajar. A rusty trowel leans against the shed.
@@ -223,6 +254,21 @@ A small wooden shed with a sagging roof. The door hangs open, revealing empty sh
 
 > x shed
 A small wooden shed with a sagging roof. The door hangs open, revealing empty shelves and cobwebs inside.
+
+> x house
+The back of the house, its windows blank. The kitchen doorway is the way back in, to the north.
+
+> x doorway
+The kitchen doorway, standing open to the north.
+
+> x corner
+A small wooden shed with a sagging roof. The door hangs open, revealing empty shelves and cobwebs inside.
+
+> x shelves
+A small wooden shed with a sagging roof. The door hangs open, revealing empty shelves and cobwebs inside.
+
+> x wall
+A raised bed of dark soil tangled with dead weeds. The earth looks soft -- someone was digging here recently.
 
 > take trowel
 Taken.
@@ -259,7 +305,7 @@ A rough plank shelf nailed to the wall studs.
 On the dusty shelf you see an old music box.
 
 > look on dusty shelf
-You can't see any such thing.
+On the dusty shelf you see: an old music box.
 
 > x shelf
 A rough plank shelf nailed to the wall studs.
@@ -279,6 +325,12 @@ A battered steamer trunk with brass fittings. The lock has no keyhole -- just a 
 Low rafters and dusty beams. You have to duck in places.
 
 > x eaves
+Low rafters and dusty beams. You have to duck in places.
+
+> x stairs
+The narrow staircase leads back down to the hallway.
+
+> x wall
 Low rafters and dusty beams. You have to duck in places.
 
 > x old music box
@@ -341,16 +393,16 @@ You already found the key here.
 You aren't holding the woven doormat.
 
 > take brass doorbell
-The brass doorbell is fixed in place.
+You can't move the brass doorbell. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
-> ringing brass doorbell
-I don't understand that.
+> ring brass doorbell
+You press the doorbell. A faint chime echoes inside the house, unanswered.
 
 > take sagging porch
-The sagging porch is fixed in place.
+You can't move the sagging porch. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > open front door
-The front door is already open.
+You have already opened the front door. LOOK IN it to see what it holds.
 
 > east
 Hallway
@@ -359,19 +411,19 @@ A dim hallway with faded wallpaper and creaking floorboards. A coat rack stands 
 Doors lead east to a study and south to the kitchen. A narrow staircase leads up.
 
 > take coat rack
-The coat rack is fixed in place.
+You can't move the coat rack. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > take old overcoat
 The coat is too moth-eaten to carry. But you could search the pockets.
 
 > take narrow staircase
-The narrow staircase is fixed in place.
+You can't move the narrow staircase. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > take faded wallpaper
-The faded wallpaper is fixed in place.
+You can't move the faded wallpaper. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > take creaking floorboards
-The creaking floorboards are fixed in place.
+You can't move the creaking floorboards. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > east
 Study
@@ -380,10 +432,10 @@ A wood-paneled study with built-in bookshelves. A heavy desk sits in the center,
 The hallway is back to the west.
 
 > take study bookshelves
-The study bookshelves are fixed in place.
+You can't move the study bookshelves. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > open heavy desk
-The heavy desk is already open.
+You have already opened the heavy desk. LOOK IN it to see what it holds.
 
 > close heavy desk
 You close the heavy desk.
@@ -392,7 +444,7 @@ You close the heavy desk.
 You open the heavy desk, which is empty.
 
 > open heavy desk
-The heavy desk is already open.
+You have already opened the heavy desk. LOOK IN it to see what it holds.
 
 > take heavy desk
 The desk is far too heavy to carry.
@@ -404,22 +456,22 @@ You already moved the painting. The wall safe is visible.
 You already moved the painting. The wall safe is visible.
 
 > take oil painting
-The oil painting is fixed in place.
+You can't move the oil painting. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > take stone fireplace
-The stone fireplace is fixed in place.
+You can't move the stone fireplace. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
-> lighting stone fireplace
-I don't understand that.
+> light stone fireplace
+The fire is already burning.
 
 > take hearthstone
-The hearthstone is fixed in place.
+You can't move the hearthstone. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > take wood paneling
-The wood paneling is fixed in place.
+You can't move the wood paneling. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > take winding key
-You already have the winding key.
+You already have the winding key. Type I to see everything you are carrying.
 
 > drop winding key
 Dropped.
@@ -437,16 +489,16 @@ A rustic kitchen with stone counters and a deep ceramic sink. Copper pots hang f
 The hallway is north. A doorway leads south to the garden.
 
 > take stone counters
-The stone counters are fixed in place.
+You can't move the stone counters. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > take ceramic sink
-The ceramic sink is fixed in place.
+You can't move the ceramic sink. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > take copper pots
-The copper pots are fixed in place.
+You can't move the copper pots. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > take recipe card
-The recipe card is fixed in place.
+You can't move the recipe card. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > south
 Garden
@@ -455,16 +507,16 @@ An overgrown garden behind the house. A flower bed runs along the back wall, thi
 The kitchen doorway is back to the north.
 
 > take flower bed
-The flower bed is fixed in place.
+You can't move the flower bed. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > take garden trowel
-You already have the garden trowel.
+You already have the garden trowel. Type I to see everything you are carrying.
 
 > drop garden trowel
 Dropped.
 
 > take garden shed
-The garden shed is fixed in place.
+You can't move the garden shed. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > north
 Kitchen
@@ -490,7 +542,7 @@ In the steamer trunk you see a family locket.
 The shelf is nailed to the wall.
 
 > open steamer trunk
-The steamer trunk is already open.
+You have already opened the steamer trunk. LOOK IN it to see what it holds.
 
 > close steamer trunk
 You close the steamer trunk.
@@ -501,28 +553,28 @@ You open the steamer trunk.
 In the steamer trunk you see a family locket.
 
 > open steamer trunk
-The steamer trunk is already open.
+You have already opened the steamer trunk. LOOK IN it to see what it holds.
 
 > take steamer trunk
 The trunk is far too heavy to lift.
 
 > take sloping eaves
-The sloping eaves are fixed in place.
+You can't move the sloping eaves. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > open old music box
-The old music box can't be opened.
+You can't open the old music box. Try SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > take old music box
-You already have the old music box.
+You already have the old music box. Type I to see everything you are carrying.
 
 > drop old music box
 Dropped.
 
-> repairing old music box
-I don't understand that.
+> repair old music box
+The music box has both the mechanism and the spring installed. Try winding it.
 
-> winding old music box
-I don't understand that.
+> wind old music box
+You wind it again. The melody plays, small and sweet. The trunk has already answered.
 
 > take family locket
 You take the family locket from the steamer trunk.
@@ -532,10 +584,10 @@ You lift the locket from the trunk. Inside, your grandmother smiles back at you 
 You found your grandmother's heirloom.
 
 > drop family locket
-Error: Engine is not running
+Error: Cannot executeTurn(): the engine is in the 'stopped' phase, and executeTurn() requires 'playing'. The game has ended; only meta commands (RESTART, RESTORE, QUIT, UNDO) are accepted — call resume() to continue play.
 
 > score
-Error: Engine is not running
+You have achieved a perfect score of 10 points!
 
 > take locket
-Error: Engine is not running
+Error: Cannot executeTurn(): the engine is in the 'stopped' phase, and executeTurn() requires 'playing'. The game has ended; only meta commands (RESTART, RESTORE, QUIT, UNDO) are accepted — call resume() to continue play.

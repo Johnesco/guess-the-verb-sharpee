@@ -60,13 +60,25 @@ Built output at the root (`play.html`, `game.js`, `*.css`, `lib/`, `source.html`
 
 ### Implemented
 - [x] All six rooms and every puzzle from the TypeScript edition
-- [x] The synonym table from `legacy/src/grammar.ts`, minus direction phrasings (`head north`, `go upstairs`) which Chord's `going` grammar does not extend
+- [x] The synonym table from `legacy/src/grammar.ts`, including the direction phrasings (`head north`, `go upstairs`, `climb stairs`, `ascend`). `extend action going` takes them as **literal patterns with `means direction <dir>`**; only a slot (`head the direction`) fails. See `../reference/chord-cookbook.md`.
+- [x] The five-layer parser defense from the Inform 7 sibling's `FINDINGS.md` — see `docs/adr/0001-layered-parser-defense.md`
 - [x] Tests document ported from the walkthrough and the three transcripts
 
 ### Planned
 - [ ] `dial 7 3 9` as typed input, if a later Chord exposes free-text slots to the parser
 - [ ] `use X` / `use X on Y` hints; the standard `using` action answers those now
 - [ ] Ship through IF Hub and retire `legacy/` once the Chord edition has been played end to end in the browser
+
+### Known limits (not bugs)
+- True parser errors cannot be reworded. `override message` reaches a closed catalog of
+  standard-action aliases; `parser.error.*` and the `core.*` fallbacks are outside it, so
+  `xyzzy` still answers "I don't understand that." and an unknown noun still answers
+  "You can't see any such thing." ADR 0001 records this; the errors branch of the tests
+  document pins the exact text.
+- `CLIMB STAIRS` and `GO UPSTAIRS` move the player **silently**. A grammar pattern that
+  compiles to `going` cannot carry an I7-style `(going up)` clarification, because `means`
+  takes two bare words and a room's `on the player going` cannot tell which phrasing was
+  typed. Redirects owned by a story action do carry one — see bare `DIG`.
 
 ## Working in this project
 
@@ -110,5 +122,12 @@ ADRs live in `docs/adr/` once the first one exists (index: `docs/adr/README.md`)
 ## Project History
 
 ### Recent Changes
+- 2026-09-17: Adopted the I7 five-layer parser defense (#1). Added a `override message`
+  section so standard-action refusals teach a next move; moved PRESS off `ringing` so it
+  reaches `pushing`; gave bare `DIG` a real `digging-here` action with an I7-style
+  clarification line; filled the layer-0 noun holes (`house`, `doorway`, `wall`, `stairs`,
+  `corner`, `hooks`, `frame`, `paint`); added the movement phrasings; added layer-2 hint
+  actions for `go to X`, `talk to X`, `wash`, `cook`. The tests document now carries a
+  46-command novice run whose every card forbids the failure text the game exists to avoid.
 - 2026-09-08: Translated to Chord. The TypeScript edition moved to `legacy/`; `package.json`, `src/`, and `browser/` came from a fresh `sharpee init`. The safe combination moved from typed input to the auto-open path.
 - 2026-04: TypeScript edition on 0.9.111 with three transcripts and a walkthrough.

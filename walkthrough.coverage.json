@@ -1,12 +1,12 @@
 {
   "generated": "derived from the story source",
-  "commands": 148,
-  "understood": 143,
-  "misses": 5,
+  "commands": 164,
+  "understood": 160,
+  "misses": 4,
   "rooms_swept": 6,
   "rooms_total": 6,
-  "things_covered": 27,
-  "things_total": 34,
+  "things_covered": 32,
+  "things_total": 39,
   "uncovered": [
     "brass mechanism",
     "clock spring",
