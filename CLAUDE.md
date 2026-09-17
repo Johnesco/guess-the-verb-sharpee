@@ -75,6 +75,13 @@ Built output at the root (`play.html`, `game.js`, `*.css`, `lib/`, `source.html`
   `xyzzy` still answers "I don't understand that." and an unknown noun still answers
   "You can't see any such thing." ADR 0001 records this; the errors branch of the tests
   document pins the exact text.
+- **`look at the room` cannot be supported.** `the` in a grammar pattern always declares
+  a slot, so a literal article is unwriteable, and rooms are not in scope as nouns.
+  `look at room`, `look at this room`, `look around` and `look` all work.
+- **`discard` is broken upstream.** It is in the engine's own dropping vocabulary
+  (`@sharpee/lang-en-us/data/verbs.js`) but produces *no output at all*, with or without
+  a story pattern for it. A `discarding` hint action shadows it so the player gets
+  guidance instead of silence; `drop` and `throw away` work normally.
 - `CLIMB STAIRS` and `GO UPSTAIRS` move the player **silently**. A grammar pattern that
   compiles to `going` cannot carry an I7-style `(going up)` clarification, because `means`
   takes two bare words and a room's `on the player going` cannot tell which phrasing was

@@ -760,11 +760,17 @@ define action digging-here
   award mechanism-found
   phrase dig-here-found
 
+define action discarding
+  grammar
+    discard the item
+  the item must be visible
+  phrase discard-hint
+
 define action combining
   grammar
     combine the item with the other
-  the item must be held
-  the other must be reachable
+  the item must be visible
+  the other must be visible
   phrase combine-hint
 
 define action using-alone
@@ -909,7 +915,6 @@ extend action looking
     examine everything
     look at this room
     look at this place
-    look at the room
     peek
     peer
     gaze
@@ -955,7 +960,6 @@ extend action pulling
 extend action dropping
   grammar
     toss the item
-    discard the item
     please drop the item
 
 extend action searching
@@ -1085,44 +1089,17 @@ override message taking-fixed-in-place
   BEHIND it instead.
 end override
 
-override message taking-cannot-take
-  {You} {can't} take {the item}. Try EXAMINE, SEARCH or LOOK UNDER it.
-end override
-
 override message taking-already-have
   {You} already {have} {the item}. Type I to see everything {you} {are}
   carrying.
-end override
-
-override message going-no-exit
-  {You} {can't} go that way. Type LOOK to see the exits from here.
 end override
 
 override message going-no-exit-that-way
   {You} {can't} go that way. Type LOOK to see the exits from here.
 end override
 
-override message examining-cant-see
-  {You} {can't} see {the item} here. Type LOOK to see what is around, or I
-  for what {you} {are} carrying.
-end override
-
-override message examining-not-visible
-  {You} {can't} see {the item} here. Type LOOK to see what is around, or I
-  for what {you} {are} carrying.
-end override
-
-override message examining-nothing-special
-  {You} {see} nothing special about {the item}. Some things here reward
-  SEARCH, LOOK UNDER or LOOK BEHIND instead.
-end override
-
 override message searching-nothing-special
   {You} {find} nothing of interest. Try LOOK UNDER or LOOK BEHIND it.
-end override
-
-override message searching-not-visible
-  {You} {can't} see {the target} to search it. Type LOOK to see what is here.
 end override
 
 override message turning-cant-turn-that
@@ -1146,7 +1123,11 @@ override message opening-not-openable
 end override
 
 override message opening-already-open
-  {You} {have} already opened {the item}. LOOK IN it to see what it holds.
+  {You} {have} already opened {the item}.
+end override
+
+override message eating-not-edible
+  {You} {can't} eat {the item}. Nothing here is food.
 end override
 
 override message opening-locked
@@ -1274,6 +1255,8 @@ define phrases en-US
     EAT, WEAR.
   use-with-hint:
     Try UNLOCK it WITH the key, or PUT one thing IN another.
+  discard-hint:
+    Try DROP it, or THROW AWAY it.
   go-to-hint:
     Use a compass direction to move: GO NORTH, EAST, UP. Type LOOK to see the
     exits from here.

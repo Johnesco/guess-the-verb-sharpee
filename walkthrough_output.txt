@@ -402,7 +402,7 @@ You press the doorbell. A faint chime echoes inside the house, unanswered.
 You can't move the sagging porch. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > open front door
-You have already opened the front door. LOOK IN it to see what it holds.
+You have already opened the front door.
 
 > east
 Hallway
@@ -435,7 +435,7 @@ The hallway is back to the west.
 You can't move the study bookshelves. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instead.
 
 > open heavy desk
-You have already opened the heavy desk. LOOK IN it to see what it holds.
+You have already opened the heavy desk.
 
 > close heavy desk
 You close the heavy desk.
@@ -444,7 +444,7 @@ You close the heavy desk.
 You open the heavy desk, which is empty.
 
 > open heavy desk
-You have already opened the heavy desk. LOOK IN it to see what it holds.
+You have already opened the heavy desk.
 
 > take heavy desk
 The desk is far too heavy to carry.
@@ -542,7 +542,7 @@ In the steamer trunk you see a family locket.
 The shelf is nailed to the wall.
 
 > open steamer trunk
-You have already opened the steamer trunk. LOOK IN it to see what it holds.
+You have already opened the steamer trunk.
 
 > close steamer trunk
 You close the steamer trunk.
@@ -553,7 +553,7 @@ You open the steamer trunk.
 In the steamer trunk you see a family locket.
 
 > open steamer trunk
-You have already opened the steamer trunk. LOOK IN it to see what it holds.
+You have already opened the steamer trunk.
 
 > take steamer trunk
 The trunk is far too heavy to lift.

@@ -31,6 +31,17 @@ cannot reword "I don't understand that." or the bare "You can't see any such thi
 that the parser itself emits. Layer 4 is therefore satisfied by making the *action*
 refusals teach, and by pushing work down to layer 0 so the parser is reached less often.
 
+**An action-level override only fires for a thing already in scope.** Probing all
+sixteen aliases this game first shipped showed five that can never fire:
+`examining-cant-see`, `examining-not-visible`, `examining-nothing-special`,
+`searching-not-visible` and `taking-cannot-take`. An unknown or out-of-scope noun fails
+in the *parser*, before any action runs, so the "you can't see that" family is
+unreachable by construction — and `going-no-exit` never fires either, because
+`going-no-exit-that-way` gets there first. Those six were removed; eleven remain, each
+proven to fire and each exercised by the tests document. The practical consequence is
+the I7 finding restated: **for an unknown noun the only defense is layer 0.** Every noun
+in player-visible text must be a real alias, because nothing downstream can rescue it.
+
 **Clarification lines follow I7's convention** — `(digging the flower bed)`, never
 `(understood as: digging)` — but only where a story action owns the redirect. A grammar
 pattern that compiles to `going` cannot carry one: `means` takes exactly two bare words
