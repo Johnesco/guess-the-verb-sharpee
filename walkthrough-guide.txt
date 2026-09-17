@@ -7,7 +7,7 @@
 # to, and any verb the story defines itself. Refusals are coverage too
 # — taking scenery should fail, and the transcript records that it did.
 #
-# 6 of 6 rooms swept, 32 of 39 things exercised, 164 commands.
+# 6 of 6 rooms swept, 33 of 40 things exercised, 166 commands.
 #
 # Not exercised — held inside a closed thing, carried from the
 # start, or the player character itself: brass mechanism, clock spring, front door, iron key, matchbook, visitor, wall safe.
@@ -43,6 +43,8 @@
 > x wallpaper
 > x creaking floorboards
 > x floor
+> x inner doors
+> x doors
 > search overcoat
 
 ## Study

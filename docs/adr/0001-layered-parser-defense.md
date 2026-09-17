@@ -48,3 +48,25 @@ pattern that compiles to `going` cannot carry one: `means` takes exactly two bar
 (`@sharpee/chord/parser.js:4062-4082`), and a room's `on the player going` cannot tell
 which phrasing was typed. So CLIMB STAIRS and GO UPSTAIRS move the player silently.
 That is the one place this game knowingly diverges from the I7 behaviour.
+
+## Keeping layer 0 honest
+
+The noun layer cannot be spot-checked, because a missing alias looks exactly like a word
+the author never thought of. Two sweeps run against the story source and are kept as
+branches of the tests document:
+
+1. **Alias sweep.** Every `aka` entry is examined in the room where its thing is in
+   scope, and compared against that thing's *own* canonical response. A word that
+   resolves to the wrong entity fails as loudly as one that resolves to nothing, which
+   is what catches the disambiguation hazard I7's findings warn about. 267 aliases,
+   all exact, no ambiguity prompts.
+2. **Prose sweep.** Every candidate noun in player-visible text — room descriptions and
+   the descriptions of the things in them — is examined in that room. The first run left
+   131 words unresolved; triage found 19 real nouns among them (`windows`, `doors`,
+   `numbers`, `seams`, `shadows`, `collar`, `studs`, `cavity`, `lock`, `grandmother`,
+   `handwriting`, `lavender`, `base`, `bumps` and the recipe's ingredients). The rest are
+   verbs, adjectives and prepositions, and the residue is reviewed rather than asserted.
+
+`numbers` is the one to notice: the fireplace puzzle's whole clue is "numbers scratched
+into the soot-blackened surface", and until this sweep `x numbers` answered "You can't
+see any such thing."

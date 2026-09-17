@@ -95,6 +95,12 @@ Dark wooden floorboards that creak underfoot.
 > x floor
 Dark wooden floorboards that creak underfoot.
 
+> x inner doors
+Two plain doors off the hallway: the study to the east, the kitchen to the south. Both stand open.
+
+> x doors
+Two plain doors off the hallway: the study to the east, the kitchen to the south. Both stand open.
+
 > search overcoat
 You rummage through the overcoat's pockets and find a small book of matches from 'The Golden Lantern.'
 

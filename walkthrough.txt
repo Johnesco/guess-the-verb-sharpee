@@ -24,6 +24,8 @@ x faded wallpaper
 x wallpaper
 x creaking floorboards
 x floor
+x inner doors
+x doors
 search overcoat
 east
 x study bookshelves

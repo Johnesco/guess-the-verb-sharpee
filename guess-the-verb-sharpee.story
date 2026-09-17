@@ -172,7 +172,7 @@ create the sagging porch
   ago.
 
 create the old house
-  aka house, home, facade, front of the house
+  aka house, home, facade, front of the house, windows, window
   scenery
   in the Front Porch
 
@@ -226,7 +226,7 @@ create the matchbook
   A small book of matches from 'The Golden Lantern.' A few matches remain.
 
 create the narrow staircase
-  aka stairs, staircase, steps, stair, wooden staircase
+  aka stairs, staircase, steps, stair, wooden staircase, shadows
   scenery, climbable
   in the Hallway
 
@@ -237,7 +237,7 @@ create the narrow staircase
   end on
 
 create the faded wallpaper
-  aka wallpaper, wall, walls, paper, floral pattern, pattern
+  aka wallpaper, wall, walls, paper, floral pattern, pattern, seams, seam
   scenery
   in the Hallway
 
@@ -249,6 +249,14 @@ create the creaking floorboards
   in the Hallway
 
   Dark wooden floorboards that creak underfoot.
+
+create the inner doors
+  aka doors, study door, kitchen door, inner door
+  scenery, plural
+  in the Hallway
+
+  Two plain doors off the hallway: the study to the east, the kitchen to the
+  south. Both stand open.
 
 ## ===========================================================================
 ## STUDY
@@ -291,7 +299,7 @@ create the winding key
   end after
 
 create the oil painting
-  aka painting, portrait, picture, frame, woman, grandmother, stern woman
+  aka painting, portrait, picture, frame, woman, grandmother, stern woman, collar, high collar
   scenery, pushable, pullable, hides-the-safe
   in the Study
   states: hung, aside
@@ -379,7 +387,7 @@ create the stone fireplace
   end on
 
 create the hearthstone
-  aka hearth stone, soot, flat stone, broad stone
+  aka hearth stone, soot, flat stone, broad stone, numbers, number, base
   scenery
   in the Study
 
@@ -432,7 +440,7 @@ create the copper pots
   Tarnished copper pots hanging from iron hooks. Decorative now.
 
 create the recipe card
-  aka recipe, card, note, handwritten
+  aka recipe, card, note, handwritten, handwriting, lavender, shortbread, butter, sugar, flour, ingredients
   scenery, readable
   in the Kitchen
 
@@ -482,7 +490,7 @@ create the garden trowel
   A short-handled garden trowel, rusty but solid.
 
 create the brass mechanism
-  aka mechanism, gears, gear, clockwork, innards, drum, pins, pin, brass thing, tiny drum
+  aka mechanism, gears, gear, clockwork, innards, drum, pins, pin, brass thing, tiny drum, bumps, raised bumps
 
   A small brass mechanism -- gears, pins, and a tiny drum with raised bumps.
   The innards of a music box.
@@ -496,7 +504,7 @@ create the garden shed
   empty shelves and cobwebs inside.
 
 create the house behind
-  aka house, home, back of the house, rear
+  aka house, home, back of the house, rear, windows, window
   scenery
   in the Garden
 
@@ -515,7 +523,7 @@ create the garden doorway
 ## ===========================================================================
 
 create the dusty shelf
-  aka shelf, plank
+  aka shelf, plank, studs, wall studs
   scenery, a supporter
   in the Attic
 
@@ -526,7 +534,7 @@ create the dusty shelf
   end on
 
 create the old music box
-  aka box, music box, wooden box, lid, rose-carved lid, keyhole, melody, tune
+  aka box, music box, wooden box, lid, rose-carved lid, keyhole, melody, tune, cavity
   a container, windable, repairable
   on the dusty shelf
 
@@ -548,7 +556,7 @@ create the old music box
   end on
 
 create the steamer trunk
-  aka trunk, chest, old trunk, steamer, fittings, brass fittings, slot, heavy trunk, battered trunk
+  aka trunk, chest, old trunk, steamer, fittings, brass fittings, slot, heavy trunk, battered trunk, lock
   scenery, a container, openable
   in the Attic
   states: latched, released
@@ -578,7 +586,7 @@ create the steamer trunk
   end on
 
 create the family locket
-  aka locket, silver locket, heirloom, necklace, chain, photograph, photo, fine chain, tiny photograph, faded photograph
+  aka locket, silver locket, heirloom, necklace, chain, photograph, photo, fine chain, tiny photograph, faded photograph, grandmother, woman, young woman
   in the steamer trunk
 
   A silver locket on a fine chain. Inside, a tiny photograph shows your

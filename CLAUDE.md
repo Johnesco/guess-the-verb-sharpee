@@ -61,6 +61,10 @@ Built output at the root (`play.html`, `game.js`, `*.css`, `lib/`, `source.html`
 ### Implemented
 - [x] All six rooms and every puzzle from the TypeScript edition
 - [x] The synonym table from `legacy/src/grammar.ts`, including the direction phrasings (`head north`, `go upstairs`, `climb stairs`, `ascend`). `extend action going` takes them as **literal patterns with `means direction <dir>`**; only a slot (`head the direction`) fails. See `../reference/chord-cookbook.md`.
+- [x] Swept: all 218 grammar patterns and all 267 noun aliases are exercised by
+  `guess-the-verb-sharpee.tests.json`, each asserting the real response with
+  `notContains` guards on the failure text. An alias is checked against its own entity's
+  canonical response, so a mis-resolution fails as loudly as a miss.
 - [x] The five-layer parser defense from the Inform 7 sibling's `FINDINGS.md` — see `docs/adr/0001-layered-parser-defense.md`
 - [x] Tests document ported from the walkthrough and the three transcripts
 
