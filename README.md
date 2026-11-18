@@ -12,7 +12,7 @@ This game is built and published from the Sharpee workspace, which holds the sha
 
 ```
 npx sharpee play                                           # play in the terminal
-npx sharpee test                                           # replay guess-the-verb-sharpee.tests.json
+npx sharpee test                                           # replay guess-the-verb-sharpee.tests/
 python ../tools/build.py guess-the-verb-sharpee --force    # gates, build, tests, lay out the hub folder
 python C:/code/ifhub/tools/ship.py guess-the-verb-sharpee  # publish and list on IF Hub
 ```

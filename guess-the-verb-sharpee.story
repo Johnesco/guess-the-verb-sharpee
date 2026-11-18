@@ -115,6 +115,7 @@ create the front door
   A heavy oak door with peeling green paint and an old-fashioned keyhole.
 
 create the woven doormat
+  a thing
   aka mat, rug, welcome mat, doormat, corner, welcome
   hides-the-key
   in the Front Porch
@@ -144,11 +145,13 @@ create the woven doormat
   end on
 
 create the iron key
+  a thing
   aka old key, heavy key, house key, key
 
   A heavy iron key, dark with age.
 
 create the brass doorbell
+  a thing
   aka bell, button, buzzer, door bell, doorbell, door frame, tarnished doorbell, frame
   scenery, ringable
   in the Front Porch
@@ -164,6 +167,7 @@ create the brass doorbell
   end on
 
 create the sagging porch
+  a thing
   aka boards, railing, wooden porch, front porch, paint, old paint
   scenery
   in the Front Porch
@@ -172,6 +176,7 @@ create the sagging porch
   ago.
 
 create the old house
+  a thing
   aka house, home, facade, front of the house, windows, window
   scenery
   in the Front Porch
@@ -184,6 +189,7 @@ create the old house
 ## ===========================================================================
 
 create the coat rack
+  a thing
   aka rack, hook, hooks, stand, wooden rack
   scenery
   in the Hallway
@@ -198,6 +204,7 @@ create the coat rack
   end on
 
 create the old overcoat
+  a thing
   aka coat, jacket, overcoat, wool coat, dusty coat, pockets, pocket, moth-eaten coat
   scenery
   in the Hallway
@@ -221,11 +228,13 @@ create the old overcoat
   end on
 
 create the matchbook
+  a thing
   aka matches, book of matches, small book
 
   A small book of matches from 'The Golden Lantern.' A few matches remain.
 
 create the narrow staircase
+  a thing
   aka stairs, staircase, steps, stair, wooden staircase, shadows
   scenery, climbable
   in the Hallway
@@ -237,6 +246,7 @@ create the narrow staircase
   end on
 
 create the faded wallpaper
+  a thing
   aka wallpaper, wall, walls, paper, floral pattern, pattern, seams, seam
   scenery
   in the Hallway
@@ -244,6 +254,7 @@ create the faded wallpaper
   Yellowed wallpaper with a faded floral pattern, peeling at the seams.
 
 create the creaking floorboards
+  a thing
   aka floor, floorboard, boards, floorboards
   scenery, plural
   in the Hallway
@@ -251,6 +262,7 @@ create the creaking floorboards
   Dark wooden floorboards that creak underfoot.
 
 create the inner doors
+  a thing
   aka doors, study door, kitchen door, inner door
   scenery, plural
   in the Hallway
@@ -263,6 +275,7 @@ create the inner doors
 ## ===========================================================================
 
 create the study bookshelves
+  a thing
   aka bookshelves, bookshelf, shelves, books, book, volumes, volume
   scenery, plural
   in the Study
@@ -270,8 +283,9 @@ create the study bookshelves
   Floor-to-ceiling shelves packed with dusty volumes. Nothing stands out.
 
 create the heavy desk
+  a container
   aka desk, drawers, drawer, mahogany desk, handles, handle, brass handles, center, centre
-  scenery, a container, openable
+  scenery, openable
   in the Study
 
   A mahogany desk with brass handles.
@@ -288,6 +302,7 @@ create the heavy desk
   end on
 
 create the winding key
+  a thing
   aka butterfly key, small key, delicate key
   in the heavy desk
 
@@ -299,6 +314,7 @@ create the winding key
   end after
 
 create the oil painting
+  a thing
   aka painting, portrait, picture, frame, woman, grandmother, stern woman, collar, high collar
   scenery, pushable, pullable, hides-the-safe
   in the Study
@@ -338,8 +354,9 @@ create the oil painting
   end after
 
 create the wall safe
+  a container
   aka safe, iron safe, combination, dial, dials, lock, combination lock, three-dial lock, safe door
-  scenery, a container, openable, dialable
+  scenery, openable, dialable
   states: sealed, dialed
 
   A small iron safe set into the wall. It has a three-dial combination lock.
@@ -364,12 +381,14 @@ create the wall safe
   end on
 
 create the clock spring
+  a thing
   aka spring, coiled spring, metal spring, coil
   in the wall safe
 
   A tightly coiled metal spring, the kind found inside clockwork.
 
 create the stone fireplace
+  a thing
   aka fireplace, hearth, grate, fire, logs, log, chimney, flames, flame, firelight, corner
   scenery, lightable
   in the Study
@@ -387,6 +406,7 @@ create the stone fireplace
   end on
 
 create the hearthstone
+  a thing
   aka hearth stone, soot, flat stone, broad stone, numbers, number, base
   scenery
   in the Study
@@ -404,6 +424,7 @@ create the hearthstone
   end on
 
 create the wood paneling
+  a thing
   aka paneling, panels, panel, wood, far wall, wall, walls
   scenery
   in the Study
@@ -415,6 +436,7 @@ create the wood paneling
 ## ===========================================================================
 
 create the stone counters
+  a thing
   aka counter, countertop, countertops
   scenery, plural
   in the Kitchen
@@ -422,6 +444,7 @@ create the stone counters
   Heavy stone countertops, cracked but solid.
 
 create the ceramic sink
+  a thing
   aka sink, faucet, tap, basin, farmhouse sink, brass faucet
   scenery
   in the Kitchen
@@ -433,6 +456,7 @@ create the ceramic sink
   end on
 
 create the copper pots
+  a thing
   aka pots, pans, pot, pan, iron hooks, hooks, hook
   scenery, plural
   in the Kitchen
@@ -440,6 +464,7 @@ create the copper pots
   Tarnished copper pots hanging from iron hooks. Decorative now.
 
 create the recipe card
+  a thing
   aka recipe, card, note, handwritten, handwriting, lavender, shortbread, butter, sugar, flour, ingredients
   scenery, readable
   in the Kitchen
@@ -455,6 +480,7 @@ create the recipe card
   end on
 
 create the kitchen doorway
+  a thing
   aka doorway, south doorway, garden doorway
   scenery
   in the Kitchen
@@ -466,6 +492,7 @@ create the kitchen doorway
 ## ===========================================================================
 
 create the flower bed
+  a thing
   aka bed, flowers, weeds, soil, dirt, earth, ground, back wall, wall
   scenery, diggable with the garden trowel
   in the Garden
@@ -484,18 +511,21 @@ create the flower bed
   end on
 
 create the garden trowel
+  a thing
   aka trowel, spade, shovel, tool, short-handled trowel, rusty trowel
   in the Garden
 
   A short-handled garden trowel, rusty but solid.
 
 create the brass mechanism
+  a thing
   aka mechanism, gears, gear, clockwork, innards, drum, pins, pin, brass thing, tiny drum, bumps, raised bumps
 
   A small brass mechanism -- gears, pins, and a tiny drum with raised bumps.
   The innards of a music box.
 
 create the garden shed
+  a thing
   aka shed, shack, shed door, cobwebs, roof, sagging roof, corner, shelves, empty shelves
   scenery
   in the Garden
@@ -504,6 +534,7 @@ create the garden shed
   empty shelves and cobwebs inside.
 
 create the house behind
+  a thing
   aka house, home, back of the house, rear, windows, window
   scenery
   in the Garden
@@ -512,6 +543,7 @@ create the house behind
   back in, to the north.
 
 create the garden doorway
+  a thing
   aka doorway, kitchen doorway, north doorway
   scenery
   in the Garden
@@ -523,8 +555,9 @@ create the garden doorway
 ## ===========================================================================
 
 create the dusty shelf
+  a supporter
   aka shelf, plank, studs, wall studs
-  scenery, a supporter
+  scenery
   in the Attic
 
   A rough plank shelf nailed to the wall studs.
@@ -556,8 +589,9 @@ create the old music box
   end on
 
 create the steamer trunk
+  a container
   aka trunk, chest, old trunk, steamer, fittings, brass fittings, slot, heavy trunk, battered trunk, lock
-  scenery, a container, openable
+  scenery, openable
   in the Attic
   states: latched, released
 
@@ -586,6 +620,7 @@ create the steamer trunk
   end on
 
 create the family locket
+  a thing
   aka locket, silver locket, heirloom, necklace, chain, photograph, photo, fine chain, tiny photograph, faded photograph, grandmother, woman, young woman
   in the steamer trunk
 
@@ -599,6 +634,7 @@ create the family locket
   end after
 
 create the sloping eaves
+  a thing
   aka eaves, rafters, beams, ceiling, dust, wall, walls
   scenery, plural
   in the Attic
@@ -627,6 +663,13 @@ define trait hides-the-safe
     phrase painting-moved
   end on
 end trait
+
+## Standard `looking_under` grammar that `peeking` takes for itself.
+
+remove from action looking_under
+  look under the target
+  look underneath the target
+  look beneath the target
 
 define action peeking
   grammar
@@ -680,6 +723,25 @@ define trait lightable
   end on
 end trait
 
+## Standard `lighting` grammar that `lighting` takes for itself.
+
+remove from action lighting
+  light the target
+  light the target with or using the tool
+
+## Standard `burning` grammar that `lighting` takes for itself.
+
+remove from action burning
+  burn the target
+  ignite the target
+
+## Standard `switching_on` grammar that `lighting` takes for itself.
+
+remove from action switching_on
+  start the target
+  switch on the target
+  turn on the target
+
 define action lighting
   grammar
     light the target
@@ -689,7 +751,7 @@ define action lighting
     start the target
     switch on the target
     turn on the target
-    light the target with the tool
+    light the target with or using the tool
     the tool is an instrument
   the target must be reachable
   otherwise refuse burn-cant
@@ -704,10 +766,15 @@ define trait dialable
   end on
 end trait
 
+## Standard `opening` grammar that `dialing` takes for itself.
+
+remove from action opening
+  open the target with or using the combination
+
 define action dialing
   grammar
     dial the target
-    open the target with the combination
+    open the target with or using the combination
     enter the combination on the target
   the target must be reachable
   otherwise refuse dial-no-safe
@@ -768,6 +835,11 @@ define action digging-here
   award mechanism-found
   phrase dig-here-found
 
+## Standard `dropping` grammar that `discarding` takes for itself.
+
+remove from action dropping
+  discard the item
+
 define action discarding
   grammar
     discard the item
@@ -814,6 +886,13 @@ define action going-to
     travel to the target
   phrase go-to-hint
 
+## Standard `talking` grammar that `talking-to` takes for itself.
+
+remove from action talking
+  talk to or with the target
+  speak to or with the target
+  chat with the target
+
 define action talking-to
   grammar
     talk to grandmother
@@ -823,10 +902,9 @@ define action talking-to
     talk to someone
     talk to anyone
     speak to grandmother
-    talk to the target
-    speak to the target
+    talk to or with the target
+    speak to or with the target
     chat with the target
-    talk with the target
   phrase talk-to-hint
 
 define action washing
@@ -852,6 +930,11 @@ define action greeting
     hello there
   phrase greeting-text
 
+## Standard `help` grammar that `helping` takes for itself.
+
+remove from action help
+  help
+
 define action helping
   grammar
     help
@@ -860,6 +943,11 @@ define action helping
     help me
     what can i do
   phrase help-text
+
+## Standard `help` grammar that `listing-verbs` takes for itself.
+
+remove from action help
+  commands
 
 define action listing-verbs
   grammar
@@ -1323,6 +1411,7 @@ define phrase verbs-text
 end phrase
 
 create the attic stairs
+  a thing
   aka stairs, staircase, steps, stair, stairway
   scenery, climbable
   in the Attic

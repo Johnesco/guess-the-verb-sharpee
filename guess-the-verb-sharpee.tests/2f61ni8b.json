@@ -1,0 +1,177 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You lift the corner of the doormat and find an iron key hidden underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look under doormat",
+      "id": "qsl3h5zz",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take iron key",
+      "id": "2c8h8xta",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You unlock the front door with the iron key."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "unlock front door with iron key",
+      "id": "14lzn8wd",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the front door."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "open front door",
+      "id": "20vaf62i",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "east",
+      "id": "vsyd7lch",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Attic"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "up",
+      "id": "7n0f5177",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You take the old music box from the dusty shelf."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take music box",
+      "id": "kjeujpoa",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't insert things into the dusty shelf. Try PUT it ON something, or find a thing tha"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "attach music box to dusty shelf",
+      "id": "ydoxpe7k",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't insert things into the dusty shelf. Try PUT it ON something, or find a thing tha"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "install music box in dusty shelf",
+      "id": "w6wiwqst",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't insert things into the dusty shelf. Try PUT it ON something, or find a thing tha"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "install music box into dusty shelf",
+      "id": "qk2qeggw",
+      "type": "turn"
+    }
+  ],
+  "id": "2f61ni8b",
+  "ordinal": 19,
+  "parent": "hx3zrxco"
+}

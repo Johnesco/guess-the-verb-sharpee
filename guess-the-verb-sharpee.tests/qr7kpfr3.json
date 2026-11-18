@@ -1,0 +1,19 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You lift the locket from the trunk.",
+          "You found your grandmother's heirloom."
+        ]
+      },
+      "command": "take locket",
+      "ending": "victory",
+      "id": "gjxhkxsh",
+      "type": "turn"
+    }
+  ],
+  "id": "qr7kpfr3",
+  "ordinal": 0,
+  "parent": "4m8dp718"
+}

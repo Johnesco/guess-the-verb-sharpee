@@ -1,0 +1,228 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You lift the corner of the doormat and find an iron key hidden underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look under doormat",
+      "id": "qkppuhlo",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take iron key",
+      "id": "vcnz4cqr",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You unlock the front door with the iron key."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "unlock front door with iron key",
+      "id": "wl5jwody",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the front door."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "open front door",
+      "id": "9rjrauj1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "east",
+      "id": "ut65zzgg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your attack has no effect on the old overcoat."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "strike overcoat",
+      "id": "fqb4jui1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your attack has no effect on the old overcoat."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "stab overcoat",
+      "id": "zsa1ai5g",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your attack has no effect on the old overcoat."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "slash overcoat",
+      "id": "mdcwtnme",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your attack has no effect on the old overcoat."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "kick overcoat",
+      "id": "duh99scy",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't eat the old overcoat. Nothing here is food."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "consume overcoat",
+      "id": "5lqo9int",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't eat the old overcoat. Nothing here is food."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "devour overcoat",
+      "id": "i6wjhbuw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The overcoat is too moth-eaten to wear. It would fall apart."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "don overcoat",
+      "id": "lbwtnu52",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The overcoat is too moth-eaten to wear. It would fall apart."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "wear overcoat",
+      "id": "y3dxjpxg",
+      "type": "turn"
+    }
+  ],
+  "id": "dx64yxbg",
+  "ordinal": 14,
+  "parent": "hx3zrxco"
+}

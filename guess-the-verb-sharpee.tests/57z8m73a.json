@@ -1,0 +1,211 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You lift the corner of the doormat and find an iron key hidden underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look under doormat",
+      "id": "egh0vqrz",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take iron key",
+      "id": "6b50wqb4",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You unlock the front door with the iron key."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "unlock front door with iron key",
+      "id": "zj35u3l7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the front door."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "open front door",
+      "id": "8dgvjz9h",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "east",
+      "id": "b9r3b55j",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You rummage through the overcoat's pockets and find a small book of matches from 'The Gold"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "rummage overcoat",
+      "id": "806d996c",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You've already found the matchbook."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "rummage in overcoat",
+      "id": "tw2h762t",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You've already found the matchbook."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "rummage through overcoat",
+      "id": "wuzenc4e",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You've already found the matchbook."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look in overcoat",
+      "id": "yrcu5ak9",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You've already found the matchbook."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look inside overcoat",
+      "id": "8za67dh4",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You've already found the matchbook."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "check the pockets of overcoat",
+      "id": "od6yt1ku",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You've already found the matchbook."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "please search overcoat",
+      "id": "xsa6qyf7",
+      "type": "turn"
+    }
+  ],
+  "id": "57z8m73a",
+  "ordinal": 13,
+  "parent": "hx3zrxco"
+}

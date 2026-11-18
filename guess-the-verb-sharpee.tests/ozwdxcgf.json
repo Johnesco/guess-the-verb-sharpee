@@ -1,0 +1,177 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You lift the corner of the doormat and find an iron key hidden underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look under doormat",
+      "id": "kqkpu0w8",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take iron key",
+      "id": "3w97oo4t",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You are carrying:"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "what do i have",
+      "id": "k554eky0",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You are carrying:"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "what am i carrying",
+      "id": "7h15wfb6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You are carrying:"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "what am i holding",
+      "id": "9cu4exng",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You are carrying:"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "check inventory",
+      "id": "xmzblgob",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You are carrying:"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "check items",
+      "id": "mzs8hjde",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You are carrying:"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "my inventory",
+      "id": "16jzdmrc",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You are carrying:"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "check my inventory",
+      "id": "rax466yr",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You are carrying:"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "check my items",
+      "id": "qzb9e4ab",
+      "type": "turn"
+    }
+  ],
+  "id": "ozwdxcgf",
+  "ordinal": 7,
+  "parent": "hx3zrxco"
+}

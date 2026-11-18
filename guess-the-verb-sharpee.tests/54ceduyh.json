@@ -1,0 +1,58 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You open the heavy desk.",
+          "In the heavy desk you see a winding key."
+        ]
+      },
+      "command": "open desk",
+      "id": "4m3yw9z9",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You take the winding key from the heavy desk."
+        ],
+        "states": [
+          "player.inventory contains winding key"
+        ]
+      },
+      "command": "take winding key",
+      "id": "1u49lnqn",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You push the painting aside, revealing a small wall safe hidden behind it."
+        ],
+        "states": [
+          "the oil painting is aside"
+        ]
+      },
+      "command": "push painting",
+      "id": "ue0btdp8",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You strike a match and light the logs.",
+          "7 - 3 - 9"
+        ],
+        "states": [
+          "the stone fireplace is burning"
+        ]
+      },
+      "command": "light fireplace",
+      "id": "4k5lf1u2",
+      "type": "turn"
+    }
+  ],
+  "id": "54ceduyh",
+  "ordinal": 0,
+  "parent": "drehruta"
+}

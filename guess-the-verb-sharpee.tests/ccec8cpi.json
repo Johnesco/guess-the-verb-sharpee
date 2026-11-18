@@ -1,0 +1,143 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You lift the corner of the doormat and find an iron key hidden underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look under doormat",
+      "id": "jz1jzu3o",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take iron key",
+      "id": "blagowus",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You unlock the front door with the iron key."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "unlock front door with iron key",
+      "id": "x64r188o",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the front door."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "open front door",
+      "id": "xia6u2tf",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "east",
+      "id": "82kpr80p",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Attic"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "up",
+      "id": "ss9sre80",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "On the dusty shelf you see: an old music box."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look on dusty shelf",
+      "id": "8lhd1vha",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "On the dusty shelf you see: an old music box."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look on top of dusty shelf",
+      "id": "q9efx3ab",
+      "type": "turn"
+    }
+  ],
+  "id": "ccec8cpi",
+  "ordinal": 25,
+  "parent": "hx3zrxco"
+}

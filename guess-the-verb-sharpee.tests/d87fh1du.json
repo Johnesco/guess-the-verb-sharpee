@@ -1,0 +1,27 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "Rusty water sputters out briefly, then runs clear."
+        ]
+      },
+      "command": "turn faucet",
+      "id": "yo68top2",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Lavender shortbread -- butter, sugar, flour, and dried lavender from the garden."
+        ]
+      },
+      "command": "read recipe",
+      "id": "r3g905cs",
+      "type": "turn"
+    }
+  ],
+  "id": "d87fh1du",
+  "ordinal": 1,
+  "parent": "0nujwudv"
+}

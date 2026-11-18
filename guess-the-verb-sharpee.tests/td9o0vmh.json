@@ -1,0 +1,134 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "A moth-eaten wool overcoat."
+        ]
+      },
+      "command": "check overcoat",
+      "id": "2yo8fpxc",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "find a small book of matches from 'The Golden Lantern.'"
+        ],
+        "states": [
+          "player.inventory contains matchbook"
+        ]
+      },
+      "command": "look in pockets",
+      "id": "f0kxbvd3",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You've already found the matchbook."
+        ]
+      },
+      "command": "rummage overcoat",
+      "id": "ekxf3y77",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The coat is too moth-eaten to carry."
+        ]
+      },
+      "command": "take coat",
+      "id": "jgjkwwg7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The overcoat is too moth-eaten to wear."
+        ]
+      },
+      "command": "wear coat",
+      "id": "b5rkcw0p",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Attic"
+        ],
+        "states": [
+          "player.location = Attic"
+        ]
+      },
+      "command": "climb stairs",
+      "id": "hzvlloin",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ]
+      },
+      "command": "down",
+      "id": "42nhdyel",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Attic",
+          "The stairs lead back down."
+        ],
+        "states": [
+          "player.location = Attic"
+        ]
+      },
+      "command": "climb the staircase",
+      "id": "azgattca",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ],
+        "states": [
+          "player.location = Hallway"
+        ]
+      },
+      "command": "down",
+      "id": "gns51oil",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Attic",
+          "On the dusty shelf you see an old music box."
+        ],
+        "states": [
+          "player.location = Attic"
+        ]
+      },
+      "command": "up",
+      "id": "vxqbikww",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ]
+      },
+      "command": "down",
+      "id": "mstlzg72",
+      "type": "turn"
+    }
+  ],
+  "id": "td9o0vmh",
+  "ordinal": 1,
+  "parent": "doz2bwiu"
+}

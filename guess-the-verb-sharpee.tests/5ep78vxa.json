@@ -1,0 +1,279 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You lift the corner of the doormat and find an iron key hidden underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look under doormat",
+      "id": "hgfffxqu",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take iron key",
+      "id": "lrs5p8ld",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You unlock the front door with the iron key."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "unlock front door with iron key",
+      "id": "vobszh8n",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the front door."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "open front door",
+      "id": "kagim8cr",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "east",
+      "id": "0v7k39aj",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Attic"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "up",
+      "id": "e8uu50ll",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Nothing is installed yet. Still missing: the mechanism and the spring."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "fix music box",
+      "id": "5hrjd92i",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Nothing is installed yet. Still missing: the mechanism and the spring."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "repair music box",
+      "id": "53sdculn",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Nothing is installed yet. Still missing: the mechanism and the spring."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "assemble music box",
+      "id": "jzh2g0vd",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Nothing is installed yet. Still missing: the mechanism and the spring."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "mend music box",
+      "id": "cbcipv9b",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You need a key to wind the music box."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "wind music box",
+      "id": "j6s1rl2o",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You need a key to wind the music box."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "wind up music box",
+      "id": "21ri56d4",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You need a key to wind the music box."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "crank music box",
+      "id": "w5gup7sr",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You need a key to wind the music box."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "crank up music box",
+      "id": "p7usup2j",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You need a key to wind the music box."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "wind music box with key",
+      "id": "o4sid77x",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Try: PUT one part IN the music box."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "combine music box with dusty shelf",
+      "id": "g1zn3uyq",
+      "type": "turn"
+    }
+  ],
+  "id": "5ep78vxa",
+  "ordinal": 18,
+  "parent": "hx3zrxco"
+}

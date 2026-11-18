@@ -1,0 +1,160 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You lift the corner of the doormat and find an iron key hidden underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look underneath doormat",
+      "id": "bvutsow6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You already found the key here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look beneath doormat",
+      "id": "tqgterlp",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You already found the key here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "search under doormat",
+      "id": "q5kq195i",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You already found the key here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "search underneath doormat",
+      "id": "h4x2s03k",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You already found the key here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "search beneath doormat",
+      "id": "1jpup8e6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You already found the key here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "check under doormat",
+      "id": "foy35b1q",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You already found the key here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look behind doormat",
+      "id": "xeom2o2j",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You already found the key here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "check behind doormat",
+      "id": "t1bf5ybw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You already found the key here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "search behind doormat",
+      "id": "d6fj2yca",
+      "type": "turn"
+    }
+  ],
+  "id": "s3jjewes",
+  "ordinal": 10,
+  "parent": "hx3zrxco"
+}

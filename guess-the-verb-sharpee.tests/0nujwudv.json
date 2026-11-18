@@ -1,0 +1,55 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "Remembering the numbers on the hearthstone, you dial 7... 3... 9. Click.",
+          "In the wall safe you see a clock spring."
+        ],
+        "states": [
+          "the wall safe is dialed"
+        ]
+      },
+      "command": "open safe",
+      "id": "axqx9zmn",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You take the clock spring from the wall safe."
+        ],
+        "states": [
+          "player.inventory contains clock spring"
+        ]
+      },
+      "command": "take clock spring",
+      "id": "0wgdk2bs",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ]
+      },
+      "command": "west",
+      "id": "1y1klraq",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Kitchen",
+          "A handwritten recipe card sits on the counter."
+        ]
+      },
+      "command": "south",
+      "id": "p6jy3mbp",
+      "type": "turn"
+    }
+  ],
+  "id": "0nujwudv",
+  "ordinal": 0,
+  "parent": "54ceduyh"
+}

@@ -1,0 +1,67 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You lift the corner of the doormat and find an iron key hidden underneath."
+        ],
+        "states": [
+          "the woven doormat is lifted"
+        ]
+      },
+      "command": "look under doormat",
+      "id": "sfzefh7x",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "states": [
+          "player.inventory contains iron key"
+        ]
+      },
+      "command": "take iron key",
+      "id": "kclgu0m3",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You unlock the front door with the iron key."
+        ]
+      },
+      "command": "unlock front door with iron key",
+      "id": "brjebv1x",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the front door."
+        ]
+      },
+      "command": "open front door",
+      "id": "4qigfwlt",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway",
+          "A coat rack stands by the door with an old overcoat hanging from it."
+        ],
+        "states": [
+          "player.location = Hallway"
+        ]
+      },
+      "command": "east",
+      "id": "kw8bqnzu",
+      "type": "turn"
+    }
+  ],
+  "id": "doz2bwiu",
+  "ordinal": 0,
+  "parent": "hx3zrxco"
+}

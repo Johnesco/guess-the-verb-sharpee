@@ -1,0 +1,89 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "states": [
+          "player.inventory contains garden trowel"
+        ]
+      },
+      "command": "take trowel",
+      "id": "fvhoto9r",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You dig into the soft earth with the trowel and uncover a small brass mechanism"
+        ],
+        "states": [
+          "the flower bed is dug"
+        ]
+      },
+      "command": "dig flower bed",
+      "id": "33s3j3h7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "states": [
+          "player.inventory contains brass mechanism"
+        ]
+      },
+      "command": "take brass mechanism",
+      "id": "8oyxowyj",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Kitchen"
+        ]
+      },
+      "command": "north",
+      "id": "ece0roi3",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ]
+      },
+      "command": "north",
+      "id": "lrn5k94l",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Attic"
+        ],
+        "states": [
+          "player.location = Attic"
+        ]
+      },
+      "command": "up",
+      "id": "izeas5ot",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You take the old music box from the dusty shelf."
+        ]
+      },
+      "command": "take music box",
+      "id": "x4d1aqna",
+      "type": "turn"
+    }
+  ],
+  "id": "4rye2w9a",
+  "ordinal": 0,
+  "parent": "o28jvebi"
+}

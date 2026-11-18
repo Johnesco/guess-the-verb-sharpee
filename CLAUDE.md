@@ -34,7 +34,7 @@ guess-the-verb-sharpee/
 ├── CLAUDE.md                          THIS FILE
 ├── README.md                          public documentation
 ├── guess-the-verb-sharpee.story       the game, one Chord file
-├── guess-the-verb-sharpee.tests.json  tests document: the walkthrough plus synonym and refusal branches
+├── guess-the-verb-sharpee.tests/     tests document: the walkthrough plus synonym and refusal branches
 ├── guess-the-verb-sharpee.config.json IFID
 ├── ifhub.conf                         the IF Hub card
 ├── browser/guess-the-verb-sharpee.css author CSS override
@@ -62,7 +62,7 @@ Built output at the root (`play.html`, `game.js`, `*.css`, `lib/`, `source.html`
 - [x] All six rooms and every puzzle from the TypeScript edition
 - [x] The synonym table from `legacy/src/grammar.ts`, including the direction phrasings (`head north`, `go upstairs`, `climb stairs`, `ascend`). `extend action going` takes them as **literal patterns with `means direction <dir>`**; only a slot (`head the direction`) fails. See `../reference/chord-cookbook.md`.
 - [x] Swept: all 218 grammar patterns and all 267 noun aliases are exercised by
-  `guess-the-verb-sharpee.tests.json`, each asserting the real response with
+  `guess-the-verb-sharpee.tests/`, each asserting the real response with
   `notContains` guards on the failure text. An alias is checked against its own entity's
   canonical response, so a mis-resolution fails as loudly as a miss.
 - [x] The five-layer parser defense from the Inform 7 sibling's `FINDINGS.md` — see `docs/adr/0001-layered-parser-defense.md`
@@ -133,6 +133,7 @@ ADRs live in `docs/adr/` once the first one exists (index: `docs/adr/README.md`)
 ## Project History
 
 ### Recent Changes
+- 2026-11-18 (#2): moved to the current engine and the Chord 4 language, on the `feat/layered-parser-defense` branch. Kinds lead every block. Eighteen grammar lines repeated standard grammar the story's actions had been taking silently (LOOK UNDER, LIGHT, BURN, IGNITE, START, SWITCH ON, TURN ON, OPEN … WITH, DISCARD, TALK TO, HELP, COMMANDS); each is now released from its standard action with `remove from action …` above the story action, so every one answers as before. Two engine changes show in play: TURN DOORBELL gets the story's own refusal instead of the engine's "You turn the brass doorbell.", and CLIMB THE STAIRCASE now goes up like CLIMB STAIRCASE (the direction phrase ignores the article). The tests document is the `guess-the-verb-sharpee.tests/` directory. 802 cards, 4391 assertions. Built, not yet shipped.
 - 2026-09-17: Adopted the I7 five-layer parser defense (#1). Added a `override message`
   section so standard-action refusals teach a next move; moved PRESS off `ringing` so it
   reaches `pushing`; gave bare `DIG` a real `digging-here` action with an I7-style

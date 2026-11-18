@@ -1,0 +1,75 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You rap your knuckles on the door. No answer."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "knock front door",
+      "id": "yy59cdoc",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You rap your knuckles on the door. No answer."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "knock on front door",
+      "id": "yxxgzhjh",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You rap your knuckles on the door. No answer."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "rap front door",
+      "id": "ag3m1u2v",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You rap your knuckles on the door. No answer."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "rap on front door",
+      "id": "2qix4cz6",
+      "type": "turn"
+    }
+  ],
+  "id": "x6co870b",
+  "ordinal": 11,
+  "parent": "hx3zrxco"
+}

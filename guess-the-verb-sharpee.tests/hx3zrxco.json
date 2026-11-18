@@ -1,0 +1,32 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "channels": [
+          {
+            "id": "info.title",
+            "is": "Guess the Verb"
+          },
+          {
+            "id": "info.description",
+            "is": "Explore your grandmother's old house and find the family heirloom she left behind. Every room tests a different verb pattern."
+          }
+        ]
+      },
+      "id": "kpso5jr4",
+      "type": "opening"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch",
+          "A woven doormat lies before the front door.",
+          "You can see a woven doormat here."
+        ]
+      },
+      "id": "mcycgqav",
+      "type": "boot"
+    }
+  ],
+  "id": "hx3zrxco"
+}

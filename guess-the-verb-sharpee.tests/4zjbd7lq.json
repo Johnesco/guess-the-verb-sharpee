@@ -1,0 +1,61 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You'd need a tool to dig properly."
+        ]
+      },
+      "command": "dig",
+      "id": "9d8x8rlp",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You'd need a tool to dig properly."
+        ]
+      },
+      "command": "dig earth",
+      "id": "nc1ggkav",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ]
+      },
+      "command": "take trowel",
+      "id": "vna0eoaz",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "(digging the flower bed)",
+          "uncover a small brass mechanism"
+        ],
+        "states": [
+          "the flower bed is dug"
+        ]
+      },
+      "command": "dig",
+      "id": "mqusmmg6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You've already dug here and found the mechanism."
+        ]
+      },
+      "command": "excavate flower bed",
+      "id": "dtacg9iv",
+      "type": "turn"
+    }
+  ],
+  "id": "4zjbd7lq",
+  "ordinal": 1,
+  "parent": "o28jvebi"
+}

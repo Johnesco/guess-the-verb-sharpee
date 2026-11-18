@@ -1,0 +1,181 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "A faded doormat reading 'WELCOME'."
+        ]
+      },
+      "command": "examine rug",
+      "id": "mmuikdb8",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ]
+      },
+      "command": "examine buzzer",
+      "id": "9nq1m7qu",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A faint chime echoes inside the house, unanswered."
+        ]
+      },
+      "command": "ring doorbell",
+      "id": "rytnxzwg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A faint chime echoes inside the house, unanswered."
+        ]
+      },
+      "command": "push doorbell",
+      "id": "a0iv46f7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "It's a push button, not a pull cord."
+        ]
+      },
+      "command": "pull doorbell",
+      "id": "hkhk6tez",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You rap your knuckles on the door. No answer."
+        ]
+      },
+      "command": "knock on door",
+      "id": "2hts0kx7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "No one answers. The house is quiet."
+        ]
+      },
+      "command": "hello",
+      "id": "2ffaf23r",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Type VERBS for a full list of commands."
+        ]
+      },
+      "command": "help",
+      "id": "0azmzbfh",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "AVAILABLE COMMANDS:"
+        ]
+      },
+      "command": "verbs",
+      "id": "k3rhk9ob",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ]
+      },
+      "command": "where am i",
+      "id": "k4h7tj3q",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "As good-looking as ever."
+        ]
+      },
+      "command": "examine me",
+      "id": "cyxoj453",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken.",
+          "You lift the corner of the doormat and find an iron key hidden underneath."
+        ],
+        "states": [
+          "the woven doormat is lifted"
+        ]
+      },
+      "command": "grab mat",
+      "id": "8wcnnhp9",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You already found the key here."
+        ]
+      },
+      "command": "pick up mat",
+      "id": "37w9lcgs",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You already found the key here."
+        ]
+      },
+      "command": "search mat",
+      "id": "2cx33gsk",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ]
+      },
+      "command": "take key",
+      "id": "hti7iyo6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "How do you want to use that?"
+        ]
+      },
+      "command": "use key",
+      "id": "lsmrq3hj",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Try UNLOCK it WITH the key"
+        ]
+      },
+      "command": "use key on door",
+      "id": "szh4hbyt",
+      "type": "turn"
+    }
+  ],
+  "id": "6bdw7itr",
+  "ordinal": 3,
+  "parent": "hx3zrxco"
+}

@@ -1,0 +1,228 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "Use a compass direction to move: GO NORTH, EAST, UP. Type LOOK to see the exits from here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "go to porch",
+      "id": "ffksszff",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Use a compass direction to move: GO NORTH, EAST, UP. Type LOOK to see the exits from here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "go to hallway",
+      "id": "i2lrocet",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Use a compass direction to move: GO NORTH, EAST, UP. Type LOOK to see the exits from here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "go to hall",
+      "id": "88s4vznr",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Use a compass direction to move: GO NORTH, EAST, UP. Type LOOK to see the exits from here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "go to study",
+      "id": "5apxy1e0",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Use a compass direction to move: GO NORTH, EAST, UP. Type LOOK to see the exits from here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "go to kitchen",
+      "id": "yhh7y0pt",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Use a compass direction to move: GO NORTH, EAST, UP. Type LOOK to see the exits from here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "go to garden",
+      "id": "oehrxh66",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Use a compass direction to move: GO NORTH, EAST, UP. Type LOOK to see the exits from here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "go to attic",
+      "id": "fg50pp86",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Use a compass direction to move: GO NORTH, EAST, UP. Type LOOK to see the exits from here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "go to house",
+      "id": "0o89ir39",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Use a compass direction to move: GO NORTH, EAST, UP. Type LOOK to see the exits from here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "go to upstairs",
+      "id": "uxb7oqye",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Use a compass direction to move: GO NORTH, EAST, UP. Type LOOK to see the exits from here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "go to downstairs",
+      "id": "z9nvz1us",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Use a compass direction to move: GO NORTH, EAST, UP. Type LOOK to see the exits from here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "go to doormat",
+      "id": "xes2cc96",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Use a compass direction to move: GO NORTH, EAST, UP. Type LOOK to see the exits from here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "walk to doormat",
+      "id": "sd734jdj",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Use a compass direction to move: GO NORTH, EAST, UP. Type LOOK to see the exits from here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "travel to doormat",
+      "id": "c1j88sxu",
+      "type": "turn"
+    }
+  ],
+  "id": "mf4ozead",
+  "ordinal": 22,
+  "parent": "hx3zrxco"
+}

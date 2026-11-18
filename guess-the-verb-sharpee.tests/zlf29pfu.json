@@ -1,0 +1,27 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "I don't understand that"
+        ]
+      },
+      "command": "xyzzy",
+      "id": "w83wy1kv",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't see any such thing."
+        ]
+      },
+      "command": "examine dragon",
+      "id": "ra5s86z6",
+      "type": "turn"
+    }
+  ],
+  "id": "zlf29pfu",
+  "ordinal": 2,
+  "parent": "hx3zrxco"
+}

@@ -1,0 +1,228 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You can't go that way. Type LOOK to see the exits from here."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "north",
+      "id": "cjpyrii6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't move the sagging porch. Try EXAMINE, SEARCH, LOOK UNDER or LOOK BEHIND it instea"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take porch",
+      "id": "bos29fhq",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't open the brass doorbell. Try SEARCH, LOOK UNDER or LOOK BEHIND it instead."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "open doorbell",
+      "id": "th4oz1c0",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't turn the sagging porch. Try PUSH, PULL, OPEN or LOOK BEHIND instead."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "turn porch",
+      "id": "gahhh1g2",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You find nothing of interest. Try LOOK UNDER or LOOK BEHIND it."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "search porch",
+      "id": "dgxz8f9q",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't climb the brass doorbell. To change rooms, use a compass direction or UP and DOW"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "climb doorbell",
+      "id": "z080baf6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You lift the corner of the doormat and find an iron key hidden underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look under doormat",
+      "id": "m8g3fmgs",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take iron key",
+      "id": "tdv5dgkt",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You already have the iron key. Type I to see everything you are carrying."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take iron key",
+      "id": "ic0t2xzh",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You find the front door locked. Try UNLOCK it WITH something you are carrying."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "open front door",
+      "id": "i9sor0hr",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't insert things into the brass doorbell. Try PUT it ON something, or find a thing "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "put doormat in doorbell",
+      "id": "dcvnvkwr",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't eat the woven doormat. Nothing here is food."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "eat doormat",
+      "id": "3sbmp7qg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You find the front door locked. Try UNLOCK it WITH something you are carrying."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "open front door",
+      "id": "6rf195bp",
+      "type": "turn"
+    }
+  ],
+  "id": "7xhgfjm7",
+  "ordinal": 24,
+  "parent": "hx3zrxco"
+}

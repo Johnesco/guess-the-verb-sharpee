@@ -1,0 +1,279 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You lift the corner of the doormat and find an iron key hidden underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look under doormat",
+      "id": "ritwuhfo",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take iron key",
+      "id": "v3ymweby",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You unlock the front door with the iron key."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "unlock front door with iron key",
+      "id": "zca4ndgn",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the front door."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "open front door",
+      "id": "u2kssd24",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "east",
+      "id": "qnbsnhbo",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Study"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "east",
+      "id": "n5l35ne8",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the heavy desk."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "pry desk",
+      "id": "0hnkl22z",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You close the heavy desk."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "close desk",
+      "id": "n6e2jpbf",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the heavy desk."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "force desk",
+      "id": "6eos8geu",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You close the heavy desk."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "close desk",
+      "id": "zbpf5d4k",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the heavy desk."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "try to open desk",
+      "id": "h3hjeiw2",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You close the heavy desk."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "close desk",
+      "id": "awmevz0w",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the heavy desk."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "please open desk",
+      "id": "t6ch54lw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You close the heavy desk."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "close desk",
+      "id": "3fbv3zxx",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the heavy desk."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "can i open desk",
+      "id": "f7datuts",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You close the heavy desk."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "please close desk",
+      "id": "v1bl0645",
+      "type": "turn"
+    }
+  ],
+  "id": "2i3my1l6",
+  "ordinal": 12,
+  "parent": "hx3zrxco"
+}

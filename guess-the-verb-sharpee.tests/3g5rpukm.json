@@ -1,0 +1,92 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "How do you want to use that? Try a specific verb: OPEN, PUSH, PULL, TURN, EAT, WEAR."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "use doormat",
+      "id": "h1p3kja8",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "How do you want to use that? Try a specific verb: OPEN, PUSH, PULL, TURN, EAT, WEAR."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "try doormat",
+      "id": "mgt0e1rx",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Try UNLOCK it WITH the key, or PUT one thing IN another."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "use doormat on doorbell",
+      "id": "7ntnt6sg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Try UNLOCK it WITH the key, or PUT one thing IN another."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "use doormat with doorbell",
+      "id": "58eb0bvp",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Try UNLOCK it WITH the key, or PUT one thing IN another."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "try doormat on doorbell",
+      "id": "a32sr8xa",
+      "type": "turn"
+    }
+  ],
+  "id": "3g5rpukm",
+  "ordinal": 20,
+  "parent": "hx3zrxco"
+}

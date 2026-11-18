@@ -1,0 +1,62 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You put the brass mechanism in the old music box."
+        ]
+      },
+      "command": "put mechanism in music box",
+      "id": "dy1y62no",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You put the clock spring in the old music box."
+        ]
+      },
+      "command": "put spring in music box",
+      "id": "sfrt8epo",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The mechanism and spring are installed inside, ready to be wound."
+        ]
+      },
+      "command": "examine music box",
+      "id": "43qb37eg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "a delicate melody fills the attic",
+          "its lock releases."
+        ],
+        "states": [
+          "the steamer trunk is released"
+        ]
+      },
+      "command": "wind music box",
+      "id": "lg0uw445",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the steamer trunk.",
+          "In the steamer trunk you see a family locket."
+        ]
+      },
+      "command": "open trunk",
+      "id": "86aj2wi1",
+      "type": "turn"
+    }
+  ],
+  "id": "4m8dp718",
+  "ordinal": 0,
+  "parent": "4rye2w9a"
+}

@@ -1,0 +1,41 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You lift the locket from the trunk.",
+          "You found your grandmother's heirloom."
+        ]
+      },
+      "command": "take locket",
+      "id": "le3vcl5p",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The story restarts."
+        ]
+      },
+      "command": "restart",
+      "id": "4sq8lsba",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ],
+        "notContains": [
+          "The game has ended"
+        ]
+      },
+      "command": "look",
+      "id": "q4obzu7z",
+      "type": "turn"
+    }
+  ],
+  "id": "cghtzlif",
+  "ordinal": 2,
+  "parent": "4m8dp718"
+}

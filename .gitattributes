@@ -1,0 +1,3 @@
+# Sharpee refuses a tests tree that is not byte-canonical, and Git for Windows
+# checks out CRLF by default. Pin the tree to LF.
+*.tests/*.json      text eol=lf

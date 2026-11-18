@@ -1,0 +1,31 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You rummage through the overcoat's pockets and find a small book of matches"
+        ],
+        "states": [
+          "player.inventory contains matchbook"
+        ]
+      },
+      "command": "search overcoat",
+      "id": "h0n2uw3p",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Study",
+          "A stone fireplace squats in the corner, cold and dark."
+        ]
+      },
+      "command": "east",
+      "id": "x0wmm2c5",
+      "type": "turn"
+    }
+  ],
+  "id": "drehruta",
+  "ordinal": 0,
+  "parent": "doz2bwiu"
+}

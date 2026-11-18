@@ -1,0 +1,262 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look around",
+      "id": "ku4380sj",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "where am i",
+      "id": "1e1ehd54",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "where",
+      "id": "krvk3t6t",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "what is this",
+      "id": "63rdinkm",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "what is this place",
+      "id": "op89sbj0",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "examine room",
+      "id": "42toomzx",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look at room",
+      "id": "jnqy4lhh",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "describe room",
+      "id": "zk2mob7v",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look at everything",
+      "id": "o76q14tk",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "examine everything",
+      "id": "d0ptrd6h",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look at this room",
+      "id": "8o8bcxm7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look at this place",
+      "id": "yshvyvnu",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "peek",
+      "id": "1kip6xks",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "peer",
+      "id": "70dg9w3f",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Front Porch"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "gaze",
+      "id": "khonyboj",
+      "type": "turn"
+    }
+  ],
+  "id": "qkyd3col",
+  "ordinal": 5,
+  "parent": "hx3zrxco"
+}

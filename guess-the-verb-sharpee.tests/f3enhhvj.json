@@ -1,0 +1,80 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "The drawers are closed."
+        ]
+      },
+      "command": "examine desk",
+      "id": "2zbj9jaz",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't see any such thing."
+        ]
+      },
+      "command": "open safe",
+      "id": "08egtzts",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "revealing a small wall safe hidden behind it."
+        ],
+        "states": [
+          "the oil painting is aside"
+        ]
+      },
+      "command": "look behind painting",
+      "id": "ykicq7ji",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You already moved the painting. The wall safe is visible."
+        ]
+      },
+      "command": "push painting",
+      "id": "gvd0sd4h",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You don't know the combination yet."
+        ]
+      },
+      "command": "turn dial",
+      "id": "sn6v4ipm",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You don't know the combination yet."
+        ]
+      },
+      "command": "open safe",
+      "id": "2h60o0cy",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hard to make out any detail."
+        ]
+      },
+      "command": "examine hearthstone",
+      "id": "mfi4ms1i",
+      "type": "turn"
+    }
+  ],
+  "id": "f3enhhvj",
+  "ordinal": 1,
+  "parent": "drehruta"
+}

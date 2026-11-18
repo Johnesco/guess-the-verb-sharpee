@@ -1,0 +1,245 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "AVAILABLE COMMANDS:"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "verbs",
+      "id": "oil5zila",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "AVAILABLE COMMANDS:"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "commands",
+      "id": "gcsdjv2h",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother left something in this old house for you to find. Search everywhere -- un"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "help",
+      "id": "lrzci2u3",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother left something in this old house for you to find. Search everywhere -- un"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "hint",
+      "id": "uz4ifrhs",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother left something in this old house for you to find. Search everywhere -- un"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "hints",
+      "id": "xrwhux2u",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother left something in this old house for you to find. Search everywhere -- un"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "help me",
+      "id": "huhgpnwl",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother left something in this old house for you to find. Search everywhere -- un"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "what can i do",
+      "id": "6a80p204",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "No one answers. The house is quiet. Type LOOK to see your surroundings, or HELP for hints."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "hello",
+      "id": "fhb0h4wf",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "No one answers. The house is quiet. Type LOOK to see your surroundings, or HELP for hints."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "hi",
+      "id": "blpkq7ge",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "No one answers. The house is quiet. Type LOOK to see your surroundings, or HELP for hints."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "hey",
+      "id": "zddmvyc4",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "No one answers. The house is quiet. Type LOOK to see your surroundings, or HELP for hints."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "hello there",
+      "id": "67i89gyx",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "As good-looking as ever."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "examine me",
+      "id": "tl6ewcvk",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "As good-looking as ever."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x myself",
+      "id": "tzv4hnu9",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "As good-looking as ever."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x self",
+      "id": "4oz0b1r3",
+      "type": "turn"
+    }
+  ],
+  "id": "ue4pwz3c",
+  "ordinal": 6,
+  "parent": "hx3zrxco"
+}

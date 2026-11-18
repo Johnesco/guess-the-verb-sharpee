@@ -1,0 +1,18 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "Garden",
+          "You can see a garden trowel here."
+        ]
+      },
+      "command": "south",
+      "id": "fuxh9xej",
+      "type": "turn"
+    }
+  ],
+  "id": "o28jvebi",
+  "ordinal": 0,
+  "parent": "0nujwudv"
+}

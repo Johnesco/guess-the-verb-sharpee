@@ -1,0 +1,296 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You lift the corner of the doormat and find an iron key hidden underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look under doormat",
+      "id": "6nm44jfa",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take iron key",
+      "id": "32mrswpn",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You unlock the front door with the iron key."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "unlock front door with iron key",
+      "id": "vjx9bc15",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the front door."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "open front door",
+      "id": "rfuwj72e",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "east",
+      "id": "ll2pndzm",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Study"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "east",
+      "id": "imrehc0q",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "west",
+      "id": "g2qscob5",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You rummage through the overcoat's pockets and find a small book of matches from 'The Gold"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "search overcoat",
+      "id": "eaiskdv1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Study"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "east",
+      "id": "64pdjkjx",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You strike a match and light the logs. The fire catches quickly, casting warm light across"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "burn fireplace",
+      "id": "ztatwm2a",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fire is already burning."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "kindle fireplace",
+      "id": "llfx93cj",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fire is already burning."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "ignite fireplace",
+      "id": "zcdqvrk1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fire is already burning."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "start fireplace",
+      "id": "2ko6kcrg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fire is already burning."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "switch on fireplace",
+      "id": "nrtimvb2",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fire is already burning."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "turn on fireplace",
+      "id": "u76obh9t",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fire is already burning."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "light fireplace with matchbook",
+      "id": "p5y8tgxq",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fire is already burning."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "light fireplace",
+      "id": "kqnmq087",
+      "type": "turn"
+    }
+  ],
+  "id": "vzfb17ml",
+  "ordinal": 15,
+  "parent": "hx3zrxco"
+}

@@ -1,0 +1,5685 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You lift the corner of the doormat and find an iron key hidden underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look under doormat",
+      "id": "1eiidq6p",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "As good-looking as ever."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x visitor",
+      "id": "bdfjqb3o",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "As good-looking as ever."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x me",
+      "id": "4bm1gnb4",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "As good-looking as ever."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x myself",
+      "id": "lk654zvo",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "As good-looking as ever."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x self",
+      "id": "j8s41ehg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A heavy oak door with peeling green paint and an old-fashioned keyhole."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x front door",
+      "id": "jif4f8mu",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A heavy oak door with peeling green paint and an old-fashioned keyhole."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x oak door",
+      "id": "efo0vj42",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A heavy oak door with peeling green paint and an old-fashioned keyhole."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x door",
+      "id": "ga8evrc4",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A heavy oak door with peeling green paint and an old-fashioned keyhole."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x keyhole",
+      "id": "kfa7w0r7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A heavy oak door with peeling green paint and an old-fashioned keyhole."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x heavy door",
+      "id": "fj76n2pj",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A heavy oak door with peeling green paint and an old-fashioned keyhole."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x old-fashioned keyhole",
+      "id": "m0giot64",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A heavy oak door with peeling green paint and an old-fashioned keyhole."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x green paint",
+      "id": "keczr5ba",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A heavy oak door with peeling green paint and an old-fashioned keyhole."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x peeling paint",
+      "id": "9lerow9q",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x woven doormat",
+      "id": "w0cea8de",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x mat",
+      "id": "pr7du3st",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x rug",
+      "id": "aq6nru7j",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x welcome mat",
+      "id": "ci5hnyyl",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x doormat",
+      "id": "oa7v0tuc",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x corner",
+      "id": "okb6loau",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A faded doormat reading 'WELCOME'. One corner is curled up -- something glints underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x welcome",
+      "id": "dsyuslj4",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A heavy iron key, dark with age."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x iron key",
+      "id": "r775zqku",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A heavy iron key, dark with age."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x old key",
+      "id": "zrnk9r1f",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A heavy iron key, dark with age."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x heavy key",
+      "id": "xpfv2fkt",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A heavy iron key, dark with age."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x house key",
+      "id": "feih1u1j",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A heavy iron key, dark with age."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x key",
+      "id": "tfmg6x0g",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x brass doorbell",
+      "id": "lll2g2zg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x bell",
+      "id": "1xmjp5wl",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x button",
+      "id": "e34h1otl",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x buzzer",
+      "id": "1f4br7gt",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x door bell",
+      "id": "vv1033s8",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x doorbell",
+      "id": "nc2bhi7d",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x door frame",
+      "id": "991g19fa",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x tarnished doorbell",
+      "id": "ju2d218n",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x frame",
+      "id": "rl573yg7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Weathered boards that sag under your weight. The paint peeled away long ago."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x sagging porch",
+      "id": "3t0zinz2",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Weathered boards that sag under your weight. The paint peeled away long ago."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x boards",
+      "id": "4a1ba4py",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Weathered boards that sag under your weight. The paint peeled away long ago."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x railing",
+      "id": "ldv4zwc5",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Weathered boards that sag under your weight. The paint peeled away long ago."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x wooden porch",
+      "id": "l0rnw5el",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Weathered boards that sag under your weight. The paint peeled away long ago."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x front porch",
+      "id": "l6wyma3u",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Weathered boards that sag under your weight. The paint peeled away long ago."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x paint",
+      "id": "rdxvj301",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Weathered boards that sag under your weight. The paint peeled away long ago."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x old paint",
+      "id": "r2wpu5zo",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's house, shut up for a season. The windows are dark and the porch sags, b"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x old house",
+      "id": "9fmwi6m2",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's house, shut up for a season. The windows are dark and the porch sags, b"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x house",
+      "id": "b7xcr0i8",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's house, shut up for a season. The windows are dark and the porch sags, b"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x home",
+      "id": "jhymma91",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's house, shut up for a season. The windows are dark and the porch sags, b"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x facade",
+      "id": "trhuedd9",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's house, shut up for a season. The windows are dark and the porch sags, b"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x front of the house",
+      "id": "vkmtptt1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's house, shut up for a season. The windows are dark and the porch sags, b"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x windows",
+      "id": "y89z5v2h",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's house, shut up for a season. The windows are dark and the porch sags, b"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x window",
+      "id": "4efprc99",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take iron key",
+      "id": "gxjnoavb",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You unlock the front door with the iron key."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "unlock front door with iron key",
+      "id": "2kw6zq9p",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the front door."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "open front door",
+      "id": "qfhueosv",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "east",
+      "id": "gwklh1bd",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You rummage through the overcoat's pockets and find a small book of matches from 'The Gold"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "search overcoat",
+      "id": "i07y73wi",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden coat rack, slightly tilted. An old overcoat hangs from one hook."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x coat rack",
+      "id": "ebrdq6ll",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden coat rack, slightly tilted. An old overcoat hangs from one hook."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x rack",
+      "id": "kajk79z7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden coat rack, slightly tilted. An old overcoat hangs from one hook."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x hook",
+      "id": "fwj12rm2",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden coat rack, slightly tilted. An old overcoat hangs from one hook."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x hooks",
+      "id": "xfpf4vmr",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden coat rack, slightly tilted. An old overcoat hangs from one hook."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x stand",
+      "id": "g2co0ax0",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden coat rack, slightly tilted. An old overcoat hangs from one hook."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x wooden rack",
+      "id": "c8s7he14",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A moth-eaten wool overcoat. The pockets look like they might hold something."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x old overcoat",
+      "id": "ivdq3nbd",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A moth-eaten wool overcoat. The pockets look like they might hold something."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x coat",
+      "id": "2e37zucl",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A moth-eaten wool overcoat. The pockets look like they might hold something."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x jacket",
+      "id": "7shth8gs",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A moth-eaten wool overcoat. The pockets look like they might hold something."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x overcoat",
+      "id": "22p2t5ue",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A moth-eaten wool overcoat. The pockets look like they might hold something."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x wool coat",
+      "id": "pbnb0zq1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A moth-eaten wool overcoat. The pockets look like they might hold something."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x dusty coat",
+      "id": "4s7wrp0k",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A moth-eaten wool overcoat. The pockets look like they might hold something."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x pockets",
+      "id": "qfo4h9f6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A moth-eaten wool overcoat. The pockets look like they might hold something."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x pocket",
+      "id": "mdraz7mx",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A moth-eaten wool overcoat. The pockets look like they might hold something."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x moth-eaten coat",
+      "id": "h78m2sb9",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small book of matches from 'The Golden Lantern.' A few matches remain."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x matchbook",
+      "id": "n06mmnng",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small book of matches from 'The Golden Lantern.' A few matches remain."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x matches",
+      "id": "l9go12xs",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small book of matches from 'The Golden Lantern.' A few matches remain."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x book of matches",
+      "id": "9qz6i04e",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small book of matches from 'The Golden Lantern.' A few matches remain."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x small book",
+      "id": "bkeg95wj",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden staircase with groaning steps. It leads up into shadows."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x narrow staircase",
+      "id": "q9yrc1zh",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden staircase with groaning steps. It leads up into shadows."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x stairs",
+      "id": "d0pb26h1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden staircase with groaning steps. It leads up into shadows."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x staircase",
+      "id": "w1607igh",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden staircase with groaning steps. It leads up into shadows."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x steps",
+      "id": "pirlkvtc",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden staircase with groaning steps. It leads up into shadows."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x stair",
+      "id": "fppzr6cr",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden staircase with groaning steps. It leads up into shadows."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x wooden staircase",
+      "id": "rcjrye7k",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden staircase with groaning steps. It leads up into shadows."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x shadows",
+      "id": "1k3qwn5m",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Yellowed wallpaper with a faded floral pattern, peeling at the seams."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x faded wallpaper",
+      "id": "61gf8f4l",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Yellowed wallpaper with a faded floral pattern, peeling at the seams."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x wallpaper",
+      "id": "sdlmrrte",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Yellowed wallpaper with a faded floral pattern, peeling at the seams."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x wall",
+      "id": "web6k92b",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Yellowed wallpaper with a faded floral pattern, peeling at the seams."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x walls",
+      "id": "45w2b4ip",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Yellowed wallpaper with a faded floral pattern, peeling at the seams."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x paper",
+      "id": "irdc61p3",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Yellowed wallpaper with a faded floral pattern, peeling at the seams."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x floral pattern",
+      "id": "p0iwnnyo",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Yellowed wallpaper with a faded floral pattern, peeling at the seams."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x pattern",
+      "id": "2n5viyoo",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Yellowed wallpaper with a faded floral pattern, peeling at the seams."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x seams",
+      "id": "rw9fpbhw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Yellowed wallpaper with a faded floral pattern, peeling at the seams."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x seam",
+      "id": "p6z4f14w",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dark wooden floorboards that creak underfoot."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x creaking floorboards",
+      "id": "6yjl7mc6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dark wooden floorboards that creak underfoot."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x floor",
+      "id": "b7gaiens",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dark wooden floorboards that creak underfoot."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x floorboard",
+      "id": "pgullgw1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dark wooden floorboards that creak underfoot."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x boards",
+      "id": "yi3ktr9c",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dark wooden floorboards that creak underfoot."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x floorboards",
+      "id": "66eysvc2",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Two plain doors off the hallway: the study to the east, the kitchen to the south. Both sta"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x inner doors",
+      "id": "6jl05cu1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Two plain doors off the hallway: the study to the east, the kitchen to the south. Both sta"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x doors",
+      "id": "8ueaaa9z",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Two plain doors off the hallway: the study to the east, the kitchen to the south. Both sta"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x study door",
+      "id": "bqjxoi8n",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Two plain doors off the hallway: the study to the east, the kitchen to the south. Both sta"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x kitchen door",
+      "id": "osy99b3i",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Two plain doors off the hallway: the study to the east, the kitchen to the south. Both sta"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x inner door",
+      "id": "fz59p0eq",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Study"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "east",
+      "id": "oskmhq97",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the heavy desk."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "open desk",
+      "id": "00ehgvex",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You take the winding key from the heavy desk."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take winding key",
+      "id": "keslu085",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You push the painting aside, revealing a small wall safe hidden behind it."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look behind painting",
+      "id": "wl60k24k",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You strike a match and light the logs. The fire catches quickly, casting warm light across"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "light fireplace",
+      "id": "bcr0pxer",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Remembering the numbers on the hearthstone, you dial 7... 3... 9. Click."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "open safe",
+      "id": "s4ywo6vb",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You take the clock spring from the wall safe."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take clock spring",
+      "id": "mlzx36ai",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Floor-to-ceiling shelves packed with dusty volumes. Nothing stands out."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x study bookshelves",
+      "id": "zl8krs3e",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Floor-to-ceiling shelves packed with dusty volumes. Nothing stands out."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x bookshelves",
+      "id": "bkt57gzh",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Floor-to-ceiling shelves packed with dusty volumes. Nothing stands out."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x bookshelf",
+      "id": "74hcmndq",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Floor-to-ceiling shelves packed with dusty volumes. Nothing stands out."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x shelves",
+      "id": "wjqz3avo",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Floor-to-ceiling shelves packed with dusty volumes. Nothing stands out."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x books",
+      "id": "hqb70jqi",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Floor-to-ceiling shelves packed with dusty volumes. Nothing stands out."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x book",
+      "id": "qyx6dy3m",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Floor-to-ceiling shelves packed with dusty volumes. Nothing stands out."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x volumes",
+      "id": "lujxrnvd",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Floor-to-ceiling shelves packed with dusty volumes. Nothing stands out."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x volume",
+      "id": "agdmg557",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A mahogany desk with brass handles. The drawers are open."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x heavy desk",
+      "id": "3wg6l39z",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A mahogany desk with brass handles. The drawers are open."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x desk",
+      "id": "d9oe6ikr",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A mahogany desk with brass handles. The drawers are open."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x drawers",
+      "id": "3twms04r",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A mahogany desk with brass handles. The drawers are open."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x drawer",
+      "id": "kafwxnm8",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A mahogany desk with brass handles. The drawers are open."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x mahogany desk",
+      "id": "2xjrtcqr",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A mahogany desk with brass handles. The drawers are open."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x handles",
+      "id": "kb0mfjfc",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A mahogany desk with brass handles. The drawers are open."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x handle",
+      "id": "ie145xp7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A mahogany desk with brass handles. The drawers are open."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x brass handles",
+      "id": "1d32i09n",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A mahogany desk with brass handles. The drawers are open."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x center",
+      "id": "b27hw6tv",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A mahogany desk with brass handles. The drawers are open."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x centre",
+      "id": "941x3xle",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small key shaped like a butterfly, clearly meant for winding something delicate."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x winding key",
+      "id": "5j6fyha0",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small key shaped like a butterfly, clearly meant for winding something delicate."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x butterfly key",
+      "id": "2ebptzjm",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small key shaped like a butterfly, clearly meant for winding something delicate."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x small key",
+      "id": "i54v7781",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small key shaped like a butterfly, clearly meant for winding something delicate."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x delicate key",
+      "id": "0wgchsr3",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A portrait of a stern woman in a high collar -- your grandmother, perhaps. The frame sits "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x oil painting",
+      "id": "06nosq20",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A portrait of a stern woman in a high collar -- your grandmother, perhaps. The frame sits "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x painting",
+      "id": "xwu23sqs",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A portrait of a stern woman in a high collar -- your grandmother, perhaps. The frame sits "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x portrait",
+      "id": "okxnjrgn",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A portrait of a stern woman in a high collar -- your grandmother, perhaps. The frame sits "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x picture",
+      "id": "dci7g4u2",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A portrait of a stern woman in a high collar -- your grandmother, perhaps. The frame sits "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x frame",
+      "id": "cg9ibblr",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A portrait of a stern woman in a high collar -- your grandmother, perhaps. The frame sits "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x woman",
+      "id": "luk1ga4w",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A portrait of a stern woman in a high collar -- your grandmother, perhaps. The frame sits "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x grandmother",
+      "id": "815axxqh",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A portrait of a stern woman in a high collar -- your grandmother, perhaps. The frame sits "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x stern woman",
+      "id": "lr1qnas6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A portrait of a stern woman in a high collar -- your grandmother, perhaps. The frame sits "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x collar",
+      "id": "73xp2gc4",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A portrait of a stern woman in a high collar -- your grandmother, perhaps. The frame sits "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x high collar",
+      "id": "97rlvz06",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small iron safe set into the wall. It has a three-dial combination lock."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x wall safe",
+      "id": "jz1ixhie",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small iron safe set into the wall. It has a three-dial combination lock."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x safe",
+      "id": "2dm83ob1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small iron safe set into the wall. It has a three-dial combination lock."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x iron safe",
+      "id": "8a2c5i1k",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small iron safe set into the wall. It has a three-dial combination lock."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x combination",
+      "id": "x5vnf1pu",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small iron safe set into the wall. It has a three-dial combination lock."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x dial",
+      "id": "4v9hdi68",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small iron safe set into the wall. It has a three-dial combination lock."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x dials",
+      "id": "cqmxvmgp",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small iron safe set into the wall. It has a three-dial combination lock."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x lock",
+      "id": "kb8ngad4",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small iron safe set into the wall. It has a three-dial combination lock."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x combination lock",
+      "id": "z8i3x4do",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small iron safe set into the wall. It has a three-dial combination lock."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x three-dial lock",
+      "id": "6a87r5hp",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small iron safe set into the wall. It has a three-dial combination lock."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x safe door",
+      "id": "y0qm64zr",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tightly coiled metal spring, the kind found inside clockwork."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x clock spring",
+      "id": "j71cmwr3",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tightly coiled metal spring, the kind found inside clockwork."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x spring",
+      "id": "f9ym78w6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tightly coiled metal spring, the kind found inside clockwork."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x coiled spring",
+      "id": "7lh0vcd5",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tightly coiled metal spring, the kind found inside clockwork."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x metal spring",
+      "id": "mn7l2nu6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tightly coiled metal spring, the kind found inside clockwork."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x coil",
+      "id": "vdkt9y20",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fireplace crackles with warm flames. The logs glow orange."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x stone fireplace",
+      "id": "4edvji7x",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fireplace crackles with warm flames. The logs glow orange."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x fireplace",
+      "id": "1qzlimiw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fireplace crackles with warm flames. The logs glow orange."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x hearth",
+      "id": "cdo74q40",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fireplace crackles with warm flames. The logs glow orange."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x grate",
+      "id": "rm99gjbg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fireplace crackles with warm flames. The logs glow orange."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x fire",
+      "id": "nm02tkxv",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fireplace crackles with warm flames. The logs glow orange."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x logs",
+      "id": "r0v2jri2",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fireplace crackles with warm flames. The logs glow orange."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x log",
+      "id": "auifa6v9",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fireplace crackles with warm flames. The logs glow orange."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x chimney",
+      "id": "ot472cmm",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fireplace crackles with warm flames. The logs glow orange."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x flames",
+      "id": "yr94npf9",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fireplace crackles with warm flames. The logs glow orange."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x flame",
+      "id": "t0unmla7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fireplace crackles with warm flames. The logs glow orange."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x firelight",
+      "id": "9rsxu1gg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fireplace crackles with warm flames. The logs glow orange."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x corner",
+      "id": "gchwywn6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "In the firelight, you can make out numbers scratched into the hearthstone: 7 - 3 - 9."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x hearthstone",
+      "id": "lleog8nm",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "In the firelight, you can make out numbers scratched into the hearthstone: 7 - 3 - 9."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x hearth stone",
+      "id": "6286cj7h",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "In the firelight, you can make out numbers scratched into the hearthstone: 7 - 3 - 9."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x soot",
+      "id": "gx7j6ffg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "In the firelight, you can make out numbers scratched into the hearthstone: 7 - 3 - 9."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x flat stone",
+      "id": "wyir3t5r",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "In the firelight, you can make out numbers scratched into the hearthstone: 7 - 3 - 9."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x broad stone",
+      "id": "xrxrpbkj",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "In the firelight, you can make out numbers scratched into the hearthstone: 7 - 3 - 9."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x numbers",
+      "id": "5065ohe0",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "In the firelight, you can make out numbers scratched into the hearthstone: 7 - 3 - 9."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x number",
+      "id": "oim5j2za",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "In the firelight, you can make out numbers scratched into the hearthstone: 7 - 3 - 9."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x base",
+      "id": "fcgyrld3",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dark wood panels line the walls, polished but dusty."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x wood paneling",
+      "id": "fxxne8a3",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dark wood panels line the walls, polished but dusty."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x paneling",
+      "id": "fxvy1h9t",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dark wood panels line the walls, polished but dusty."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x panels",
+      "id": "5q6i19z1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dark wood panels line the walls, polished but dusty."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x panel",
+      "id": "639k6pe5",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dark wood panels line the walls, polished but dusty."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x wood",
+      "id": "1l5fsfpf",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dark wood panels line the walls, polished but dusty."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x far wall",
+      "id": "7cu7uq6l",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dark wood panels line the walls, polished but dusty."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x wall",
+      "id": "cy4qqns5",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Dark wood panels line the walls, polished but dusty."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x walls",
+      "id": "4ghu2b8f",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "west",
+      "id": "fqzezzuu",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Kitchen"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "south",
+      "id": "f9lisiiz",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Heavy stone countertops, cracked but solid."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x stone counters",
+      "id": "ng1sk4ku",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Heavy stone countertops, cracked but solid."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x counter",
+      "id": "y91e5twi",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Heavy stone countertops, cracked but solid."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x countertop",
+      "id": "glejni70",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Heavy stone countertops, cracked but solid."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x countertops",
+      "id": "wgu5xlsr",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A deep farmhouse sink with a brass faucet. It drips slowly."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x ceramic sink",
+      "id": "1fia6m06",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A deep farmhouse sink with a brass faucet. It drips slowly."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x sink",
+      "id": "kzcg5wss",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A deep farmhouse sink with a brass faucet. It drips slowly."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x faucet",
+      "id": "nh9a5746",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A deep farmhouse sink with a brass faucet. It drips slowly."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x tap",
+      "id": "1em611xa",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A deep farmhouse sink with a brass faucet. It drips slowly."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x basin",
+      "id": "pc001hha",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A deep farmhouse sink with a brass faucet. It drips slowly."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x farmhouse sink",
+      "id": "uv363wpk",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A deep farmhouse sink with a brass faucet. It drips slowly."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x brass faucet",
+      "id": "lsdaci58",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Tarnished copper pots hanging from iron hooks. Decorative now."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x copper pots",
+      "id": "ef48y3af",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Tarnished copper pots hanging from iron hooks. Decorative now."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x pots",
+      "id": "po1upddz",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Tarnished copper pots hanging from iron hooks. Decorative now."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x pans",
+      "id": "viyb4fa1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Tarnished copper pots hanging from iron hooks. Decorative now."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x pot",
+      "id": "t2vfflxg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Tarnished copper pots hanging from iron hooks. Decorative now."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x pan",
+      "id": "8pyi4lze",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Tarnished copper pots hanging from iron hooks. Decorative now."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x iron hooks",
+      "id": "wcil5beh",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Tarnished copper pots hanging from iron hooks. Decorative now."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x hooks",
+      "id": "02l44cyd",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Tarnished copper pots hanging from iron hooks. Decorative now."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x hook",
+      "id": "8dvvg04r",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's handwriting: 'Lavender shortbread -- butter, sugar, flour, and dried la"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x recipe card",
+      "id": "otnwmtsb",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's handwriting: 'Lavender shortbread -- butter, sugar, flour, and dried la"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x recipe",
+      "id": "tn49se1j",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's handwriting: 'Lavender shortbread -- butter, sugar, flour, and dried la"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x card",
+      "id": "5mpypkbs",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's handwriting: 'Lavender shortbread -- butter, sugar, flour, and dried la"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x note",
+      "id": "wwuhlwg6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's handwriting: 'Lavender shortbread -- butter, sugar, flour, and dried la"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x handwritten",
+      "id": "dcfw1v80",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's handwriting: 'Lavender shortbread -- butter, sugar, flour, and dried la"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x handwriting",
+      "id": "5otq1lyl",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's handwriting: 'Lavender shortbread -- butter, sugar, flour, and dried la"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x lavender",
+      "id": "6th0czt6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's handwriting: 'Lavender shortbread -- butter, sugar, flour, and dried la"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x shortbread",
+      "id": "fjdb9zym",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's handwriting: 'Lavender shortbread -- butter, sugar, flour, and dried la"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x butter",
+      "id": "egiw2y5q",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's handwriting: 'Lavender shortbread -- butter, sugar, flour, and dried la"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x sugar",
+      "id": "jwks5l87",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's handwriting: 'Lavender shortbread -- butter, sugar, flour, and dried la"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x flour",
+      "id": "lcaxfs2f",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Your grandmother's handwriting: 'Lavender shortbread -- butter, sugar, flour, and dried la"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x ingredients",
+      "id": "k108pj5c",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "An open doorway to the south, letting in green light from the garden."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x kitchen doorway",
+      "id": "ifuvseih",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "An open doorway to the south, letting in green light from the garden."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x doorway",
+      "id": "o5v4mt9f",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "An open doorway to the south, letting in green light from the garden."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x south doorway",
+      "id": "nx71lhjl",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "An open doorway to the south, letting in green light from the garden."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x garden doorway",
+      "id": "7alnorf2",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Garden"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "south",
+      "id": "0e9r09ue",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take trowel",
+      "id": "bsw9595c",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "(digging the flower bed)"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "dig",
+      "id": "qlo6udeb",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take brass mechanism",
+      "id": "s6dc2ihp",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A raised bed of dark soil tangled with dead weeds. The earth looks soft -- someone was dig"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x flower bed",
+      "id": "pbxtlyu3",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A raised bed of dark soil tangled with dead weeds. The earth looks soft -- someone was dig"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x bed",
+      "id": "5osi375u",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A raised bed of dark soil tangled with dead weeds. The earth looks soft -- someone was dig"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x flowers",
+      "id": "hdo4x1d2",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A raised bed of dark soil tangled with dead weeds. The earth looks soft -- someone was dig"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x weeds",
+      "id": "7vcb802z",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A raised bed of dark soil tangled with dead weeds. The earth looks soft -- someone was dig"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x soil",
+      "id": "9nmyytso",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A raised bed of dark soil tangled with dead weeds. The earth looks soft -- someone was dig"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x dirt",
+      "id": "ef22rnqq",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A raised bed of dark soil tangled with dead weeds. The earth looks soft -- someone was dig"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x earth",
+      "id": "68jb5gx7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A raised bed of dark soil tangled with dead weeds. The earth looks soft -- someone was dig"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x ground",
+      "id": "p87bv7ga",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A raised bed of dark soil tangled with dead weeds. The earth looks soft -- someone was dig"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x back wall",
+      "id": "b3dew4gw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A raised bed of dark soil tangled with dead weeds. The earth looks soft -- someone was dig"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x wall",
+      "id": "sjaio0r9",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A short-handled garden trowel, rusty but solid."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x garden trowel",
+      "id": "kp1r10gm",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A short-handled garden trowel, rusty but solid."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x trowel",
+      "id": "926as5mf",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A short-handled garden trowel, rusty but solid."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x spade",
+      "id": "at9d8lds",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A short-handled garden trowel, rusty but solid."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x shovel",
+      "id": "ojcm8g1h",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A short-handled garden trowel, rusty but solid."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x tool",
+      "id": "9drd3fv7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A short-handled garden trowel, rusty but solid."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x short-handled trowel",
+      "id": "njcx5hwd",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A short-handled garden trowel, rusty but solid."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x rusty trowel",
+      "id": "b4me9idb",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x brass mechanism",
+      "id": "w85sdvjm",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x mechanism",
+      "id": "nbb7qwm9",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x gears",
+      "id": "n7lvx99k",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x gear",
+      "id": "xwhpy025",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x clockwork",
+      "id": "0jovx9s9",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x innards",
+      "id": "y0mqrwbh",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x drum",
+      "id": "u4xu2inf",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x pins",
+      "id": "a7vvnq2p",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x pin",
+      "id": "6ad2yvvd",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x brass thing",
+      "id": "hmmpra6g",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x tiny drum",
+      "id": "obeshhew",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x bumps",
+      "id": "n43lxqu9",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small brass mechanism -- gears, pins, and a tiny drum with raised bumps. The innards of "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x raised bumps",
+      "id": "45f9i6jb",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small wooden shed with a sagging roof. The door hangs open, revealing empty shelves and "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x garden shed",
+      "id": "psiac4tk",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small wooden shed with a sagging roof. The door hangs open, revealing empty shelves and "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x shed",
+      "id": "cuwfwhq1",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small wooden shed with a sagging roof. The door hangs open, revealing empty shelves and "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x shack",
+      "id": "rrqvnl0s",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small wooden shed with a sagging roof. The door hangs open, revealing empty shelves and "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x shed door",
+      "id": "ibkohzxg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small wooden shed with a sagging roof. The door hangs open, revealing empty shelves and "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x cobwebs",
+      "id": "bzl1lwvo",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small wooden shed with a sagging roof. The door hangs open, revealing empty shelves and "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x roof",
+      "id": "nbmzokzs",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small wooden shed with a sagging roof. The door hangs open, revealing empty shelves and "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x sagging roof",
+      "id": "fgsjaxol",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small wooden shed with a sagging roof. The door hangs open, revealing empty shelves and "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x corner",
+      "id": "uy0xzkj4",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small wooden shed with a sagging roof. The door hangs open, revealing empty shelves and "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x shelves",
+      "id": "7mclexw3",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A small wooden shed with a sagging roof. The door hangs open, revealing empty shelves and "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x empty shelves",
+      "id": "sfhef142",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The back of the house, its windows blank. The kitchen doorway is the way back in, to the n"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x house behind",
+      "id": "ivy4t4t9",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The back of the house, its windows blank. The kitchen doorway is the way back in, to the n"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x house",
+      "id": "bydsesvt",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The back of the house, its windows blank. The kitchen doorway is the way back in, to the n"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x home",
+      "id": "2t4keqdd",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The back of the house, its windows blank. The kitchen doorway is the way back in, to the n"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x back of the house",
+      "id": "i9ekiaey",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The back of the house, its windows blank. The kitchen doorway is the way back in, to the n"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x rear",
+      "id": "dx325np8",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The back of the house, its windows blank. The kitchen doorway is the way back in, to the n"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x windows",
+      "id": "t2nqcv1h",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The back of the house, its windows blank. The kitchen doorway is the way back in, to the n"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x window",
+      "id": "dqmvhu38",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The kitchen doorway, standing open to the north."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x garden doorway",
+      "id": "kgcx10bm",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The kitchen doorway, standing open to the north."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x doorway",
+      "id": "5w20wix0",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The kitchen doorway, standing open to the north."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x kitchen doorway",
+      "id": "tk251pkw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The kitchen doorway, standing open to the north."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x north doorway",
+      "id": "150zyszn",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Kitchen"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "north",
+      "id": "ot0fsu4n",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "north",
+      "id": "nr7nv4zz",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Attic"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "up",
+      "id": "ygbt7p20",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You take the old music box from the dusty shelf."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take music box",
+      "id": "4f8h6vdc",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You put the brass mechanism in the old music box."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "put mechanism in music box",
+      "id": "9dcdx89n",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You put the clock spring in the old music box."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "put spring in music box",
+      "id": "v3j5cf7i",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You insert the winding key and turn it gently. The music box comes alive -- a delicate mel"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "wind music box",
+      "id": "syuou9ka",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the steamer trunk."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "open trunk",
+      "id": "91hz3hf7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A rough plank shelf nailed to the wall studs."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x dusty shelf",
+      "id": "dvrey8fw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A rough plank shelf nailed to the wall studs."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x shelf",
+      "id": "yyidbrnx",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A rough plank shelf nailed to the wall studs."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x plank",
+      "id": "r3h7nxby",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A rough plank shelf nailed to the wall studs."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x studs",
+      "id": "gfpo9v9t",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A rough plank shelf nailed to the wall studs."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x wall studs",
+      "id": "kxguyiqv",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden music box with a rose-carved lid. The mechanism and spring are installed inside, "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x old music box",
+      "id": "fmsn1rqg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden music box with a rose-carved lid. The mechanism and spring are installed inside, "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x box",
+      "id": "u95wmpt3",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden music box with a rose-carved lid. The mechanism and spring are installed inside, "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x music box",
+      "id": "4duzjneu",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden music box with a rose-carved lid. The mechanism and spring are installed inside, "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x wooden box",
+      "id": "xmhcoa6k",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden music box with a rose-carved lid. The mechanism and spring are installed inside, "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x lid",
+      "id": "931w1i2b",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden music box with a rose-carved lid. The mechanism and spring are installed inside, "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x rose-carved lid",
+      "id": "i9phisp4",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden music box with a rose-carved lid. The mechanism and spring are installed inside, "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x keyhole",
+      "id": "2pkqcmlb",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden music box with a rose-carved lid. The mechanism and spring are installed inside, "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x melody",
+      "id": "vdz4l2el",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden music box with a rose-carved lid. The mechanism and spring are installed inside, "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x tune",
+      "id": "e4hf5bhg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A wooden music box with a rose-carved lid. The mechanism and spring are installed inside, "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x cavity",
+      "id": "jmim03ei",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A battered steamer trunk with brass fittings. The lock has been released."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x steamer trunk",
+      "id": "wcm6ha6r",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A battered steamer trunk with brass fittings. The lock has been released."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x trunk",
+      "id": "xtsa7lyq",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A battered steamer trunk with brass fittings. The lock has been released."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x chest",
+      "id": "7gstxhcx",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A battered steamer trunk with brass fittings. The lock has been released."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x old trunk",
+      "id": "tigndyjt",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A battered steamer trunk with brass fittings. The lock has been released."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x steamer",
+      "id": "bu2p41lx",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A battered steamer trunk with brass fittings. The lock has been released."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x fittings",
+      "id": "xrqhs1dp",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A battered steamer trunk with brass fittings. The lock has been released."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x brass fittings",
+      "id": "14gsgt4g",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A battered steamer trunk with brass fittings. The lock has been released."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x slot",
+      "id": "rmgf8fld",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A battered steamer trunk with brass fittings. The lock has been released."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x heavy trunk",
+      "id": "veaymb67",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A battered steamer trunk with brass fittings. The lock has been released."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x battered trunk",
+      "id": "7gdth5zg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A battered steamer trunk with brass fittings. The lock has been released."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x lock",
+      "id": "5pd72ds7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A silver locket on a fine chain. Inside, a tiny photograph shows your grandmother as a you"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x family locket",
+      "id": "v9w2diqu",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A silver locket on a fine chain. Inside, a tiny photograph shows your grandmother as a you"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x locket",
+      "id": "u2bw0iyw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A silver locket on a fine chain. Inside, a tiny photograph shows your grandmother as a you"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x silver locket",
+      "id": "z8n8p3g6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A silver locket on a fine chain. Inside, a tiny photograph shows your grandmother as a you"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x heirloom",
+      "id": "zy08l3rt",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A silver locket on a fine chain. Inside, a tiny photograph shows your grandmother as a you"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x necklace",
+      "id": "j150a1gh",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A silver locket on a fine chain. Inside, a tiny photograph shows your grandmother as a you"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x chain",
+      "id": "fnwpff01",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A silver locket on a fine chain. Inside, a tiny photograph shows your grandmother as a you"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x photograph",
+      "id": "il4tpyuy",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A silver locket on a fine chain. Inside, a tiny photograph shows your grandmother as a you"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x photo",
+      "id": "0eqjxjj6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A silver locket on a fine chain. Inside, a tiny photograph shows your grandmother as a you"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x fine chain",
+      "id": "ir4r9wqf",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A silver locket on a fine chain. Inside, a tiny photograph shows your grandmother as a you"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x tiny photograph",
+      "id": "ui8ravmv",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A silver locket on a fine chain. Inside, a tiny photograph shows your grandmother as a you"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x faded photograph",
+      "id": "9w6oheig",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A silver locket on a fine chain. Inside, a tiny photograph shows your grandmother as a you"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x grandmother",
+      "id": "3eiwx4j4",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A silver locket on a fine chain. Inside, a tiny photograph shows your grandmother as a you"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x woman",
+      "id": "cd7y8jfw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A silver locket on a fine chain. Inside, a tiny photograph shows your grandmother as a you"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x young woman",
+      "id": "2uznlm6g",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Low rafters and dusty beams. You have to duck in places."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x sloping eaves",
+      "id": "pikpgx7c",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Low rafters and dusty beams. You have to duck in places."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x eaves",
+      "id": "om1cotb6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Low rafters and dusty beams. You have to duck in places."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x rafters",
+      "id": "2ultwohg",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Low rafters and dusty beams. You have to duck in places."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x beams",
+      "id": "qzfcwhuk",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Low rafters and dusty beams. You have to duck in places."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x ceiling",
+      "id": "ldvtcji8",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Low rafters and dusty beams. You have to duck in places."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x dust",
+      "id": "gzkxqfr0",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Low rafters and dusty beams. You have to duck in places."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x wall",
+      "id": "tumzgq6b",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Low rafters and dusty beams. You have to duck in places."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x walls",
+      "id": "16w2pz71",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The narrow staircase leads back down to the hallway."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x attic stairs",
+      "id": "pi5f9hto",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The narrow staircase leads back down to the hallway."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x stairs",
+      "id": "d3kscj0d",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The narrow staircase leads back down to the hallway."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x staircase",
+      "id": "iwcjbhxe",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The narrow staircase leads back down to the hallway."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x steps",
+      "id": "ltmqounv",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The narrow staircase leads back down to the hallway."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x stair",
+      "id": "tyf6csn8",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The narrow staircase leads back down to the hallway."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "x stairway",
+      "id": "afinop7a",
+      "type": "turn"
+    }
+  ],
+  "id": "9tneaczy",
+  "ordinal": 27,
+  "parent": "hx3zrxco"
+}

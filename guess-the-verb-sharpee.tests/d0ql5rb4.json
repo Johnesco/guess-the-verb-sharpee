@@ -1,0 +1,61 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "numbers scratched into the hearthstone: 7 - 3 - 9."
+        ]
+      },
+      "command": "examine hearthstone",
+      "id": "vnr401jv",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The fire is already burning."
+        ]
+      },
+      "command": "kindle fireplace",
+      "id": "398fl14k",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You dial 7... 3... 9. Click."
+        ],
+        "states": [
+          "the wall safe is dialed"
+        ]
+      },
+      "command": "turn dial",
+      "id": "pevgvt9z",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The safe is already dialed open."
+        ]
+      },
+      "command": "turn dial",
+      "id": "774pt7n5",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the wall safe.",
+          "In the wall safe you see a clock spring."
+        ]
+      },
+      "command": "open safe",
+      "id": "clwctoxn",
+      "type": "turn"
+    }
+  ],
+  "id": "d0ql5rb4",
+  "ordinal": 1,
+  "parent": "54ceduyh"
+}

@@ -1,0 +1,27 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "The trunk has already answered."
+        ]
+      },
+      "command": "wind up music box",
+      "id": "ba1c2ld4",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The lock has been released."
+        ]
+      },
+      "command": "examine trunk",
+      "id": "6a724uv3",
+      "type": "turn"
+    }
+  ],
+  "id": "8qjvdeus",
+  "ordinal": 1,
+  "parent": "4m8dp718"
+}

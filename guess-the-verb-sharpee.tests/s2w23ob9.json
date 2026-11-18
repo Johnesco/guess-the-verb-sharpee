@@ -1,0 +1,262 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "inspect doorbell",
+      "id": "8uwbqfm7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "study doorbell",
+      "id": "skafisnj",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "view doorbell",
+      "id": "v0do932r",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "peruse doorbell",
+      "id": "0cd6lgff",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "browse doorbell",
+      "id": "j2buvezc",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "flip doorbell",
+      "id": "ybyatj2p",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "investigate doorbell",
+      "id": "ylf3xl71",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "check doorbell",
+      "id": "4qd28v4j",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "please examine doorbell",
+      "id": "bmdm3dk7",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "please look at doorbell",
+      "id": "6xno4i4d",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "can i look at doorbell",
+      "id": "vk0piybc",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "browse through doorbell",
+      "id": "cn1a8gsq",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "flip through doorbell",
+      "id": "axmplth0",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "leaf through doorbell",
+      "id": "5bxuxhea",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "A tarnished brass button set into the door frame."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "read through doorbell",
+      "id": "vu9on0ed",
+      "type": "turn"
+    }
+  ],
+  "id": "s2w23ob9",
+  "ordinal": 4,
+  "parent": "hx3zrxco"
+}

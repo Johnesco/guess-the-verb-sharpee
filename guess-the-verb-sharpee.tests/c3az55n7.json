@@ -1,0 +1,296 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "There is no one here to talk to. The house has been empty a long while."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "talk to grandmother",
+      "id": "4hqmlkii",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "There is no one here to talk to. The house has been empty a long while."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "talk to grandma",
+      "id": "utli8ec2",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "There is no one here to talk to. The house has been empty a long while."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "talk to woman",
+      "id": "vcl2o9j5",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "There is no one here to talk to. The house has been empty a long while."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "talk to her",
+      "id": "2vr8i5mz",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "There is no one here to talk to. The house has been empty a long while."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "talk to someone",
+      "id": "1qldsiog",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "There is no one here to talk to. The house has been empty a long while."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "talk to anyone",
+      "id": "y68ii8fa",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "There is no one here to talk to. The house has been empty a long while."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "speak to grandmother",
+      "id": "nos0ni51",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "There is no one here to talk to. The house has been empty a long while."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "talk to doormat",
+      "id": "0zlq4l6n",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "There is no one here to talk to. The house has been empty a long while."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "speak to doormat",
+      "id": "b4c5cs67",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "There is no one here to talk to. The house has been empty a long while."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "chat with doormat",
+      "id": "04sbymn5",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "There is no one here to talk to. The house has been empty a long while."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "talk with doormat",
+      "id": "r2nyrm2c",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "There's no time for cleaning. Whatever your grandmother left, it is still hidden."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "wash doormat",
+      "id": "r75rqze3",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "There's no time for cleaning. Whatever your grandmother left, it is still hidden."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "clean doormat",
+      "id": "iv48oerl",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "There's no time for cleaning. Whatever your grandmother left, it is still hidden."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "scrub doormat",
+      "id": "31b091wy",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The pantry is bare and the stove is cold. The recipe card is worth reading, though."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "cook",
+      "id": "mpfiyp5p",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The pantry is bare and the stove is cold. The recipe card is worth reading, though."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "bake",
+      "id": "icftakgo",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "The pantry is bare and the stove is cold. The recipe card is worth reading, though."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "make dinner",
+      "id": "awo1sevg",
+      "type": "turn"
+    }
+  ],
+  "id": "c3az55n7",
+  "ordinal": 23,
+  "parent": "hx3zrxco"
+}

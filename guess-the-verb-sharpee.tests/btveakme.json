@@ -1,0 +1,228 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You press the doorbell. A faint chime echoes inside the house, unanswered."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "press doorbell",
+      "id": "x5thjohp",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You press the doorbell. A faint chime echoes inside the house, unanswered."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "shove doorbell",
+      "id": "q5595cnw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You press the doorbell. A faint chime echoes inside the house, unanswered."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "prod doorbell",
+      "id": "ipa8qyo8",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You press the doorbell. A faint chime echoes inside the house, unanswered."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "move doorbell",
+      "id": "32air58l",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You press the doorbell. A faint chime echoes inside the house, unanswered."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "slide doorbell",
+      "id": "yzwmayz3",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You press the doorbell. A faint chime echoes inside the house, unanswered."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "please push doorbell",
+      "id": "j5al3a3j",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "It's a push button, not a pull cord. Try pressing it."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "yank doorbell",
+      "id": "svpnz3nf",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "It's a push button, not a pull cord. Try pressing it."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "drag doorbell",
+      "id": "da6rz1i2",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "It's a push button, not a pull cord. Try pressing it."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "please pull doorbell",
+      "id": "uq01yvpw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't turn the brass doorbell. Try PUSH, PULL, OPEN or LOOK BEHIND instead."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "rotate doorbell",
+      "id": "o1w8wdyj",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't turn the brass doorbell. Try PUSH, PULL, OPEN or LOOK BEHIND instead."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "twist doorbell",
+      "id": "l8leiuj2",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't turn the brass doorbell. Try PUSH, PULL, OPEN or LOOK BEHIND instead."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "please turn doorbell",
+      "id": "m9552lcd",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You can't turn the brass doorbell. Try PUSH, PULL, OPEN or LOOK BEHIND instead."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "turn doorbell",
+      "id": "9vxbkpxk",
+      "type": "turn"
+    }
+  ],
+  "id": "btveakme",
+  "ordinal": 9,
+  "parent": "hx3zrxco"
+}

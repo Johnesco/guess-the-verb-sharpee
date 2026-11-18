@@ -1,0 +1,279 @@
+{
+  "cards": [
+    {
+      "assertions": {
+        "contains": [
+          "You lift the corner of the doormat and find an iron key hidden underneath."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "look under doormat",
+      "id": "s8jhoguz",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take iron key",
+      "id": "bje5v514",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You unlock the front door with the iron key."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "unlock front door with iron key",
+      "id": "2edj6pd6",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You open the front door."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "open front door",
+      "id": "oqnn9glq",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Hallway"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "east",
+      "id": "x7vgpp1q",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Kitchen"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "south",
+      "id": "98wjcrck",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Garden"
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "south",
+      "id": "to38fisy",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You'd need a tool to dig properly."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "dig",
+      "id": "c3z4pvg5",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You'd need a tool to dig properly."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "dig here",
+      "id": "9bb0sd9d",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You'd need a tool to dig properly."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "dig ground",
+      "id": "rk6sdnlw",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "Taken."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "take trowel",
+      "id": "utwi7se3",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You dig into the soft earth with the trowel and uncover a small brass mechanism -- gears, "
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "dig in flower bed",
+      "id": "9po1szkv",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You've already dug here and found the mechanism."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "dig up flower bed",
+      "id": "hpkbpz0w",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You've already dug here and found the mechanism."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "excavate flower bed",
+      "id": "kyp30d25",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You've already dug here and found the mechanism."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "dig flower bed with trowel",
+      "id": "f1tzbs1z",
+      "type": "turn"
+    },
+    {
+      "assertions": {
+        "contains": [
+          "You've already dug here and found the mechanism."
+        ],
+        "notContains": [
+          "You can't see any such thing.",
+          "I don't know the word",
+          "I don't understand that",
+          "Dig what?",
+          "fixed in place."
+        ]
+      },
+      "command": "dig",
+      "id": "b6rucz4l",
+      "type": "turn"
+    }
+  ],
+  "id": "tmx2x8ng",
+  "ordinal": 17,
+  "parent": "hx3zrxco"
+}
