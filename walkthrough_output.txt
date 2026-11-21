@@ -2,6 +2,11 @@ Loading story from: C:\code\text-games\sharpee\guess-the-verb-sharpee
 
 --- Play Mode ---  (/quit or /q to exit)
 
+Guess the Verb
+Explore your grandmother's old house and find the family heirloom she left behind. Every room tests a different verb pattern.
+By John Googol
+Story v2.0.0
+
 Front Porch
 A sagging wooden porch wraps around the front of the house. A woven doormat lies before the front door. A tarnished brass doorbell is set beside the frame.
 
@@ -589,11 +594,13 @@ You lift the locket from the trunk. Inside, your grandmother smiles back at you 
 
 You found your grandmother's heirloom.
 
+[The story has ended. RESTART, RESTORE or UNDO]
+
 > drop family locket
-Error: Cannot executeTurn(): the engine is in the 'stopped' phase, and executeTurn() requires 'playing'. The game has ended; only meta commands (RESTART, RESTORE, QUIT, UNDO) are accepted — call resume() to continue play.
+[The story has ended. RESTART, RESTORE or UNDO]
 
 > score
 You have achieved a perfect score of 10 points!
 
 > take locket
-Error: Cannot executeTurn(): the engine is in the 'stopped' phase, and executeTurn() requires 'playing'. The game has ended; only meta commands (RESTART, RESTORE, QUIT, UNDO) are accepted — call resume() to continue play.
+[The story has ended. RESTART, RESTORE or UNDO]
